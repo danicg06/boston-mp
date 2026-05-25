@@ -1,0 +1,10 @@
+/*
+ * Metodología de la Programación: Boston1
+ * Curso 2024/2025
+ */
+
+/** 
+ * @file   main.cpp
+ * @author estudiante1: Casasola Guerrero, Daniel
+ * @author estudiante2: Castro García, Sergio  
+ */

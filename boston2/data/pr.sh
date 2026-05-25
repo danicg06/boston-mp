@@ -1,0 +1,2 @@
+if [ -f $1 ]; then cat $1; fi
+echo "casa"
