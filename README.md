@@ -49,6 +49,6 @@ boston-mp/
 This project was designed and implemented by:
 
 * **[Daniel Casasola Guerrero](https://github.com/danicg06)**
-* **[Sergio Castro García](https://github.com/scasgar1313)**
+* **[Sergio Castro García](https://github.com/scasgar1312)**
 
 Both authors implemented the same code, progressing parallely.
