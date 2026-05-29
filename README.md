@@ -19,7 +19,9 @@ Also, this project taught datasets fusion and the creation of a coloured image o
 > 
 > **Status**: Completed ✅
 
-Each folder corresponds to one of the corresponding practical lessons.
+Each folder corresponds to one of the corresponding practical lessons. It consists of a
+[NetBeans 21](https://netbeans.apache.org/front/main/download/archive/) project, because NetBeans drop down support
+for C/C++ projects in NetBeans 22, as explained [here](https://gist.github.com/bewillcott/ddb8a4d6d08b4d9070daa1bc4399f7e6)
 
 ## Progress 📈
 - [x] Boston 0 - datasets lecture.
