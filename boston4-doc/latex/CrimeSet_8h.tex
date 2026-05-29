@@ -1,0 +1,163 @@
+\doxysection{include/\+Crime\+Set.h File Reference}
+\hypertarget{CrimeSet_8h}{}\label{CrimeSet_8h}\index{include/CrimeSet.h@{include/CrimeSet.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}Date\+Time.\+h"{}}\newline
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCrimeSet}{Crime\+Set}}
+\begin{DoxyCompactList}\small\item\em A \doxylink{classCrimeSet}{Crime\+Set} defines a set of instances of the \doxylink{classCrime}{Crime} class that includes data on crimes (offenses) committed anywhere in the world and with the types of crimes specifically considered within its own jurisdiction. This class uses a dynamic array of objects of the \doxylink{classCrime}{Crime} class to store the set of crimes. This class also contains a field to store comments, free text that allows, for example, to describe in natural language the time period considered, the origin, the query applied to obtain the set, etc. In general, the records in the set are not sorted by date and time when each crime was committed. Usually the records appear in the order in which they were recorded when the crimes were collected by the police department. The public methods of this class do not allow a \doxylink{classCrimeSet}{Crime\+Set} to contain two \doxylink{classCrime}{Crime} objects with identical IDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{CrimeSet_8h_ae40ffd837bbf448d01531322f9b2fa1b}{Format\+As\+Comment}} (const std\+::string \&comment, char comment\+Character=\textquotesingle{}\#\textquotesingle{})
+\item 
+std\+::ostream \& \mbox{\hyperlink{CrimeSet_8h_afed0e92fd8460b22e62ea4ce9ea75ce1}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&crime\+Set)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream insertion operator for \doxylink{classCrimeSet}{Crime\+Set} class. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{CrimeSet_8h_a0ae8d96ea4b512e265c12bbe96647d17}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&crime\+Set)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream extraction operator for \doxylink{classCrimeSet}{Crime\+Set} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Silvia Acid Carrillo \href{mailto:acid@decsai.ugr.es}{\texttt{ acid@decsai.\+ugr.\+es}} 
+
+Andrés Cano Utrera \href{mailto:acu@decsai.ugr.es}{\texttt{ acu@decsai.\+ugr.\+es}} 
+
+Luis Castillo Vidal \href{mailto:L.Castillo@decsai.ugr.es}{\texttt{ L.\+Castillo@decsai.\+ugr.\+es}}
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+To be implemented by students 
+\end{DoxyNote}
+
+
+Definition in file \mbox{\hyperlink{CrimeSet_8h_source}{Crime\+Set.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{CrimeSet_8h_ae40ffd837bbf448d01531322f9b2fa1b}\label{CrimeSet_8h_ae40ffd837bbf448d01531322f9b2fa1b} 
+\index{CrimeSet.h@{CrimeSet.h}!FormatAsComment@{FormatAsComment}}
+\index{FormatAsComment@{FormatAsComment}!CrimeSet.h@{CrimeSet.h}}
+\doxysubsubsection{\texorpdfstring{FormatAsComment()}{FormatAsComment()}}
+{\footnotesize\ttfamily std\+::string Format\+As\+Comment (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{comment,  }\item[{char}]{comment\+Character = {\ttfamily \textquotesingle{}\#\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Returns a string with the same content as the provided string {\ttfamily comment}, but with the character {\ttfamily comment\+Character} inserted at the begining of each line, thus obtaining a formatted comment. The character {\ttfamily comment\+Character} is \textquotesingle{}\#\textquotesingle{} by default. In case that the last line in {\ttfamily comment} does not have \textquotesingle{}~\newline
+\textquotesingle{} at the end, this function add it to the end of the returned string. 
+\begin{DoxyParams}{Parameters}
+{\em comment} & The input string to be used to format the comment. \\
+\hline
+{\em comment\+Character} & The character to use at the begining of the formatted string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string with the same content as the provided string {\ttfamily comment}, but with the character {\ttfamily comment\+Character} inserted at the begining of each line 
+\end{DoxyReturn}
+\Hypertarget{CrimeSet_8h_afed0e92fd8460b22e62ea4ce9ea75ce1}\label{CrimeSet_8h_afed0e92fd8460b22e62ea4ce9ea75ce1} 
+\index{CrimeSet.h@{CrimeSet.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!CrimeSet.h@{CrimeSet.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&}]{crime\+Set }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream insertion operator for \doxylink{classCrimeSet}{Crime\+Set} class. 
+
+\begin{DoxyNote}{Note}
+This operator sends each \doxylink{classCrime}{Crime} to the output stream in the same format as the one described in the \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{Crime\+::to\+String()} method 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to be used. Input/output parameter \\
+\hline
+{\em crime\+Set} & the \doxylink{classCrimeSet}{Crime\+Set} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily os} A reference to the output stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00381}{381}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00382\ \ \ \ \ }
+\DoxyCodeLine{00383\ \ \ \ \ os\ <<\ crimeSet.\mbox{\hyperlink{classCrimeSet_a35bdbddd32570ea2a5f1ac1fae2d7f2f}{toString}}();}
+\DoxyCodeLine{00384\ \ \ \ \ }
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordflow}{return}\ (os);}
+\DoxyCodeLine{00386\ \}}
+
+\end{DoxyCode}
+\Hypertarget{CrimeSet_8h_a0ae8d96ea4b512e265c12bbe96647d17}\label{CrimeSet_8h_a0ae8d96ea4b512e265c12bbe96647d17} 
+\index{CrimeSet.h@{CrimeSet.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!CrimeSet.h@{CrimeSet.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&}]{crime\+Set }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream extraction operator for \doxylink{classCrimeSet}{Crime\+Set} class. 
+
+\begin{DoxyNote}{Note}
+This operator should remove any crime previously contained in the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily crime\+Set}. 
+
+This operator throws an exception in some error cases (see below). Before throwing the corresponding exception, this operator clears the provided object (it calls to clear() method) to leave it in a consistent state. 
+
+This operator does not read the lines of comments, only the information about crimes (an integer n with the number of crimes and n lines with \doxylink{classCrime}{Crime} information). 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Throws a std\+::out\+\_\+of\+\_\+range if the number of Crimes read from the file is negative. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to be used. Input/output parameter \\
+\hline
+{\em crime\+Set} & The \doxylink{classCrimeSet}{Crime\+Set} object to be filled. Input/output parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily is} A reference to the input stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00388}{388}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ }
+\DoxyCodeLine{00390\ \ \ \ \ crimeSet.\mbox{\hyperlink{classCrimeSet_afba88cb48bbf8a7526588587e177d65c}{clear}}();}
+\DoxyCodeLine{00391\ \ \ \ \ }
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{string}\ strToRemove,\ strCrime;}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{int}\ nCrimes\ =\ 0;}
+\DoxyCodeLine{00394\ \ \ \ \ }
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{comment}{//\ removing\ comments\ from\ the\ stream\ insertion}}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{while}\ (is.peek()\ ==\ \textcolor{charliteral}{'\#'})\ getline(is,\ strToRemove);}
+\DoxyCodeLine{00397\ \ \ \ \ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{comment}{//\ Read\ of\ the\ number\ of\ crimes}}
+\DoxyCodeLine{00399\ \ \ \ \ is\ >>\ nCrimes;}
+\DoxyCodeLine{00400\ \ \ \ \ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordflow}{if}\ (nCrimes\ >=\ 0)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nCrimes\ ;\ i++)\{}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ getline(is,\ strCrime);}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ crimeSet.\mbox{\hyperlink{classCrimeSet_a2cf4b325cbfd115eb22c70b3492329c4}{append}}(\mbox{\hyperlink{classCrime}{Crime}}\ (strCrime));}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \ \ \ \ \}}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//\ nCrimes\ <\ 0}}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}std::istream\ \&operator>>(std::istream\ \&is,\ "{}}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ CrimeSet\ \&crimeSet)\ :\ "{}})\ +}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ given\ number\ of\ crimes\ is\ negative)"{}});}
+\DoxyCodeLine{00412\ \ \ \ \ }
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00414\ \}}
+
+\end{DoxyCode}

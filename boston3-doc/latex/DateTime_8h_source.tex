@@ -1,0 +1,74 @@
+\doxysection{Date\+Time.\+h}
+\hypertarget{DateTime_8h_source}{}\label{DateTime_8h_source}\index{include/DateTime.h@{include/DateTime.h}}
+\mbox{\hyperlink{DateTime_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Metodología\ de\ la\ Programación}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Curso\ 2024/2025}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00015}00015\ \textcolor{preprocessor}{\#ifndef\ DATETIME\_H}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00016}00016\ \textcolor{preprocessor}{\#define\ DATETIME\_H}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00041}\mbox{\hyperlink{classDateTime}{00041}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDateTime}{DateTime}}\ \{}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00042}00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \_year;\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \_month;\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \_day;\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \_hour;\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \_min;\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \_sec;\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00049}00049\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ DAY\_NAMES\ [];\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{void}\ initDefault();}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00057}00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00062}\mbox{\hyperlink{classDateTime_a74d8583b1220c100c5f1a33b35623aba}{00062}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classDateTime_a74d8583b1220c100c5f1a33b35623aba}{DATETIME\_STRING\_DEFAULT}};\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{classDateTime_a3ccfb87f7a2e9683b91964e32d907161}{DateTime}}();}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00068}00068\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00081}\mbox{\hyperlink{classDateTime_a9d53f245d45030f1f94d8a301dc75008}{00081}}\ \ \ \ \ \mbox{\hyperlink{classDateTime_a9d53f245d45030f1f94d8a301dc75008}{DateTime}}(\textcolor{keyword}{const}\ std::string\ \&\ date);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00082}00082\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_af0eb582fdc2b0964ecf255df53396712}{year}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}{month}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00096}00096\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00102}00102\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00103}00103\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00109}00109\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}{hour}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00110}00110\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a5faae406f224f78b90410f7dcf72c926}{minutes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00117}00117\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_acc03162a6f4b5a70122622d4762dac7c}{seconds}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00124}00124\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDateTime_a1a27664ae0a3025fe99343ca57b28873}{set}}(\textcolor{keyword}{const}\ std::string\ \&line);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00135}00135\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00142}00142\ \ \ \ \ std::string\ \mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00151}00151\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a9c75b71d29094fde37d36f86c10b934b}{weekDay}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00152}00152\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00165}00165\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}{dayName}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}});}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00166}00166\ \};\ \textcolor{comment}{//\ end\ class\ DateTime}}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00179}00179\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_a9962ec9b30855e08347df66f3fc99345}{isCorrect}}(\textcolor{keywordtype}{int}\ year,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ day,\ \textcolor{keywordtype}{int}\ hour,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ sec);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00202}00202\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{DateTime_8h_af2b9a13e863e39a34e807bef47cbbd16}{split}}(\textcolor{keyword}{const}\ std::string\&\ line,\ \textcolor{keywordtype}{int}\ \&y,\ \textcolor{keywordtype}{int}\ \&\ m,\ \textcolor{keywordtype}{int}\ \&\ d,\ \textcolor{keywordtype}{int}\ \&\ h,\ \textcolor{keywordtype}{int}\ \&mn,\ \textcolor{keywordtype}{int}\ \&s);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00211}00211\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_a23444895d28f2286ce37e97cfa7718dc}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime2);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00219}00219\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_a6ea8870fbfe1de04400cd26b9fbfff99}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime2);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00228}00228\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_ac484b13d6d9d789d7585e8807a5481fd}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime2);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00237}00237\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_a2f3bd783b2a7e24fac502967fd6c087d}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime2);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00245}00245\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_af30b4841f71fda8fed9eec00705f58ea}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime2);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00253}00253\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{DateTime_8h_a0b2221821c4c03d766481ce8b1222579}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDateTime}{DateTime}}\&\ dateTime2);}
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{DateTime_8h_source_l00255}00255\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DATETIME\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,215 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Coordinates.\+h"{}}\newline
+{\ttfamily \#include "{}Crime\+Set.\+h"{}}\newline
+{\ttfamily \#include "{}Crime\+Counter.\+h"{}}\newline
+{\ttfamily \#include "{}Color\+Palette.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a3c73849f3d00ce0301ead13da5af579f}{show\+Help}} (ostream \&output\+Stream)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+estudiante1\+: Casasola Guerrero, Daniel 
+
+estudiante2\+: Castro García, Sergio ~\newline
+ 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The purpose of this program is to obtain a heat map for the set of crimes contained in the fusion of a list of input crm files, saving the result in a PPM color image file. The names of the input crm files are passed as arguments to the program. The name of the output PPM file can be provided to the program as an optional argument (if not provided, the output file is tests/output/output.\+ppm). See below the Running sintax. A PPM file can have comment lines. Each comment line begins with the \textquotesingle{}\#\textquotesingle{} character. This program will save in the output PPM file a comment line with the content of the running parameters, but additional lines could be appended with the -\/c parameter (see the running example).
+
+The program begins by processing the running arguments. Next, the program obtains the fusion of the crm files whose names are passed as arguments to the program. Hereafter, the program calculates the frequency for each cell in which is divided the target geographical area. To do that, an object of the class \doxylink{classCrimeCounter}{Crime\+Counter} is used. This object is created using a given number of rows and columns, and with a given coordinates to fix the target geographical area. Finally, a PPM image with the heat map is saved in the output file. This PPM image is build and saved with the method \doxylink{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a}{Crime\+Counter\+::save\+As\+PPMText\+Image()} that obtain an image from the frequency matrix of the previous \doxylink{classCrimeCounter}{Crime\+Counter} object. Remember to fill in the content of the comment string (third parameter of the previous method) as indicated above. You can insert the character \textquotesingle{}\#\textquotesingle{} at the beginning of each line in the comment string, using the function Format\+As\+Comment().
+
+Running sintax\+: \begin{quote}
+dist/\+Debug/\+GNU-\/\+Linux/boston4 boston4 \mbox{[}-\/o output\+Filename\mbox{]} \mbox{[}-\/c text\mbox{]} ~\newline
+ \mbox{[}-\/h int\mbox{]} \mbox{[}-\/w int\mbox{]} \mbox{[}-\/d int\mbox{]} \mbox{[}-\/b int\mbox{]} \mbox{[}-\/g int\mbox{]} \mbox{[}-\/y int\mbox{]} \texorpdfstring{$<$}{<}input\+File1.\+crm\texorpdfstring{$>$}{>} \{\texorpdfstring{$<$}{<}input\+File.\+crm\texorpdfstring{$>$}{>}\}
+
+Running example\+: dist/\+Debug/\+GNU-\/\+Linux/boston4 -\/c "{}\+Heat map for crimes\+\_\+20.\+crm"{} -\/h 3 -\/w 3 -\/o /tmp/output.ppm ../\+Data\+Sets/crimes\+\_\+20.crm
+
+cat /tmp/output.ppm \end{quote}
+P3 \#\+Running parameters\+: -\/c Heat map for crimes\+\_\+20.\+crm -\/h 3 -\/w 3 -\/o /tmp/output.ppm ../\+Data\+Sets/crimes\+\_\+20.crm \#\+Heat map for crimes\+\_\+20.\+crm 3 3 255 128 255 0 255 0 0 0 0 255 255 255 0 255 0 0 0 0 255 0 0 255 0 0 255 0 0 255
+
+\begin{quote}
+display -\/resize 500 -\/filter point /tmp/output.ppm
+
+\begin{DoxyReturn}{Returns}
+Returns 1 in case of error in program arguments; 0 otherwise
+\end{DoxyReturn}
+\end{quote}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\ \ \ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\_COMMENTS\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ BEGIN\_COMMENT\ \ \ \ \ \ \ \ =\ \textcolor{charliteral}{'\#'};}
+\DoxyCodeLine{00103\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{string}\ ofilename=\textcolor{stringliteral}{"{}tests/output/output.ppm"{}};\ \textcolor{comment}{//\ output\ PPM\ file\ name}}
+\DoxyCodeLine{00105\ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ topRightCoor=\mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{CrimeCounter::DEFAULT\_COORD\_TOPRIGHT}},\ \textcolor{comment}{//\ (42.395042,-\/70.953728)}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ bottomLeftCoor=\mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{CrimeCounter::DEFAULT\_COORD\_BOTTOMLEFT}};\ \textcolor{comment}{//\ (42.207760,-\/71.178673)}}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasBeenReadInitialParameters\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ true\ if\ all\ the\ parameters\ starting\ with\ -\/\ has\ been\ read}}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ crimeSet,\ \textcolor{comment}{//\ CrimeSet\ to\ obtain\ the\ fusion\ of\ the\ input\ crm\ files}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ currentCrimeSet;\ \textcolor{comment}{//\ CrimeSet\ to\ load\ each\ one\ of\ the\ input\ crm\ files}}
+\DoxyCodeLine{00112\ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{string}\ comment;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{string}\ commentArgs\ =\ \textcolor{stringliteral}{"{}Running\ parameters:"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ 19;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ 23;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ darkBlue\ =\ 2;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ blue\ =\ 2;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ green\ =\ 2;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ yellow\ =\ 2;}
+\DoxyCodeLine{00121\ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ Loop\ to\ process\ program\ arguments\ }}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \textcolor{comment}{//\ (finish\ when\ the\ optional\ arguments\ have\ been\ read)}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 1;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{string}\ actualArg,\ nextArg;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ argc\ \&\&\ !hasBeenReadInitialParameters)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ actualArg\ =\ argv[i];}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (actualArg.at(0)\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ argc\ -\/\ 1)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextArg\ =\ argv[i+1];}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ commentArgs\ +=\ SEPARATOR\ +\ actualArg\ +\ SEPARATOR\ +\ nextArg;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/c"{}})\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ comment\ =\ nextArg;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/h"{}})\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height\ =\ stoi(nextArg);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/w"{}})\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width\ =\ stoi(nextArg);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/d"{}})\{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ darkBlue\ =\ stoi(nextArg);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/b"{}})\{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blue\ =\ stoi(nextArg);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/g"{}})\{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ green\ =\ stoi(nextArg);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/y"{}})\{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ yellow\ =\ stoi(nextArg);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (actualArg\ ==\ \textcolor{stringliteral}{"{}-\/o"{}})\{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofilename\ =\ nextArg;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3c73849f3d00ce0301ead13da5af579f}{showHelp}}(cerr);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3c73849f3d00ce0301ead13da5af579f}{showHelp}}(cerr);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ hasBeenReadInitialParameters\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ Obtain\ the\ fusion\ of\ the\ input\ crm\ files\ with\ operator+=\ of\ CrimeSet\ class}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >\ i)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ the\ first\ input\ crm\ file\ into\ the\ crimeSet\ object}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ crimeSet.\mbox{\hyperlink{classCrimeSet_a4ab193077750f47966ef6705b70c05e0}{load}}(argv[i]);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ commentArgs\ +=\ SEPARATOR\ +\ argv[i];}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Loop\ to\ load\ the\ rest\ of\ the\ crm\ files}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ the\ next\ crm\ file\ into\ the\ currentCrimeSet\ object}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ join\ crimeSet\ with\ currentCrimeSet\ using\ operator+=\ of\ CrimeSet}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (++i;\ i\ <\ argc;\ i++)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ currentCrimeSet.\mbox{\hyperlink{classCrimeSet_a4ab193077750f47966ef6705b70c05e0}{load}}(argv[i]);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ crimeSet\ +=\ currentCrimeSet;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ commentArgs\ +=\ SEPARATOR\ +\ argv[i];}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ frequencies\ of\ crimeSet\ using\ a\ CrimeCounter\ object}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ freq(height,\ width,\ bottomLeftCoor,\ topRightCoor);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ freq.calculateFrequencies(crimeSet);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compose\ a\ string\ with\ the\ comments\ for\ the\ output\ PPM\ file}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ and\ append\ the\ '\#'\ character\ at\ the\ beginning\ of\ each\ line}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ comment\ =\ FormatAsComment(commentArgs\ +\ SEPARATOR\_COMMENTS\ +\ comment,\ BEGIN\_COMMENT);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ a\ ColorPalette\ object}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classColorPalette}{ColorPalette}}\ palu(darkBlue,\ blue,\ green,\ yellow);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ saveAsPPMTextImage\ to\ save\ the\ heat\ map\ in\ the\ output\ file,\ using}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ the\ selected\ palette\ and\ the\ comment}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ freq.saveAsPPMTextImage(ofilename,\ palu,\ comment);}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3c73849f3d00ce0301ead13da5af579f}{showHelp}}(cerr);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00209\ \}}
+
+\end{DoxyCode}
+\Hypertarget{main_8cpp_a3c73849f3d00ce0301ead13da5af579f}\label{main_8cpp_a3c73849f3d00ce0301ead13da5af579f} 
+\index{main.cpp@{main.cpp}!showHelp@{showHelp}}
+\index{showHelp@{showHelp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showHelp()}{showHelp()}}
+{\footnotesize\ttfamily void show\+Help (\begin{DoxyParamCaption}\item[{ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+Shows help about the use of this program in the given output stream 
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & The output stream where the help will be shown (for example, cout, cerr, etc) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}ERROR\ in\ boston4\ parameters"{}}\ <<\ endl;}
+\DoxyCodeLine{00031\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}Run\ with\ the\ following\ arguments:"{}}\ <<\ endl;}
+\DoxyCodeLine{00032\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}boston4\ [-\/o\ outputFilename]\ [-\/c\ text]\ "{}}\ ;}
+\DoxyCodeLine{00033\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}[-\/h\ int]\ [-\/w\ int]\ [-\/d\ int]\ [-\/b\ int]\ [-\/g\ int]\ [-\/y\ int]\ "{}};}
+\DoxyCodeLine{00034\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}<inputFile1.crm>\ \{<inputFile.crm>\}"{}}\ <<\ endl;}
+\DoxyCodeLine{00035\ \ \ \ \ outputStream\ <<\ endl;}
+\DoxyCodeLine{00036\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}Parameters:"{}}\ <<\ endl;}
+\DoxyCodeLine{00037\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/o\ outputFilename:\ name\ of\ the\ output\ PPM\ file\ (tests/output/output.ppm\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00038\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/c\ text:\ extra\ comment\ to\ be\ included\ in\ the\ output\ PPM\ file\ (list\ of\ program\ parameters,\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00039\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/h\ high:\ number\ of\ rows\ (19\ \ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00040\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/w\ width:\ number\ of\ columns\ (23\ \ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00041\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/d\ number:\ number\ of\ dark\ blue\ tones\ in\ the\ color\ palette\ (2\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00042\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/b\ number:\ number\ of\ blue\ tones\ in\ the\ color\ palette\ (2\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00043\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/g\ number:\ number\ of\ green\ tones\ in\ the\ color\ palette\ (2\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00044\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/y\ number:\ number\ of\ yellow\ tones\ in\ the\ color\ palette\ (2\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00045\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}<inputFile1.crm>\ \{<inputFile.crm>\}:\ input\ crm\ files"{}}\ <<\ endl;}
+\DoxyCodeLine{00046\ \ \ \ \ outputStream\ <<\ endl;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}

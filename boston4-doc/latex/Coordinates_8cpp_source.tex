@@ -1,0 +1,100 @@
+\doxysection{Coordinates.\+cpp}
+\hypertarget{Coordinates_8cpp_source}{}\label{Coordinates_8cpp_source}\index{src/Coordinates.cpp@{src/Coordinates.cpp}}
+\mbox{\hyperlink{Coordinates_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Metodología\ de\ la\ Programación}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ Curso\ 2024/2025}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}Coordinates.h"{}}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00014}00014\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ Coordinates::INVALID\_COORDINATE=181.0;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00016}00016\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00019}\mbox{\hyperlink{classCoordinates_aa383318f611f618ff1000b2f78df0d74}{00019}}\ \mbox{\hyperlink{classCoordinates_aa383318f611f618ff1000b2f78df0d74}{Coordinates::Coordinates}}(\textcolor{keywordtype}{float}\ latitude,\ \textcolor{keywordtype}{float}\ longitude):\ \_latitude(INVALID\_COORDINATE),}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_longitude(INVALID\_COORDINATE)}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (latitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ latitude\ <=\ INVALID\_COORDINATE)}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \_latitude\ =\ latitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (longitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ longitude\ <=\ INVALID\_COORDINATE)}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \_longitude\ =\ longitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00028}\mbox{\hyperlink{classCoordinates_a7479bc07319ad6a25ca74650344b718b}{00028}}\ \mbox{\hyperlink{classCoordinates_aa383318f611f618ff1000b2f78df0d74}{Coordinates::Coordinates}}(\textcolor{keyword}{const}\ std::string\ \&\ coords)\ \{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ position\ where\ the\ separator\ between\ latitude\ and\ longitude\ is}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{int}\ pos\_separator\ =\ coords.find(\textcolor{charliteral}{','},\ 0);}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00031}00031\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ part\ of\ the\ string\ that\ contains\ the\ latitude}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00033}00033\ \ \ \ \ \_latitude\ =\ stof(coords.substr(0,\ pos\_separator));}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ part\ of\ the\ string\ that\ contains\ the\ longitude}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00036}00036\ \ \ \ \ \_longitude\ =\ stof(coords.substr(pos\_separator\ +\ 1}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,coords.length()-\/1\ -\/\ pos\_separator));}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00040}\mbox{\hyperlink{classCoordinates_ae18ad56858312ab30035729677f202d2}{00040}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCoordinates_ae18ad56858312ab30035729677f202d2}{Coordinates::getLatitude}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ \_latitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00044}\mbox{\hyperlink{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}{00044}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}{Coordinates::getLongitude}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ \_longitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00048}\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{00048}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{Coordinates::isValid}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00049}00049\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MIN\_LAT\ \ \ \ \ \ \ =\ -\/90;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_LAT\ \ \ \ \ \ \ =\ 90;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MIN\_LONGITUDE\ =\ -\/180;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_LONGITUDE\ =\ 180;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_latitude\ >=\ MIN\_LAT\ \&\&\ \_latitude\ <=\ MAX\_LAT)}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ (\_longitude\ >=\ MIN\_LONGITUDE\ \&\&\ \_longitude\ <=\ MAX\_LONGITUDE);}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00059}\mbox{\hyperlink{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6}{Coordinates::setLatitude}}(\textcolor{keywordtype}{float}\ latitude)\ \{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//if\ (latitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ latitude\ <=\ INVALID\_COORDINATE)}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \_latitude\ =\ latitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00065}\mbox{\hyperlink{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed}{00065}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed}{Coordinates::setLongitude}}(\textcolor{keywordtype}{float}\ longitude)\ \{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00066}00066\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//if\ (longitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ longitude\ <=\ INVALID\_COORDINATE)}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \_longitude\ =\ longitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00071}\mbox{\hyperlink{classCoordinates_a70805530712e6cdba32ec8570ef5a43a}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCoordinates_a70805530712e6cdba32ec8570ef5a43a}{Coordinates::set}}(\textcolor{keywordtype}{float}\ latitude,\ \textcolor{keywordtype}{float}\ longitude)\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6}{setLatitude}}(latitude);}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed}{setLongitude}}(longitude);}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00076}\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{00076}}\ std::string\ \mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{Coordinates::toString}}()\textcolor{keyword}{\ const\ }\{\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ (to\_string(\_latitude)\ +\ \textcolor{charliteral}{','}\ +\ to\_string(\_longitude));}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00080}\mbox{\hyperlink{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1}{00080}}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1}{Coordinates::length}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&second)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}(abs(\_latitude\ -\/\ second.\_latitude),\ abs(\_longitude\ -\/\ second.\_longitude));}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00084}\mbox{\hyperlink{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}{00084}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}{Coordinates::isInsideArea}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&bottomLeft,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&topRight)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ ((\_latitude\ >=\ bottomLeft.\_latitude)\ \&\&\ (\_latitude\ <=\ topRight.\_latitude)}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ (\_longitude\ >=\ bottomLeft.\_longitude)\ \&\&\ (\_longitude\ <=\ topRight.\_longitude));}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00089}\mbox{\hyperlink{classCoordinates_a68486995d9b18b17ed09bbf9e8b8097f}{00089}}\ std::ostream\ \&\ \mbox{\hyperlink{Coordinates_8cpp_a68486995d9b18b17ed09bbf9e8b8097f}{operator<<}}(std::ostream\ \&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&\ obj)\{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00090}00090\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00091}00091\ \ \ \ \ os\ <<\ obj.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}();}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00093}00093\ \}}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00095}\mbox{\hyperlink{classCoordinates_abfd9876e7950981e020cd8a0761eee72}{00095}}\ std::istream\&\ \mbox{\hyperlink{Coordinates_8cpp_abfd9876e7950981e020cd8a0761eee72}{operator>>}}(std::istream\ \&is,\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&obj)\ \{}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00096}00096\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00097}00097\ \ \ \ \ is\ >>\ obj.\_latitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00098}00098\ \ \ \ \ is\ >>\ obj.\_longitude;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{\Hypertarget{Coordinates_8cpp_source_l00100}00100\ \}}
+
+\end{DoxyCode}

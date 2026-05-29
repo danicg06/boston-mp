@@ -1,0 +1,115 @@
+\doxysection{Crime.\+h}
+\hypertarget{Crime_8h_source}{}\label{Crime_8h_source}\index{include/Crime.h@{include/Crime.h}}
+\mbox{\hyperlink{Crime_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Metodología\ de\ la\ Programación:\ Boston2}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Curso\ 2024/2025}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00013}00013\ \textcolor{preprocessor}{\#ifndef\ CRIME\_H}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00014}00014\ \textcolor{preprocessor}{\#define\ CRIME\_H}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Coordinates_8h}{Coordinates.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{DateTime_8h}{DateTime.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00065}\mbox{\hyperlink{classCrime}{00065}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCrime}{Crime}}\ \{}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00066}00066\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{classCrime_a21bd2dc3006c5204e30aed286c506df1}{Crime}}();}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00073}00073\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00082}\mbox{\hyperlink{classCrime_a631cd497a1c307bf280638863be008eb}{00082}}\ \ \ \ \ \mbox{\hyperlink{classCrime_a631cd497a1c307bf280638863be008eb}{Crime}}(\textcolor{keyword}{const}\ std::string\ \&\ line);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrime_a7b3284010c75d8c14b8962b0c0b94a66}{getCounter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00090}00090\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00097}00097\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00104}00104\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_a16d248767dbac457fc673fb42b93ddef}{getCode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00112}00112\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_aa9028f50559cf76e73800ac89253780e}{getGroup}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00113}00113\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00120}00120\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_a4e28a714688d442056aec4a1a3a794af}{getDescription}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00127}00127\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_aa4e5996577e7f0a084ddd2c8d4602ce1}{getDistrict}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00128}00128\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00134}00134\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_a517287d19ff71b72eb0be9cd557dd957}{getStreet}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00142}00142\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_a0a70151b23043fd0232527eea3fc9517}{getAreaReport}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCrime_a3da0d063e063bba3b289bcd515193099}{isShooting}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00150}00150\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ \mbox{\hyperlink{classCrime_a26854d8f97cbb410c6d2a6be37f7bbce}{getDateTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00163}00163\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrime_a9bf37f349e6f4ebe087689ba3cdc78dd}{getLocation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00171}00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCrime_a0489986a4b1b20dab81d0af777c472ee}{isIDUnknown}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00202}00202\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_af86d5372891f225707d5acf6fa551804}{toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00209}00209\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a9203f0954935a78a6f434e6865eba43b}{setCounter}}(\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00210}00210\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00225}00225\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a7673992790abe492efa0a217aa103aaa}{setId}}(\textcolor{keyword}{const}\ std::string\ \&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00226}00226\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00232}00232\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c}{setCode}}(\textcolor{keyword}{const}\ std::string\ \&code);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00239}00239\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a427dd5b54e3be745bbb4c4a015903aa8}{setGroup}}(\textcolor{keyword}{const}\ std::string\ \&group);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00240}00240\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00248}00248\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_ae610196a15e0b62044699410d1746eab}{setDescription}}(\textcolor{keyword}{const}\ std::string\ \&\ description);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00249}00249\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00255}00255\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a5380fb793e6ca49ba658cbf2051e9914}{setDistrict}}(\textcolor{keyword}{const}\ std::string\ \&district);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00263}00263\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_ad52d06de49d143b60b75307150f0b73e}{setAreaReport}}(\textcolor{keyword}{const}\ std::string\ \&areaReport);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00264}00264\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00271}00271\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a41cf373119047504ce4e8623152cc459}{setStreet}}(\textcolor{keyword}{const}\ std::string\ \&street);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00278}00278\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a908316c83028edb1316294fd98ae4051}{setShooting}}(\textcolor{keywordtype}{bool}\ shotting);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00293}00293\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a36a3dada05c7b7137b5ba206701210af}{setDateTime}}(\textcolor{keyword}{const}\ std::string\ \&\ time);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00300}00300\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a9b5bd466a154d3eec934878946c52825}{setLocation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&\ coordinates);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00341}00341\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_ae946ef5716ff3d45739047c479b3c4af}{set}}(\textcolor{keyword}{const}\ std::string\ \&\ line);\ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00342}00342\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00375}00375\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrime_acdd098eccc37433acbb98b56c6f8e7bf}{getField}}(\textcolor{keyword}{const}\ std::string\ \&\ field)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00386}00386\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrime_a33cadabcdc043b4daae16a125b41e01f}{normalize}}();}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00387}00387\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00397}00397\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCrime_a24051bba0d8a9dd18c1515e38963ca94}{IsSmaller}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrime}{Crime}}\ \&\ compare)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00398}00398\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00407}00407\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCrime_a60b74975159f303892b28ac3239e1e3c}{IsSameCrime}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrime}{Crime}}\ \&crime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00408}00408\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00409}00409\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00410}00410\ \ \ \ \ \textcolor{keywordtype}{int}\ \_counter;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00411}00411\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00417}00417\ \ \ \ \ std::string\ \_id;}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00418}00418\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00419}00419\ \ \ \ \ std::string\ \_code;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00420}00420\ \ \ \ \ std::string\ \_group;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00421}00421\ \ \ \ \ std::string\ \_description;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00422}00422\ \ \ \ \ std::string\ \_district;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00423}00423\ \ \ \ \ std::string\ \_areaReport;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00424}00424\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_shooting;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00425}00425\ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ \_dateTime;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00426}00426\ \ \ \ \ std::string\ \_street;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00427}00427\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \_location;\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00428}00428\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00433}00433\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ UNKNOWN\_VALUE;}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00434}00434\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00439}00439\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ DATETIME\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00448}00448\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ CRIME\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00449}00449\ \};\ \textcolor{comment}{//\ end\ class\ Crime}}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00460}\mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{00460}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(std::string\ \&\ myString);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00466}\mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{00466}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(std::string\ \&\ myString);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00467}00467\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00476}00476\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Crime_8h_a5713e9a4ee5cf24b996e193cd9bd8f28}{Normalize}}(\mbox{\hyperlink{classCrime}{Crime}}\ \&\ crime);}
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{Crime_8h_source_l00480}00480\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CRIME\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

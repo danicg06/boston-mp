@@ -1,0 +1,823 @@
+\doxysection{Crime\+Set Class Reference}
+\hypertarget{classCrimeSet}{}\label{classCrimeSet}\index{CrimeSet@{CrimeSet}}
+
+
+A \doxylink{classCrimeSet}{Crime\+Set} defines a set of instances of the \doxylink{classCrime}{Crime} class that includes data on crimes (offenses) committed anywhere in the world and with the types of crimes specifically considered within its own jurisdiction. This class uses an array of Crimes objects with a fixed capacity to store the set of crimes. This class also contains a field to store comments, free text that allows, for example, to describe in natural language the time period considered, the origin, the query applied to obtain the set, etc. In general, the records in the set are not sorted by date and time when each crime was committed. Usually the records appear in the order in which they were recorded when the crimes were collected by the police department. The public methods of this class do not allow a \doxylink{classCrimeSet}{Crime\+Set} to contain two \doxylink{classCrime}{Crime} objects with identical IDs.  
+
+
+
+
+{\ttfamily \#include $<$Crime\+Set.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCrimeSet_a52c1827c85feb7ff887a89b3140b887a}{Crime\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor and initializer. It builds a \doxylink{classCrimeSet}{Crime\+Set} object with a set of 0 Crimes and a capacity of DIM\+\_\+\+VECTOR\+\_\+\+CRIMES. The field for the comments is set as an empty string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of crimes stored in the set. Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeSet_a0ca779e32d07a222390a8a3dc292b163}{get\+Capacity}} () const
+\begin{DoxyCompactList}\small\item\em Gets the capacity of the array of \doxylink{classCrimeSet}{Crime\+Set} objects Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrimeSet_aa4f5fc9cbe1631e971a00b402e89a7f6}{get\+Comment}} () const
+\begin{DoxyCompactList}\small\item\em Returns the field comment of this \doxylink{classCrimeSet}{Crime\+Set}. This is a string that may be composed of zero or several lines of free text. Query method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a53600ecbbe902cf797db8f3a802ae2af}{set\+Comment}} (const std\+::string \&text)
+\begin{DoxyCompactList}\small\item\em Sets the string comment for this \doxylink{classCrimeSet}{Crime\+Set} object using the provided string {\ttfamily text}. The string {\ttfamily text} can contain zero or several lines; each one ends with \textquotesingle{}~\newline
+\textquotesingle{}. If the last line in the string {\ttfamily text} does not end with \textquotesingle{}~\newline
+\textquotesingle{} then the character \textquotesingle{}~\newline
+\textquotesingle{} will be appended at the end of the comment string of this object. If {\ttfamily text} is an empty string, the comment string of this object will be an empty string Modifier method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrimeSet_a35bdbddd32570ea2a5f1ac1fae2d7f2f}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Obtains a string with information about this \doxylink{classCrimeSet}{Crime\+Set} object, in the following format\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_afba88cb48bbf8a7526588587e177d65c}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Removes all the Crimes from this object, leaving the container with a size of 0 and an empty comment Modifier method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442}{append}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime)
+\begin{DoxyCompactList}\small\item\em Appends the given \doxylink{classCrime}{Crime} at the end of the array of Crimes of this \doxylink{classCrimeSet}{Crime\+Set} object, but only if that \doxylink{classCrime}{Crime} was not found in this \doxylink{classCrimeSet}{Crime\+Set}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classCrime}{Crime}} \& \mbox{\hyperlink{classCrimeSet_a6417c908d6f23e86adb869bbc15791f7}{at}} (int pos) const
+\begin{DoxyCompactList}\small\item\em Gets the crime at the provided position Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeSet_ad5f61372d6760505ea39858393d0d8e4}{find\+Crime}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime, int initial\+Pos, int final\+Pos) const
+\begin{DoxyCompactList}\small\item\em Searches the provided \doxylink{classCrime}{Crime} in the array of crimes in this \doxylink{classCrimeSet}{Crime\+Set}. If found, it returns the position where it was found. If not, it returns -\/1. We consider that position 0 is the first crime in the list of crimes and this-\/\texorpdfstring{$>$}{>}\doxylink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{get\+Size()}-\/1 the last crime. In order to find a crime, consider only equality in the ID field. Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeSet_abaf46a3de8f76c1465044edb0b1e6dd4}{find\+Crime}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime) const
+\begin{DoxyCompactList}\small\item\em Searches the provided \doxylink{classCrime}{Crime} in the array of crimes in this \doxylink{classCrimeSet}{Crime\+Set}. If found, it returns the position where it was found. If not, it returns -\/1. We consider that position 0 is the first crime in the list of crimes and this-\/\texorpdfstring{$>$}{>}\doxylink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{get\+Size()}-\/1 the last crime. In order to find a crime consider only equality in the ID field. Query method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a4ab193077750f47966ef6705b70c05e0}{load}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Loads into this object the \doxylink{classCrimeSet}{Crime\+Set} information stored in the given file. See files \texorpdfstring{$\ast$}{*}.crm in the folder Data\+Sets as example of files with \doxylink{classCrimeSet}{Crime\+Set} information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a54f034ad281e2c7071c7107b33066b43}{save}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Saves this \doxylink{classCrimeSet}{Crime\+Set} object in the given file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a50a206be22e11082c5c9219a8c20e3a9}{join}} (const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&crime\+Set)
+\begin{DoxyCompactList}\small\item\em Appends to this \doxylink{classCrimeSet}{Crime\+Set} object, the list of ~\newline
+ \doxylink{classCrime}{Crime} objects contained in the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily crime\+Set} that are not found (using Crime\+Set\+::find\+Crime(\+Crime)) in this \doxylink{classCrimeSet}{Crime\+Set}. This method could be implemented with the help of the method Crime\+Set\+::append(\+Crime crime), to append to this \doxylink{classCrimeSet}{Crime\+Set}, the Crimes of the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily crime\+Set}. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a03d46cbe5869b0fd4a3a4f877ae3832e}{normalize}} ()
+\begin{DoxyCompactList}\small\item\em Normalizes each one of the \doxylink{classCrime}{Crime} objects in this \doxylink{classCrimeSet}{Crime\+Set} Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a22d3da84104ebb6b809c1255619324e9}{compute\+Histogram}} (int data\+Field, int histogram\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em It takes the array of Crimes of this object as input and calculates the cumulative frequency distribution of crimes (histogram) by days of the week or by hours of the day. The histogram is saved in the array {\ttfamily histogram}. The \doxylink{classDateTime}{Date\+Time} field of each \doxylink{classCrime}{Crime} contains the information about when it took place. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \mbox{\hyperlink{classCrimeSet_af5c7b2e19957ed4fffa5e669d93431e7}{select\+Where\+EQ}} (const std\+::string \&field, const std\+::string \&value) const
+\begin{DoxyCompactList}\small\item\em Returns a \doxylink{classCrimeSet}{Crime\+Set} object with those crimes whose label of attribute is provided with the provided {\ttfamily field} parameter and whose value is equals to the provided {\ttfamily value} parameter. This function enables simple queries as\+: Code = "{}unknown"{} or Code = "{}3114"{} as well as Street = "{}\+WASHINGTON ST"{} or \doxylink{classDateTime}{Date\+Time} = dd.\+to\+String() (being dd, a \doxylink{classDateTime}{Date\+Time} object), but no other relational operators as greater than, etc. The new \doxylink{classCrimeSet}{Crime\+Set} will have the same comments as this object plus a line with the content\+: "{}\+Restricted to "{} + field + "{} = "{} + value + "{}\textbackslash{}n"{} Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \mbox{\hyperlink{classCrimeSet_a419c240e6a6b54257e175d3424c13110}{select\+Valid\+Location}} () const
+\begin{DoxyCompactList}\small\item\em Returns a \doxylink{classCrimeSet}{Crime\+Set} object with those crimes whose latitude and longitude are both valid. Example of invalid location for a crime are\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeSet_a6fcaa1e5a527b596aaf9727523032f6d}{sort}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxylink{classCrimeSet}{Crime\+Set} defines a set of instances of the \doxylink{classCrime}{Crime} class that includes data on crimes (offenses) committed anywhere in the world and with the types of crimes specifically considered within its own jurisdiction. This class uses an array of Crimes objects with a fixed capacity to store the set of crimes. This class also contains a field to store comments, free text that allows, for example, to describe in natural language the time period considered, the origin, the query applied to obtain the set, etc. In general, the records in the set are not sorted by date and time when each crime was committed. Usually the records appear in the order in which they were recorded when the crimes were collected by the police department. The public methods of this class do not allow a \doxylink{classCrimeSet}{Crime\+Set} to contain two \doxylink{classCrime}{Crime} objects with identical IDs. 
+
+\begin{DoxySeeAlso}{See also}
+See the content of the files \texorpdfstring{$\ast$}{*}.crm in the Data\+Sets folder as examples of files that contain information about Crime\+Sets 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8h_source_l00046}{46}} of file \mbox{\hyperlink{CrimeSet_8h_source}{Crime\+Set.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCrimeSet_a52c1827c85feb7ff887a89b3140b887a}\label{classCrimeSet_a52c1827c85feb7ff887a89b3140b887a} 
+\index{CrimeSet@{CrimeSet}!CrimeSet@{CrimeSet}}
+\index{CrimeSet@{CrimeSet}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{CrimeSet()}{CrimeSet()}}
+{\footnotesize\ttfamily Crime\+Set\+::\+Crime\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Basic constructor and initializer. It builds a \doxylink{classCrimeSet}{Crime\+Set} object with a set of 0 Crimes and a capacity of DIM\+\_\+\+VECTOR\+\_\+\+CRIMES. The field for the comments is set as an empty string. 
+
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ :\_nCrimes(0)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442}\label{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442} 
+\index{CrimeSet@{CrimeSet}!append@{append}}
+\index{append@{append}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily bool Crime\+Set\+::append (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption})}
+
+
+
+Appends the given \doxylink{classCrime}{Crime} at the end of the array of Crimes of this \doxylink{classCrimeSet}{Crime\+Set} object, but only if that \doxylink{classCrime}{Crime} was not found in this \doxylink{classCrimeSet}{Crime\+Set}. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Throws a std\+::out\+\_\+of\+\_\+range exception if the number of elements in the array of Crimes is equals to the capacity of that array. In that case, the array is full, and no more elements can be appended to the array. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em crime} & The \doxylink{classCrime}{Crime} to append to this object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given \doxylink{classCrime}{Crime} was inserted in this \doxylink{classCrimeSet}{Crime\+Set} object; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ isAppended\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00088\ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ isFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ i=0;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ \_nCrimes\ \&\&\ !isFound)\ \{}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (crime.\mbox{\hyperlink{classCrime_a60b74975159f303892b28ac3239e1e3c}{IsSameCrime}}(\_crimes[i]))}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ isFound\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isFound)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_nCrimes\ ==\ DIM\_VECTOR\_CRIMES)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::append(Crime\ crime)\ :\ "{}})\ +}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ array\ of\ Crimes\ is\ full\ of\ capacity"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \_crimes[\_nCrimes]\ =\ crime;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \_nCrimes++;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ isAppended\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ isAppended;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a6417c908d6f23e86adb869bbc15791f7}\label{classCrimeSet_a6417c908d6f23e86adb869bbc15791f7} 
+\index{CrimeSet@{CrimeSet}!at@{at}}
+\index{at@{at}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCrime}{Crime}} \& Crime\+Set\+::at (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption}) const}
+
+
+
+Gets the crime at the provided position Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & position in the \doxylink{classCrimeSet}{Crime\+Set}. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Throws an std\+::out\+\_\+of\+\_\+range exception if the provided position is not valid. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A reference to the \doxylink{classCrime}{Crime} at the provided position 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00126}{126}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ <\ 0\ ||\ pos\ >=\ \_nCrimes)}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::at(int\ pos)\ :\ "{}})\ +}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}position\ is\ not\ valid"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_crimes[pos]);}
+\DoxyCodeLine{00134\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_afba88cb48bbf8a7526588587e177d65c}\label{classCrimeSet_afba88cb48bbf8a7526588587e177d65c} 
+\index{CrimeSet@{CrimeSet}!clear@{clear}}
+\index{clear@{clear}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Crime\+Set\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes all the Crimes from this object, leaving the container with a size of 0 and an empty comment Modifier method. 
+
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \_nCrimes\ =\ 0;}
+\DoxyCodeLine{00082\ \ \ \ \ \_comment.clear();}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a22d3da84104ebb6b809c1255619324e9}\label{classCrimeSet_a22d3da84104ebb6b809c1255619324e9} 
+\index{CrimeSet@{CrimeSet}!computeHistogram@{computeHistogram}}
+\index{computeHistogram@{computeHistogram}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{computeHistogram()}{computeHistogram()}}
+{\footnotesize\ttfamily void Crime\+Set\+::compute\+Histogram (\begin{DoxyParamCaption}\item[{int}]{data\+Field,  }\item[{int}]{histogram\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+It takes the array of Crimes of this object as input and calculates the cumulative frequency distribution of crimes (histogram) by days of the week or by hours of the day. The histogram is saved in the array {\ttfamily histogram}. The \doxylink{classDateTime}{Date\+Time} field of each \doxylink{classCrime}{Crime} contains the information about when it took place. Query method. 
+
+\begin{DoxyPrecond}{Precondition}
+the array {\ttfamily histogram} should have enough capacity to save the calculated frequencies. Otherwise, possible runtime errors will be obtained 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if {\ttfamily data\+Field} is neither 0 nor 1 \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Field} & Integer to select the type of calculation to be performed\+:
+\begin{DoxyItemize}
+\item value 0 to calculate by day of the week
+\item value 1 to calculate by hours of the day Input parameter 
+\end{DoxyItemize}\\
+\hline
+{\em histogram} & output array where the cumulative frequencies will be saved. Input/output parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00256}{256}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MODE\_WEEK\ \ =\ 0;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MODE\_HOURS\ =\ 1;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_CAP\ \ \ \ =\ 24;}
+\DoxyCodeLine{00260\ \ \ \ \ }
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{CrimeSet_8h_a8747428968c4f83bd0c598f4cda6d08d}{InitializeArrayInts}}(histogram,\ MAX\_CAP);}
+\DoxyCodeLine{00262\ \ \ \ \ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{switch}\ (dataField)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MODE\_WEEK:\ \textcolor{comment}{//\ days\ of\ the\ week}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_nCrimes;\ i++)}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ histogram[\_crimes[i].getDateTime().weekDay()]++;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MODE\_HOURS:\ \textcolor{comment}{//\ hours\ of\ the\ day}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_nCrimes;\ i++)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ histogram[\_crimes[i].getDateTime().hour()]++;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//\ not\ valid\ data\ field}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ Crime::ComputeHistogramArrayCrimes(Crime\ crimes[],"{}}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}int\ dataField,\ int\ histogram[])\ :\ "{}})\ +}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}histogram\ datField\ not\ valid."{}});}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_abaf46a3de8f76c1465044edb0b1e6dd4}\label{classCrimeSet_abaf46a3de8f76c1465044edb0b1e6dd4} 
+\index{CrimeSet@{CrimeSet}!findCrime@{findCrime}}
+\index{findCrime@{findCrime}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{findCrime()}{findCrime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Crime\+Set\+::find\+Crime (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption}) const}
+
+
+
+Searches the provided \doxylink{classCrime}{Crime} in the array of crimes in this \doxylink{classCrimeSet}{Crime\+Set}. If found, it returns the position where it was found. If not, it returns -\/1. We consider that position 0 is the first crime in the list of crimes and this-\/\texorpdfstring{$>$}{>}\doxylink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{get\+Size()}-\/1 the last crime. In order to find a crime consider only equality in the ID field. Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime} & A crime. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If found, it returns the position where the crime was found. Otherwise it returns -\/1 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00158}{158}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ pos\ =\ \mbox{\hyperlink{classCrimeSet_ad5f61372d6760505ea39858393d0d8e4}{findCrime}}(crime,\ 0,\ \_nCrimes-\/1);}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ (pos);}
+\DoxyCodeLine{00162\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_ad5f61372d6760505ea39858393d0d8e4}\label{classCrimeSet_ad5f61372d6760505ea39858393d0d8e4} 
+\index{CrimeSet@{CrimeSet}!findCrime@{findCrime}}
+\index{findCrime@{findCrime}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{findCrime()}{findCrime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Crime\+Set\+::find\+Crime (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime,  }\item[{int}]{initial\+Pos,  }\item[{int}]{final\+Pos }\end{DoxyParamCaption}) const}
+
+
+
+Searches the provided \doxylink{classCrime}{Crime} in the array of crimes in this \doxylink{classCrimeSet}{Crime\+Set}. If found, it returns the position where it was found. If not, it returns -\/1. We consider that position 0 is the first crime in the list of crimes and this-\/\texorpdfstring{$>$}{>}\doxylink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{get\+Size()}-\/1 the last crime. In order to find a crime, consider only equality in the ID field. Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime} & A crime. Input parameter \\
+\hline
+{\em initial\+Pos} & initial position where to do the search. Input parameter \\
+\hline
+{\em final\+Pos} & final position where to do the search. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If found, it returns the position where the crime was found. Otherwise it returns -\/1 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ isFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ initialPos;}
+\DoxyCodeLine{00141\ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ finalPos\ \&\&\ !isFound)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_crimes[i].getId()\ ==\ crime.\mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}())}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ isFound\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \}\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ -\/1;}
+\DoxyCodeLine{00151\ \ \ \ \ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (isFound)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ result\ =\ i;}
+\DoxyCodeLine{00154\ \ \ \ \ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00156\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a0ca779e32d07a222390a8a3dc292b163}\label{classCrimeSet_a0ca779e32d07a222390a8a3dc292b163} 
+\index{CrimeSet@{CrimeSet}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily int Crime\+Set\+::get\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the capacity of the array of \doxylink{classCrimeSet}{Crime\+Set} objects Query method. 
+
+\begin{DoxyReturn}{Returns}
+The capacity of the array of \doxylink{classCrimeSet}{Crime\+Set} objects 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ DIM\_VECTOR\_CRIMES;}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_aa4f5fc9cbe1631e971a00b402e89a7f6}\label{classCrimeSet_aa4f5fc9cbe1631e971a00b402e89a7f6} 
+\index{CrimeSet@{CrimeSet}!getComment@{getComment}}
+\index{getComment@{getComment}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{getComment()}{getComment()}}
+{\footnotesize\ttfamily std\+::string Crime\+Set\+::get\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the field comment of this \doxylink{classCrimeSet}{Crime\+Set}. This is a string that may be composed of zero or several lines of free text. Query method. 
+
+\begin{DoxyReturn}{Returns}
+A string with the lines of comments 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ \_comment;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}\label{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141} 
+\index{CrimeSet@{CrimeSet}!getSize@{getSize}}
+\index{getSize@{getSize}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Crime\+Set\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of crimes stored in the set. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The number of crimes. Positive integer. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ \_nCrimes;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a50a206be22e11082c5c9219a8c20e3a9}\label{classCrimeSet_a50a206be22e11082c5c9219a8c20e3a9} 
+\index{CrimeSet@{CrimeSet}!join@{join}}
+\index{join@{join}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily void Crime\+Set\+::join (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&}]{crime\+Set }\end{DoxyParamCaption})}
+
+
+
+Appends to this \doxylink{classCrimeSet}{Crime\+Set} object, the list of ~\newline
+ \doxylink{classCrime}{Crime} objects contained in the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily crime\+Set} that are not found (using Crime\+Set\+::find\+Crime(\+Crime)) in this \doxylink{classCrimeSet}{Crime\+Set}. This method could be implemented with the help of the method Crime\+Set\+::append(\+Crime crime), to append to this \doxylink{classCrimeSet}{Crime\+Set}, the Crimes of the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily crime\+Set}. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime\+Set} & A \doxylink{classCrimeSet}{Crime\+Set} object. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00238}{238}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ crimeSet.\_nCrimes;\ i++)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classCrimeSet_ad5f61372d6760505ea39858393d0d8e4}{findCrime}}(crimeSet.\_crimes[i])\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \_comment\ =\ crimeSet.\_comment;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442}{append}}(crimeSet.\_crimes[i]);}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ }
+\DoxyCodeLine{00249\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a4ab193077750f47966ef6705b70c05e0}\label{classCrimeSet_a4ab193077750f47966ef6705b70c05e0} 
+\index{CrimeSet@{CrimeSet}!load@{load}}
+\index{load@{load}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void Crime\+Set\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Loads into this object the \doxylink{classCrimeSet}{Crime\+Set} information stored in the given file. See files \texorpdfstring{$\ast$}{*}.crm in the folder Data\+Sets as example of files with \doxylink{classCrimeSet}{Crime\+Set} information. 
+
+\begin{DoxyNote}{Note}
+Note that this method should remove the \doxylink{classCrime}{Crime} objects that this object previously contained. 
+
+This method throws an exception in some error cases (see below). Before throwing the corresponding exception, this method clears the object (it calls to \doxylink{classCrimeSet_afba88cb48bbf8a7526588587e177d65c}{clear()} method) to leave the object in a consistent state. Modifier method 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file where the \doxylink{classCrimeSet}{Crime\+Set} is stored. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::ios\+\_\+base\+::failure} & Throws a std\+::ios\+\_\+base\+::failure exception if the given file cannot be opened or if an error occurs while reading from the file. \\
+\hline
+{\em throw} & std\+::invalid\+\_\+argument Throws a std\+::invalid\+\_\+argument exception if an invalid magic string is found in the given file \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & Throws a std\+::out\+\_\+of\+\_\+range exception if the number of crimes in the given file is negative. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00164}{164}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ }
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{classCrimeSet_afba88cb48bbf8a7526588587e177d65c}{clear}}();}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{string}\ str\_crime;}
+\DoxyCodeLine{00168\ \ \ \ \ ifstream\ file(fileName);}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{if}\ (file)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ getline(file,\ str\_crime);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (str\_crime\ ==\ MAGIC\_STRING\_T)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ readComments(file);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ getline(file,\ str\_crime);\ \textcolor{comment}{//\ number\ of\ crimes}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ stoi(str\_crime);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \_nCrimes\ =\ 0;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >=\ 0)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ n\ \&\&\ \_nCrimes\ <\ DIM\_VECTOR\_CRIMES;\ i++)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(file,\ str\_crime);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::load(string\ fileName)\ :\ "{}})\ +}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442}{append}}(\mbox{\hyperlink{classCrime}{Crime}}(str\_crime));}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::load(string\ fileName)\ :\ "{}})\ +}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ given\ number\ of\ crimes\ is\ negative)"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::load(string\ fileName)\ :\ "{}})\ +}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ given\ magic\ string\ is\ invalid)"{}});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::load(string\ fileName)\ :\ "{}})\ +}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{00207\ \ \ \ \ file.close();}
+\DoxyCodeLine{00208\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a03d46cbe5869b0fd4a3a4f877ae3832e}\label{classCrimeSet_a03d46cbe5869b0fd4a3a4f877ae3832e} 
+\index{CrimeSet@{CrimeSet}!normalize@{normalize}}
+\index{normalize@{normalize}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily void Crime\+Set\+::normalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Normalizes each one of the \doxylink{classCrime}{Crime} objects in this \doxylink{classCrimeSet}{Crime\+Set} Modifier method. 
+
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00251}{251}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nCrimes;\ i++)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \_crimes[i].\mbox{\hyperlink{classCrimeSet_a03d46cbe5869b0fd4a3a4f877ae3832e}{normalize}}();}
+\DoxyCodeLine{00254\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a54f034ad281e2c7071c7107b33066b43}\label{classCrimeSet_a54f034ad281e2c7071c7107b33066b43} 
+\index{CrimeSet@{CrimeSet}!save@{save}}
+\index{save@{save}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Crime\+Set\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Saves this \doxylink{classCrimeSet}{Crime\+Set} object in the given file. 
+
+\begin{DoxyNote}{Note}
+This method sends each \doxylink{classCrime}{Crime} to the output stream in the same format as the one described in the \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{Crime\+::to\+String()} method Query method 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & A string with the name of the file where this \doxylink{classCrimeSet}{Crime\+Set} object will be saved. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::ios\+\_\+base\+::failure} & Throws a std\+::ios\+\_\+base\+::failure exception if the given file cannot be opened or if an error occurs while writing to the file \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00210}{210}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ }
+\DoxyCodeLine{00212\ \ \ \ \ ofstream\ file(fileName);}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{if}\ (file)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ file\ <<\ MAGIC\_STRING\_T\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ saveComments(file);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ file\ <<\ \_nCrimes\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nCrimes;\ i++)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ \_crimes[i].\mbox{\hyperlink{classCrime_af86d5372891f225707d5acf6fa551804}{toString}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::save(string\ fileName)\ :\ "{}})\ +}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeSet::save(string\ fileName)\ :\ "{}})\ +}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{00234\ \ \ \ \ }
+\DoxyCodeLine{00235\ \ \ \ \ file.close();}
+\DoxyCodeLine{00236\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a419c240e6a6b54257e175d3424c13110}\label{classCrimeSet_a419c240e6a6b54257e175d3424c13110} 
+\index{CrimeSet@{CrimeSet}!selectValidLocation@{selectValidLocation}}
+\index{selectValidLocation@{selectValidLocation}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{selectValidLocation()}{selectValidLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} Crime\+Set\+::select\+Valid\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a \doxylink{classCrimeSet}{Crime\+Set} object with those crimes whose latitude and longitude are both valid. Example of invalid location for a crime are\+: 
+
+
+\begin{DoxyItemize}
+\item (91,100) latitude is out of range
+\item (90,181) longitude is out of range
+\item (181,181) both are not valid The newsize \doxylink{classCrimeSet}{Crime\+Set} will have the same comments as this object plus a line with the content\+: "{}\+Restricted to valid Coordinates\textbackslash{}n"{}"{} Query method \begin{DoxyReturn}{Returns}
+A \doxylink{classCrimeSet}{Crime\+Set} with those crimes whose latitude and longitude are both valid 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00294}{294}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ APPEND\_COMMENT\ =\ \textcolor{stringliteral}{"{}Restricted\ to\ valid\ Coordinates"{}};}
+\DoxyCodeLine{00296\ \ \ \ \ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ crimeset;}
+\DoxyCodeLine{00298\ \ \ \ \ crimeset.\_comment\ =\ \_comment;}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\_nCrimes\ ;\ i++)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_crimes[i].getLocation().isValid())\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ crimeset.\mbox{\hyperlink{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442}{append}}(\_crimes[i]);}
+\DoxyCodeLine{00303\ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ crimeset.\_comment.append(APPEND\_COMMENT\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ crimeset;}
+\DoxyCodeLine{00308\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_af5c7b2e19957ed4fffa5e669d93431e7}\label{classCrimeSet_af5c7b2e19957ed4fffa5e669d93431e7} 
+\index{CrimeSet@{CrimeSet}!selectWhereEQ@{selectWhereEQ}}
+\index{selectWhereEQ@{selectWhereEQ}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{selectWhereEQ()}{selectWhereEQ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} Crime\+Set\+::select\+Where\+EQ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field,  }\item[{const std\+::string \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns a \doxylink{classCrimeSet}{Crime\+Set} object with those crimes whose label of attribute is provided with the provided {\ttfamily field} parameter and whose value is equals to the provided {\ttfamily value} parameter. This function enables simple queries as\+: Code = "{}unknown"{} or Code = "{}3114"{} as well as Street = "{}\+WASHINGTON ST"{} or \doxylink{classDateTime}{Date\+Time} = dd.\+to\+String() (being dd, a \doxylink{classDateTime}{Date\+Time} object), but no other relational operators as greater than, etc. The new \doxylink{classCrimeSet}{Crime\+Set} will have the same comments as this object plus a line with the content\+: "{}\+Restricted to "{} + field + "{} = "{} + value + "{}\textbackslash{}n"{} Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The label of the selected attribute of the \doxylink{classCrime}{Crime} class. See the description of method Crime\+::get\+Field(string) for possible values. Input parameter \\
+\hline
+{\em value} & The value of the selected attribute. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{classCrimeSet}{Crime\+Set} with the selected Crimes. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ crimeset;}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_nCrimes;\ i++)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_crimes[i].getField(field)\ ==\ value)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ crimeset.\mbox{\hyperlink{classCrimeSet_ab802cbfa7ea29563d20b1a36bee07442}{append}}(\_crimes[i]);}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ }
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{return}\ crimeset;}
+\DoxyCodeLine{00292\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a53600ecbbe902cf797db8f3a802ae2af}\label{classCrimeSet_a53600ecbbe902cf797db8f3a802ae2af} 
+\index{CrimeSet@{CrimeSet}!setComment@{setComment}}
+\index{setComment@{setComment}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{setComment()}{setComment()}}
+{\footnotesize\ttfamily void Crime\+Set\+::set\+Comment (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Sets the string comment for this \doxylink{classCrimeSet}{Crime\+Set} object using the provided string {\ttfamily text}. The string {\ttfamily text} can contain zero or several lines; each one ends with \textquotesingle{}~\newline
+\textquotesingle{}. If the last line in the string {\ttfamily text} does not end with \textquotesingle{}~\newline
+\textquotesingle{} then the character \textquotesingle{}~\newline
+\textquotesingle{} will be appended at the end of the comment string of this object. If {\ttfamily text} is an empty string, the comment string of this object will be an empty string Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string with several lines of comments. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ NEWLINE\ =\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00055\ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ text.length()\ -\/\ 1;}
+\DoxyCodeLine{00057\ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 0)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (text.at(i)\ ==\ NEWLINE)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \_comment\ =\ text;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \_comment\ =\ text.append(1,NEWLINE);}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \_comment\ =\ text;}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a6fcaa1e5a527b596aaf9727523032f6d}\label{classCrimeSet_a6fcaa1e5a527b596aaf9727523032f6d} 
+\index{CrimeSet@{CrimeSet}!sort@{sort}}
+\index{sort@{sort}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily void Crime\+Set\+::sort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sorts the array of Crimes by increasing alphabetical order of the field with the \doxylink{classDateTime}{Date\+Time} (sorting by date and time when the \doxylink{classCrime}{Crime} took place). If two Crimes objects have the same \doxylink{classDateTime}{Date\+Time}, then increasing alphabetical order of the field ID of those two objects will ~\newline
+ be considered. Modifier method 
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ left\ =\ 0\ ;\ left\ <\ \_nCrimes\ ;\ left++)\ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculates\ the\ minimum\ between\ "{}left"{}\ and\ "{}\_nCrimes"{}-\/1}}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ min\ =\ \_crimes[left];\ \textcolor{comment}{//\ Minimum\ crime's\ value}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos\_min\ =\ left;\ \textcolor{comment}{//\ Minimum\ crime's\ position}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ pos\_min\ =\ \mbox{\hyperlink{CrimeSet_8h_abb4919ac2fd7b17221365d7de8bd28b3}{PosMinArrayCrimes}}(\_crimes,\ left,\ \_nCrimes\ -\/\ 1);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ min\ =\ \_crimes[pos\_min];}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Swap\ values\ in\ left\ and\ pos\_min\ positions.}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{CrimeSet_8h_a6eda4a5c19c5975d5db5b11025f6e046}{SwapElementsArrayCrimes}}(\_crimes,\ \_nCrimes,\ left,\ pos\_min);}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeSet_a35bdbddd32570ea2a5f1ac1fae2d7f2f}\label{classCrimeSet_a35bdbddd32570ea2a5f1ac1fae2d7f2f} 
+\index{CrimeSet@{CrimeSet}!toString@{toString}}
+\index{toString@{toString}!CrimeSet@{CrimeSet}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Crime\+Set\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains a string with information about this \doxylink{classCrimeSet}{Crime\+Set} object, in the following format\+: 
+
+
+\begin{DoxyItemize}
+\item First line, the number of crimes
+\item A line for each \doxylink{classCrime}{Crime} with information about that \doxylink{classCrime}{Crime}. Each line is obtained using the method \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{Crime\+::to\+String()} Query method \begin{DoxyReturn}{Returns}
+string with information about this \doxylink{classCrimeSet}{Crime\+Set} object 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{string}\ result\ =\ to\_string(\_nCrimes)+\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00071\ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nCrimes;\ i++)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ result\ +=\ \_crimes[i].\mbox{\hyperlink{classCrime_af86d5372891f225707d5acf6fa551804}{toString}}()\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{CrimeSet_8h}{Crime\+Set.\+h}}\item 
+src/\mbox{\hyperlink{CrimeSet_8cpp}{Crime\+Set.\+cpp}}\end{DoxyCompactItemize}

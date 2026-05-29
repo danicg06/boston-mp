@@ -1,0 +1,388 @@
+\doxysection{src/\+Crime.cpp File Reference}
+\hypertarget{Crime_8cpp}{}\label{Crime_8cpp}\index{src/Crime.cpp@{src/Crime.cpp}}
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Crime_8cpp_a013cf0ba9a90bff632b9e2c12ce0ad1f}{Trim}} (string \&my\+String)
+\item 
+void \mbox{\hyperlink{Crime_8cpp_a9cfe797a55f7cd8577eac4a35d3e730a}{Capitalize}} (string \&my\+String)
+\item 
+void \mbox{\hyperlink{Crime_8cpp_a5713e9a4ee5cf24b996e193cd9bd8f28}{Normalize}} (\mbox{\hyperlink{classCrime}{Crime}} \&crime)
+\item 
+std\+::ostream \& \mbox{\hyperlink{Crime_8cpp_a9f72b3ca4a0cadbcd4aa9d3a8c50cbfd}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classCrime}{Crime}} \&crime)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream insertion operator for \doxylink{classCrime}{Crime} class. It inserts every field of the object separated by commas (,) in the output string. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{Crime_8cpp_a324e256f13313143d0c171854dcb1f49}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classCrime}{Crime}} \&crime)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream extraction operator for \doxylink{classCrime}{Crime} class. It reads a record from the input string that will set the list of fields of the provided crime object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Crime_8cpp_a4d9255bf95cc96c4acaa19410edc7381}{operator$<$}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime1, const \mbox{\hyperlink{classCrime}{Crime}} \&crime2)
+\begin{DoxyCompactList}\small\item\em Overloading of the relational operator \texorpdfstring{$<$}{<} for \doxylink{classCrime}{Crime} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Crime_8cpp_abfaffe389758335bdcef02c22b667324}{operator$>$}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime1, const \mbox{\hyperlink{classCrime}{Crime}} \&crime2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator \texorpdfstring{$>$}{>} for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Crime_8cpp_a2c21ae693c17ca98f7cf67aad4a1d69d}{operator==}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime1, const \mbox{\hyperlink{classCrime}{Crime}} \&crime2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator == for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Crime_8cpp_ab54514166504a308ad9afdb2ee4f2b51}{operator!=}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime1, const \mbox{\hyperlink{classCrime}{Crime}} \&crime2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator != for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Crime_8cpp_a33ca410328f123509001aff0513d793c}{operator$<$=}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime1, const \mbox{\hyperlink{classCrime}{Crime}} \&crime2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator \texorpdfstring{$<$}{<}= for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Crime_8cpp_a2faabc88fb0bfd21bdbe293300a75bff}{operator$>$=}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime1, const \mbox{\hyperlink{classCrime}{Crime}} \&crime2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator \texorpdfstring{$>$}{>}= for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Crime_8cpp_a9cfe797a55f7cd8577eac4a35d3e730a}\label{Crime_8cpp_a9cfe797a55f7cd8577eac4a35d3e730a} 
+\index{Crime.cpp@{Crime.cpp}!Capitalize@{Capitalize}}
+\index{Capitalize@{Capitalize}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{Capitalize()}{Capitalize()}}
+{\footnotesize\ttfamily void Capitalize (\begin{DoxyParamCaption}\item[{string \&}]{my\+String }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{int}\ str\_len\ =\ myString.length();}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ str\_len;\ i++)\ \{}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ myString.at(i)\ =\ toupper(myString.at(i));}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a5713e9a4ee5cf24b996e193cd9bd8f28}\label{Crime_8cpp_a5713e9a4ee5cf24b996e193cd9bd8f28} 
+\index{Crime.cpp@{Crime.cpp}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily void Normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption})}
+
+Normalizes every string field in the provided \doxylink{classCrime}{Crime} object. That is\+:
+\begin{DoxyEnumerate}
+\item It removes spaces and \textbackslash{}t characters at the beginning and at the end of every string field
+\item It converts to uppercase every string field For the ID field only the conversion to uppercase is necessary because an ID cannot contains leading or trailing blanks 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00226}{226}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a33cadabcdc043b4daae16a125b41e01f}{normalize}}();}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00229\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_ab54514166504a308ad9afdb2ee4f2b51}\label{Crime_8cpp_ab54514166504a308ad9afdb2ee4f2b51} 
+\index{Crime.cpp@{Crime.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime1,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator != for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime1} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+{\em crime2} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two Crimes are not equals (see operator==); false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00368}{368}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00369\ \ \ \ \ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordflow}{return}\ !(crime1==crime2);}
+\DoxyCodeLine{00371\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a4d9255bf95cc96c4acaa19410edc7381}\label{Crime_8cpp_a4d9255bf95cc96c4acaa19410edc7381} 
+\index{Crime.cpp@{Crime.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime1,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the relational operator \texorpdfstring{$<$}{<} for \doxylink{classCrime}{Crime} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime1} & The first object to be compared. Input parameter \\
+\hline
+{\em crime2} & The second object to be compared. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the \doxylink{classDateTime}{Date\+Time} of {\ttfamily crime1} is smaller (before) than that of {\ttfamily crime2} or if both Date\+Times are equals and the ID of {\ttfamily crime1} is minor than the ID of {\ttfamily crime2}; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00339}{339}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordtype}{bool}\ smaller=\textcolor{keyword}{true};}
+\DoxyCodeLine{00342\ \ \ \ \ }
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ date1\ =\ crime1.\mbox{\hyperlink{classCrime_a26854d8f97cbb410c6d2a6be37f7bbce}{getDateTime}}();}
+\DoxyCodeLine{00344\ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ date2\ =\ crime2.\mbox{\hyperlink{classCrime_a26854d8f97cbb410c6d2a6be37f7bbce}{getDateTime}}();}
+\DoxyCodeLine{00345\ \ \ \ \ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{if}\ (date1\ >\ date2)}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ smaller=\textcolor{keyword}{false};}
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (date1\ ==\ date2)}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ smaller=(crime1.\mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}()\ <\ crime2.\mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}());}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordflow}{return}\ smaller;}
+\DoxyCodeLine{00353\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a9f72b3ca4a0cadbcd4aa9d3a8c50cbfd}\label{Crime_8cpp_a9f72b3ca4a0cadbcd4aa9d3a8c50cbfd} 
+\index{Crime.cpp@{Crime.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream insertion operator for \doxylink{classCrime}{Crime} class. It inserts every field of the object separated by commas (,) in the output string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to be used. Input/\+Output parameter \\
+\hline
+{\em crime} & the \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily os} A reference to the output stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00320}{320}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ }
+\DoxyCodeLine{00322\ \ \ \ \ os\ <<\ crime.\mbox{\hyperlink{classCrime_af86d5372891f225707d5acf6fa551804}{toString}}();}
+\DoxyCodeLine{00323\ \ \ \ \ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00325\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a33ca410328f123509001aff0513d793c}\label{Crime_8cpp_a33ca410328f123509001aff0513d793c} 
+\index{Crime.cpp@{Crime.cpp}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime1,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator \texorpdfstring{$<$}{<}= for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime1} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+{\em crime2} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if crime1 \texorpdfstring{$<$}{<}= crime2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00374}{374}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00375\ \ \ \ \ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{return}\ !(crime1\ >\ crime2);}
+\DoxyCodeLine{00377\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a2c21ae693c17ca98f7cf67aad4a1d69d}\label{Crime_8cpp_a2c21ae693c17ca98f7cf67aad4a1d69d} 
+\index{Crime.cpp@{Crime.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime1,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator == for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime1} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+{\em crime2} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two Crimes have the same \doxylink{classDateTime}{Date\+Time} and ID; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00362}{362}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00363\ \ \ \ \ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordflow}{return}\ !((crime1\ >\ crime2)\ ||\ (crime1\ <\ crime2));}
+\DoxyCodeLine{00365\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_abfaffe389758335bdcef02c22b667324}\label{Crime_8cpp_abfaffe389758335bdcef02c22b667324} 
+\index{Crime.cpp@{Crime.cpp}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime1,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator \texorpdfstring{$>$}{>} for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime1} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+{\em crime2} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if crime1 \texorpdfstring{$>$}{>} crime2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00356}{356}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordflow}{return}\ (crime2\ <\ crime1);}
+\DoxyCodeLine{00359\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a2faabc88fb0bfd21bdbe293300a75bff}\label{Crime_8cpp_a2faabc88fb0bfd21bdbe293300a75bff} 
+\index{Crime.cpp@{Crime.cpp}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime1,  }\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator \texorpdfstring{$>$}{>}= for \doxylink{classCrime}{Crime} class. It uses the \doxylink{classDateTime}{Date\+Time} and ID of the given crimes to compare them as in operator\texorpdfstring{$<$}{<}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crime1} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+{\em crime2} & a \doxylink{classCrime}{Crime} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if crime1 \texorpdfstring{$>$}{>}= crime2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00380}{380}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00381\ \ \ \ \ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordflow}{return}\ !(crime1\ <\ crime2);}
+\DoxyCodeLine{00383\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a324e256f13313143d0c171854dcb1f49}\label{Crime_8cpp_a324e256f13313143d0c171854dcb1f49} 
+\index{Crime.cpp@{Crime.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream extraction operator for \doxylink{classCrime}{Crime} class. It reads a record from the input string that will set the list of fields of the provided crime object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to be used. Input/\+Output parameter \\
+\hline
+{\em crime} & the \doxylink{classCrime}{Crime} object. Input Output parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily is} the input stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00328}{328}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ }
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{string}\ str;}
+\DoxyCodeLine{00331\ \ \ \ \ getline(is,\ str);}
+\DoxyCodeLine{00332\ \ \ \ \ }
+\DoxyCodeLine{00333\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_ae946ef5716ff3d45739047c479b3c4af}{set}}(str);}
+\DoxyCodeLine{00334\ \ \ \ \ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00336\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a013cf0ba9a90bff632b9e2c12ce0ad1f}\label{Crime_8cpp_a013cf0ba9a90bff632b9e2c12ce0ad1f} 
+\index{Crime.cpp@{Crime.cpp}!Trim@{Trim}}
+\index{Trim@{Trim}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{Trim()}{Trim()}}
+{\footnotesize\ttfamily void Trim (\begin{DoxyParamCaption}\item[{string \&}]{my\+String }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00203}{203}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATORS\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}};}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\_first\_char\ =\ myString.find\_first\_not\_of(SEPARATORS);}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\_last\_char\ =\ myString.find\_last\_not\_of(SEPARATORS);}
+\DoxyCodeLine{00207\ \ \ \ \ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\_last\_char\ !=\ string::npos)\ \{\ \ \textcolor{comment}{//\ If\ there\ is\ at\ least\ one\ character}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ that\ is\ not\ an\ space}}
+\DoxyCodeLine{00210\ \ \ \ \ myString.erase(0,\ pos\_first\_char);}
+\DoxyCodeLine{00211\ \ \ \ \ myString.erase(pos\_last\_char\ -\/\ pos\_first\_char\ +\ 1);}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{else}\ \ \ \ \textcolor{comment}{//\ If\ all\ characters\ are\ spaces}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ myString.clear();}
+\DoxyCodeLine{00215\ \}}
+
+\end{DoxyCode}

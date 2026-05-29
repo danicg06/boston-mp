@@ -1,0 +1,150 @@
+\doxysection{src/\+Crime.cpp File Reference}
+\hypertarget{Crime_8cpp}{}\label{Crime_8cpp}\index{src/Crime.cpp@{src/Crime.cpp}}
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Crime_8cpp_a013cf0ba9a90bff632b9e2c12ce0ad1f}{Trim}} (string \&my\+String)
+\item 
+void \mbox{\hyperlink{Crime_8cpp_a9cfe797a55f7cd8577eac4a35d3e730a}{Capitalize}} (string \&my\+String)
+\item 
+void \mbox{\hyperlink{Crime_8cpp_a5713e9a4ee5cf24b996e193cd9bd8f28}{Normalize}} (\mbox{\hyperlink{classCrime}{Crime}} \&crime)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Crime_8cpp_a9cfe797a55f7cd8577eac4a35d3e730a}\label{Crime_8cpp_a9cfe797a55f7cd8577eac4a35d3e730a} 
+\index{Crime.cpp@{Crime.cpp}!Capitalize@{Capitalize}}
+\index{Capitalize@{Capitalize}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{Capitalize()}{Capitalize()}}
+{\footnotesize\ttfamily void Capitalize (\begin{DoxyParamCaption}\item[{string \&}]{my\+String }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{int}\ str\_len\ =\ myString.length();}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ str\_len;\ i++)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ myString[i]\ =\ toupper(myString[i]);}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a5713e9a4ee5cf24b996e193cd9bd8f28}\label{Crime_8cpp_a5713e9a4ee5cf24b996e193cd9bd8f28} 
+\index{Crime.cpp@{Crime.cpp}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily void Normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption})}
+
+Normalizes every string field in the provided \doxylink{classCrime}{Crime} object. That is\+:
+\begin{DoxyEnumerate}
+\item It removes spaces and \textbackslash{}t characters at the beginning and at the end of every string field
+\item It converts to uppercase every string field For the ID field only the conversion to uppercase is necessary because an ID cannot contains leading or trailing blanks 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00257}{257}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//\ ID}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{string}\ local\ =\ crime.\mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}();}
+\DoxyCodeLine{00261\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00262\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00263\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a7673992790abe492efa0a217aa103aaa}{setId}}(local);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{comment}{//\ code}}
+\DoxyCodeLine{00266\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a16d248767dbac457fc673fb42b93ddef}{getCode}}();}
+\DoxyCodeLine{00267\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00268\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00269\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c}{setCode}}(local);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ group}}
+\DoxyCodeLine{00272\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_aa9028f50559cf76e73800ac89253780e}{getGroup}}();}
+\DoxyCodeLine{00273\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00274\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00275\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a427dd5b54e3be745bbb4c4a015903aa8}{setGroup}}(local);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{comment}{//\ desc}}
+\DoxyCodeLine{00278\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a4e28a714688d442056aec4a1a3a794af}{getDescription}}();}
+\DoxyCodeLine{00279\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00280\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00281\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_ae610196a15e0b62044699410d1746eab}{setDescription}}(local);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ District\ alphaNumeric}}
+\DoxyCodeLine{00284\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_aa4e5996577e7f0a084ddd2c8d4602ce1}{getDistrict}}();}
+\DoxyCodeLine{00285\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00286\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00287\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a5380fb793e6ca49ba658cbf2051e9914}{setDistrict}}(local);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{comment}{//\ area\ report\ }}
+\DoxyCodeLine{00290\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a0a70151b23043fd0232527eea3fc9517}{getAreaReport}}();}
+\DoxyCodeLine{00291\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00292\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00293\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_ad52d06de49d143b60b75307150f0b73e}{setAreaReport}}(local);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{//\ street}}
+\DoxyCodeLine{00296\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a517287d19ff71b72eb0be9cd557dd957}{getStreet}}();}
+\DoxyCodeLine{00297\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00298\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00299\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a41cf373119047504ce4e8623152cc459}{setStreet}}(local);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00301\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8cpp_a013cf0ba9a90bff632b9e2c12ce0ad1f}\label{Crime_8cpp_a013cf0ba9a90bff632b9e2c12ce0ad1f} 
+\index{Crime.cpp@{Crime.cpp}!Trim@{Trim}}
+\index{Trim@{Trim}!Crime.cpp@{Crime.cpp}}
+\doxysubsubsection{\texorpdfstring{Trim()}{Trim()}}
+{\footnotesize\ttfamily void Trim (\begin{DoxyParamCaption}\item[{string \&}]{my\+String }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00224}{224}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_space\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ myString.length();\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{while}\ (i<\ len\ \&\&\ is\_space)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isspace(myString.at(i)))\ is\_space\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_space\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\_first\_char\ =\ myString.find\_first\_not\_of(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\_last\_char\ =\ myString.find\_last\_not\_of(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_values\ =\ pos\_last\_char\ -\/\ pos\_first\_char\ +\ 1;}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ myString\ =\ myString.substr(pos\_first\_char,\ n\_values);}
+\DoxyCodeLine{00241\ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//\ is\_space\ ==\ true}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ myString\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \ \ }
+\DoxyCodeLine{00244\ \ \ \ \ }
+\DoxyCodeLine{00245\ \}}
+
+\end{DoxyCode}

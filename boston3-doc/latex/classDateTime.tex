@@ -1,0 +1,419 @@
+\doxysection{Date\+Time Class Reference}
+\hypertarget{classDateTime}{}\label{classDateTime}\index{DateTime@{DateTime}}
+
+
+Used to represent dates and times in the format YYYY-\/\+MM-\/dd hh\+:mm\+:\+:ss, where.  
+
+
+
+
+{\ttfamily \#include $<$Date\+Time.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDateTime_a3ccfb87f7a2e9683b91964e32d907161}{Date\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Base constructor. It sets the default date and time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a9d53f245d45030f1f94d8a301dc75008}{Date\+Time}} (\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} std\+::string \&\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{date}})
+\begin{DoxyCompactList}\small\item\em Constructor that builds a Data\+Time from the data in the provided string. If the string contains a valid date and time, it builds an object with the provided content; otherwise it builds an object with the default \doxylink{classDateTime}{Date\+Time}. See \doxylink{classDateTime_a74d8583b1220c100c5f1a33b35623aba}{Date\+Time\+::\+DATETIME\+\_\+\+STRING\+\_\+\+DEFAULT}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_af0eb582fdc2b0964ecf255df53396712}{year}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em It returns the year. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}{month}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em It returns the month. Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}} () const
+\begin{DoxyCompactList}\small\item\em It returns the day. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}{hour}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em It returns the hour. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_a5faae406f224f78b90410f7dcf72c926}{minutes}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em It returns the minutes. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_acc03162a6f4b5a70122622d4762dac7c}{seconds}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em It returns the number of seconds. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{void}} \mbox{\hyperlink{classDateTime_a1a27664ae0a3025fe99343ca57b28873}{set}} (\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} std\+::string \&\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{line}})
+\begin{DoxyCompactList}\small\item\em Set this Data\+Time object with the data in the provided string {\ttfamily line}. ~\newline
+ A correct format is as follows\+: (YYYY-\/\+MM-\/dd hh\+:mm\+:ss). If {\ttfamily line} is not in the correct format this Data\+Time will be set with the data in Data\+Time\+::\+DATETIME\+\_\+\+DEFAULT Modifier method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{to\+String}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em Transforms this Data\+Time object to a string using the format\+: YYYY-\/\+MM-\/dd hh\+:mm\+:\+:ss Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_a9c75b71d29094fde37d36f86c10b934b}{week\+Day}} () \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}}
+\begin{DoxyCompactList}\small\item\em Computes the week day from this \doxylink{classDateTime}{Date\+Time} object. The implementation is based on the Zeller\textquotesingle{}s congruence; look at wikipedia \href{https://en.wikipedia.org/wiki/Zeller\%27s_congruence}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Zeller\%27s\+\_\+congruence}} Query method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{static}} \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} std\+::string \& \mbox{\hyperlink{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}{day\+Name}} (\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{static}} \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} std\+::string \mbox{\hyperlink{classDateTime_a74d8583b1220c100c5f1a33b35623aba}{DATETIME\+\_\+\+STRING\+\_\+\+DEFAULT}} ="{}2000-\/01-\/01 00\+:00\+:00"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Used to represent dates and times in the format YYYY-\/\+MM-\/dd hh\+:mm\+:\+:ss, where. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{YYYY}}-\/\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{MM}}-\/\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{dd}}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{hh}}:\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{mm}}:\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{ss}}\ }
+\DoxyCodeLine{+-\/-\/-\/-\/+-\/-\/-\/-\/+-\/-\/-\/-\/+-\/-\/-\/-\/+}
+\DoxyCodeLine{|\ \ \ \ |\ \ \ \ |\ \ \ \ |\ \ \ \ |}
+\DoxyCodeLine{0\ \ \ \ 5\ \ \ \ 10\ \ \ 15\ \ \ 20\ \ }
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item YYYY Year Any value allowed
+\item MM Month values in \mbox{[}1,12\mbox{]}
+\item dd day values depending on the calendar
+\item hh hour values in \mbox{[}0,23\mbox{]}
+\item mm minute values in \mbox{[}0,59\mbox{]}
+\item ss seconds values in \mbox{[}0,59\mbox{]}
+\end{DoxyItemize}
+
+The hour is in the UTC (Coordinated Universal Time) format. 
+
+Definition at line \mbox{\hyperlink{DateTime_8h_source_l00041}{41}} of file \mbox{\hyperlink{DateTime_8h_source}{Date\+Time.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDateTime_a3ccfb87f7a2e9683b91964e32d907161}\label{classDateTime_a3ccfb87f7a2e9683b91964e32d907161} 
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{DateTime()}{DateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Date\+Time\+::\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Base constructor. It sets the default date and time. 
+
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ initDefault();}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a9d53f245d45030f1f94d8a301dc75008}\label{classDateTime_a9d53f245d45030f1f94d8a301dc75008} 
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{DateTime()}{DateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Date\+Time\+::\+Date\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} std\+::string \&}]{date }\end{DoxyParamCaption})}
+
+
+
+Constructor that builds a Data\+Time from the data in the provided string. If the string contains a valid date and time, it builds an object with the provided content; otherwise it builds an object with the default \doxylink{classDateTime}{Date\+Time}. See \doxylink{classDateTime_a74d8583b1220c100c5f1a33b35623aba}{Date\+Time\+::\+DATETIME\+\_\+\+STRING\+\_\+\+DEFAULT}. 
+
+\begin{DoxyPrecond}{Precondition}
+The provided string date must be in the correct format (YYYY-\/\+MM-\/dd hh\+:mm\+:ss), that is no errors of conversion is obtained when using \doxylink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{stoi()} for each field. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The string containing date and time Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDateTime_a2d1b93811c0d81597963162b726d26f3}\label{classDateTime_a2d1b93811c0d81597963162b726d26f3} 
+\index{DateTime@{DateTime}!day@{day}}
+\index{day@{day}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{day()}{day()}}
+{\footnotesize\ttfamily int Date\+Time\+::day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+It returns the day. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The day of the date within its valid bounds 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ \_day;}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}\label{classDateTime_a5b169c8a9284f85f5a69162562bb32e4} 
+\index{DateTime@{DateTime}!dayName@{dayName}}
+\index{dayName@{dayName}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{dayName()}{dayName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{string}} \& Date\+Time\+::day\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}}}]{day }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a string with the name of the provided day of the week (0 to 6).
+\begin{DoxyItemize}
+\item 0\+: SUNDAY
+\item 1\+: MONDAY
+\item ...
+\item 6\+: SATURDAY
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em day} & selected day to return (0 to 6) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Throws an std\+::invalid\+\_\+argument exception if day is not in the interval \mbox{[}0, 6\mbox{]} \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+a string with the name of the provided day of the week (0 to 6). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day<0\ ||\ day>}}6)\{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ DateTime::dayName(int\ day):\ "{}})\ +}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}day\ is\ not\ correct\ "{}}\ +\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{to\_string}}(\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}}));}
+\DoxyCodeLine{00137\ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \textcolor{keywordflow}{return}\ DAY\_NAMES[\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}}];}
+\DoxyCodeLine{00139\ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}\label{classDateTime_a042f8d8eac63eee6b8059ec2df41be93} 
+\index{DateTime@{DateTime}!hour@{hour}}
+\index{hour@{hour}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{hour()}{hour()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} Date\+Time\+::hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+It returns the hour. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The hour of the date within its valid bounds 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \_hour;}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a5faae406f224f78b90410f7dcf72c926}\label{classDateTime_a5faae406f224f78b90410f7dcf72c926} 
+\index{DateTime@{DateTime}!minutes@{minutes}}
+\index{minutes@{minutes}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{minutes()}{minutes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} Date\+Time\+::minutes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+It returns the minutes. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The number of minutes of the date within its valid bounds 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ \_min;}
+\DoxyCodeLine{00111\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}\label{classDateTime_a294643a8ce6bd0cca6cda71890e7456c} 
+\index{DateTime@{DateTime}!month@{month}}
+\index{month@{month}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{month()}{month()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} Date\+Time\+::month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+It returns the month. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The month of the date within its valid bounds 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ \_month;}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_acc03162a6f4b5a70122622d4762dac7c}\label{classDateTime_acc03162a6f4b5a70122622d4762dac7c} 
+\index{DateTime@{DateTime}!seconds@{seconds}}
+\index{seconds@{seconds}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{seconds()}{seconds()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} Date\+Time\+::seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+It returns the number of seconds. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The seconds of the date within its valid bounds 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ \_sec;}
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a1a27664ae0a3025fe99343ca57b28873}\label{classDateTime_a1a27664ae0a3025fe99343ca57b28873} 
+\index{DateTime@{DateTime}!set@{set}}
+\index{set@{set}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{void}} Date\+Time\+::set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} std\+::string \&}]{line }\end{DoxyParamCaption})}
+
+
+
+Set this Data\+Time object with the data in the provided string {\ttfamily line}. ~\newline
+ A correct format is as follows\+: (YYYY-\/\+MM-\/dd hh\+:mm\+:ss). If {\ttfamily line} is not in the correct format this Data\+Time will be set with the data in Data\+Time\+::\+DATETIME\+\_\+\+DEFAULT Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & the string given from the csv format YYYY-\/\+MM-\/dd hh\+:mm\+:\+:ss. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_af0eb582fdc2b0964ecf255df53396712}{year}},\ \mbox{\hyperlink{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}{month}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}},\ \mbox{\hyperlink{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}{hour}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{min}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{sec}};}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{DateTime_8h_af2b9a13e863e39a34e807bef47cbbd16}{split}}(\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{line}},\ \mbox{\hyperlink{classDateTime_af0eb582fdc2b0964ecf255df53396712}{year}},\ \mbox{\hyperlink{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}{month}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}},\ \mbox{\hyperlink{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}{hour}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{min}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{sec}});}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{DateTime_8h_a9962ec9b30855e08347df66f3fc99345}{isCorrect}}(\mbox{\hyperlink{classDateTime_af0eb582fdc2b0964ecf255df53396712}{year}},\ \mbox{\hyperlink{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}{month}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}},\ \mbox{\hyperlink{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}{hour}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{min}},\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{sec}}))\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \_year\ =\ \mbox{\hyperlink{classDateTime_af0eb582fdc2b0964ecf255df53396712}{year}};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \_month\ =\ \mbox{\hyperlink{classDateTime_a294643a8ce6bd0cca6cda71890e7456c}{month}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \_day\ =\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{day}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \_hour\ =\ \mbox{\hyperlink{classDateTime_a042f8d8eac63eee6b8059ec2df41be93}{hour}};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \_min\ =\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{min}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \_sec\ =\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{sec}};}
+\DoxyCodeLine{00089\ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ initDefault();}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a3d6755a411677001cd9b76ea49e7361b}\label{classDateTime_a3d6755a411677001cd9b76ea49e7361b} 
+\index{DateTime@{DateTime}!toString@{toString}}
+\index{toString@{toString}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{string}} Date\+Time\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Transforms this Data\+Time object to a string using the format\+: YYYY-\/\+MM-\/dd hh\+:mm\+:\+:ss Query method. 
+
+\begin{DoxyReturn}{Returns}
+string that contains the date\+Time in the indicated format. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{local}}[64];}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{sprintf}}(\mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{local}},\ \textcolor{stringliteral}{"{}\%04i-\/\%02i-\/\%02i\ \%02i:\%02i:\%02i"{}},\ \_year,\ \_month,\ \_day,\ \_hour,\ \_min,\ \_sec);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{local}};}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_a9c75b71d29094fde37d36f86c10b934b}\label{classDateTime_a9c75b71d29094fde37d36f86c10b934b} 
+\index{DateTime@{DateTime}!weekDay@{weekDay}}
+\index{weekDay@{weekDay}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{weekDay()}{weekDay()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} Date\+Time\+::week\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Computes the week day from this \doxylink{classDateTime}{Date\+Time} object. The implementation is based on the Zeller\textquotesingle{}s congruence; look at wikipedia \href{https://en.wikipedia.org/wiki/Zeller\%27s_congruence}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Zeller\%27s\+\_\+congruence}} Query method. 
+
+\begin{DoxyReturn}{Returns}
+values in the range 0..6, where 0 is Sunday, 1 is Monday ... 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{a}}\ =\ (14\ -\/\ \_month)\ /\ 12;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{y}}\ =\ \_year\ -\/\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{a}};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{m}}\ =\ \_month\ +\ 12\ *\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{a}}\ -\/\ 2;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{wDay}};}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{wDay}}\ =\ (\_day\ +\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{y}}\ +\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{y}}\ /\ 4\ -\/\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{y}}\ /\ 100\ +\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{y}}\ /\ 400\ +\ (31\ *\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{m}})\ /\ 12)\ \%\ 7;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{wDay}};}
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDateTime_af0eb582fdc2b0964ecf255df53396712}\label{classDateTime_af0eb582fdc2b0964ecf255df53396712} 
+\index{DateTime@{DateTime}!year@{year}}
+\index{year@{year}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{year()}{year()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{int}} Date\+Time\+::year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+It returns the year. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The year of the date as an integer value 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ \_year;}
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDateTime_a74d8583b1220c100c5f1a33b35623aba}\label{classDateTime_a74d8583b1220c100c5f1a33b35623aba} 
+\index{DateTime@{DateTime}!DATETIME\_STRING\_DEFAULT@{DATETIME\_STRING\_DEFAULT}}
+\index{DATETIME\_STRING\_DEFAULT@{DATETIME\_STRING\_DEFAULT}!DateTime@{DateTime}}
+\doxysubsubsection{\texorpdfstring{DATETIME\_STRING\_DEFAULT}{DATETIME\_STRING\_DEFAULT}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{const}} \mbox{\hyperlink{classDateTime_a2d1b93811c0d81597963162b726d26f3}{string}} Date\+Time\+::\+DATETIME\+\_\+\+STRING\+\_\+\+DEFAULT ="{}2000-\/01-\/01 00\+:00\+:00"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+String with the default value for a \doxylink{classDateTime}{Date\+Time} object ("{}2000-\/01-\/01 00\+:00\+:00"{}) 
+
+Definition at line \mbox{\hyperlink{DateTime_8h_source_l00062}{62}} of file \mbox{\hyperlink{DateTime_8h_source}{Date\+Time.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{DateTime_8h}{Date\+Time.\+h}}\item 
+src/\mbox{\hyperlink{DateTime_8cpp}{Date\+Time.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['getareareport_0',['getAreaReport',['../classCrime.html#a0a70151b23043fd0232527eea3fc9517',1,'Crime']]],
+  ['getcapacity_1',['getCapacity',['../classCrimeSet.html#a0ca779e32d07a222390a8a3dc292b163',1,'CrimeSet']]],
+  ['getcode_2',['getCode',['../classCrime.html#a16d248767dbac457fc673fb42b93ddef',1,'Crime']]],
+  ['getcomment_3',['getComment',['../classCrimeSet.html#aa4f5fc9cbe1631e971a00b402e89a7f6',1,'CrimeSet']]],
+  ['getcounter_4',['getCounter',['../classCrime.html#a7b3284010c75d8c14b8962b0c0b94a66',1,'Crime']]],
+  ['getdatetime_5',['getDateTime',['../classCrime.html#a26854d8f97cbb410c6d2a6be37f7bbce',1,'Crime']]],
+  ['getdescription_6',['getDescription',['../classCrime.html#a4e28a714688d442056aec4a1a3a794af',1,'Crime']]],
+  ['getdistrict_7',['getDistrict',['../classCrime.html#aa4e5996577e7f0a084ddd2c8d4602ce1',1,'Crime']]],
+  ['getfield_8',['getField',['../classCrime.html#acdd098eccc37433acbb98b56c6f8e7bf',1,'Crime']]],
+  ['getgroup_9',['getGroup',['../classCrime.html#aa9028f50559cf76e73800ac89253780e',1,'Crime']]],
+  ['getid_10',['getId',['../classCrime.html#ab05e0ae19a73743bf4f2023a5db7f80c',1,'Crime']]],
+  ['getlatitude_11',['getLatitude',['../classCoordinates.html#ae18ad56858312ab30035729677f202d2',1,'Coordinates']]],
+  ['getlocation_12',['getLocation',['../classCrime.html#a9bf37f349e6f4ebe087689ba3cdc78dd',1,'Crime']]],
+  ['getlongitude_13',['getLongitude',['../classCoordinates.html#a22bc1e4fb173e1dfa05ed96af442711a',1,'Coordinates']]],
+  ['getsize_14',['getSize',['../classCrimeSet.html#abc9eb8814b2bfde0b0e3c5d168557141',1,'CrimeSet']]],
+  ['getstreet_15',['getStreet',['../classCrime.html#a517287d19ff71b72eb0be9cd557dd957',1,'Crime']]]
+];

@@ -1,0 +1,116 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Coordinates.\+h"{}}\newline
+{\ttfamily \#include "{}Date\+Time.\+h"{}}\newline
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The purpose of this program is to read a set of data on crimes committed in the city of Boston, showing those that have occurred within certain geographic coordinates and within the date range provided to the program. This program first reads from the standard input two \doxylink{classCoordinates}{Coordinates} objects, one \doxylink{classCoordinates}{Coordinates} to define the minimun coordinates and another \doxylink{classCoordinates}{Coordinates} to define the maximum coordinates. Then it reads two \doxylink{classDateTime}{Date\+Time} objects, one \doxylink{classDateTime}{Date\+Time} to define the minimun \doxylink{classDateTime}{Date\+Time} and another \doxylink{classDateTime}{Date\+Time} to define the maximum \doxylink{classDateTime}{Date\+Time}. Next it reads an integer number n to define the number of \doxylink{classCrime}{Crime} objects to read. Thereafter, it reads n \doxylink{classCrime}{Crime} objects, saving in an array of Crimes only the Crimes whose \doxylink{classDateTime}{Date\+Time} is between the minimum and maximun Date\+Times and whose coordinates are valid (\begin{DoxySeeAlso}{See also}
+\doxylink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{Coordinates\+::is\+Valid()} method description). Each \doxylink{classCrime}{Crime} object is normalized when inserted into the array. Be careful that the number of crimes inserted in the array does not exceed its capacity. Finally, the program shows in the standard output all the Crimes in the array and then all the Crimes which \doxylink{classCoordinates}{Coordinates} are inside the area defined by the minimum and maximum \doxylink{classCoordinates}{Coordinates} provided to the program. Be careful to show the output as in the below example.
+\end{DoxySeeAlso}
+Running example\+: \begin{quote}
+dist/\+Debug/\+GNU-\/\+Linux/boston0 \texorpdfstring{$<$}{<} data/input00.\+b0in \end{quote}
+Total number of crimes inserted in the array\+: 4 0,225520077,3126,UNKNOWN,WARRANT ARREST -\/ OUTSIDE OF BOSTON WARRANT,,,0,2022-\/02-\/02 00\+:00\+:00,WASHINGTON ST,42.\+343082,-\/71.\+141724 1,222648862,3831,UNKNOWN,M/V -\/ LEAVING SCENE -\/ PROPERTY DAMAGE,B2,288,0,2022-\/02-\/05 18\+:25\+:00,WASHINGTON ST,42.\+329750,-\/71.\+084541 4,222111641,619,UNKNOWN,LARCENY ALL OTHERS,D14,778,0,2022-\/02-\/14 12\+:30\+:00,WASHINGTON ST,42.\+349056,-\/71.\+150497 5,222107076,3126,UNKNOWN,WARRANT ARREST -\/ OUTSIDE OF BOSTON WARRANT,D4,UNKNOWN,0,2022-\/03-\/11 10\+:45\+:00,MASSACHUSETTS AVE \& ALBANY ST BOSTON MA 02118 UNI,42.\+333500,-\/71.\+073509
+
+Crimes within the given geographic area\+: 0,225520077,3126,UNKNOWN,WARRANT ARREST -\/ OUTSIDE OF BOSTON WARRANT,,,0,2022-\/02-\/02 00\+:00\+:00,WASHINGTON ST,42.\+343082,-\/71.\+141724 4,222111641,619,UNKNOWN,LARCENY ALL OTHERS,D14,778,0,2022-\/02-\/14 12\+:30\+:00,WASHINGTON ST,42.\+349056,-\/71.\+150497 5,222107076,3126,UNKNOWN,WARRANT ARREST -\/ OUTSIDE OF BOSTON WARRANT,D4,UNKNOWN,0,2022-\/03-\/11 10\+:45\+:00,MASSACHUSETTS AVE \& ALBANY ST BOSTON MA 02118 UNI,42.\+333500,-\/71.\+073509 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ DIM\_ARRAY\ =\ 10;\ \textcolor{comment}{//\ dimension\ of\ the\ array\ arrayCrimes}}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ arrayCrimes[DIM\_ARRAY];\ \textcolor{comment}{//\ array\ of\ Crimes}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ used\ =\ 0;}
+\DoxyCodeLine{00061\ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Read\ latitude\ and\ longitude\ for\ 2\ Coordinates\ objects}}
+\DoxyCodeLine{00063\ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{string}\ read\_coordinates\_1;}
+\DoxyCodeLine{00065\ \ \ \ \ getline(cin,\ read\_coordinates\_1);}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord1\ (read\_coordinates\_1);}
+\DoxyCodeLine{00067\ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{string}\ read\_coordinates\_2;}
+\DoxyCodeLine{00069\ \ \ \ \ getline(cin,\ read\_coordinates\_2);}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord2\ (read\_coordinates\_2);}
+\DoxyCodeLine{00071\ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Remember\ to\ take\ off\ the\ \(\backslash\)n\ character\ after\ longitude\ of\ max\ Coordinates}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Read\ 2\ DateTime\ objects}}
+\DoxyCodeLine{00074\ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{string}\ read\_time\_1;}
+\DoxyCodeLine{00076\ \ \ \ \ getline(cin,\ read\_time\_1);}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ date\_1\ (read\_time\_1);}
+\DoxyCodeLine{00078\ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{string}\ read\_time\_2;}
+\DoxyCodeLine{00080\ \ \ \ \ getline(cin,\ read\_time\_2);}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ date\_2\ (read\_time\_2);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ Read\ the\ number\ of\ crimes}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ Remember\ to\ take\ off\ the\ \(\backslash\)n\ character\ after\ number\ of\ crimes\ }}
+\DoxyCodeLine{00085\ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00087\ \ \ \ \ cin\ >>\ n;}
+\DoxyCodeLine{00088\ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ cin.ignore();}
+\DoxyCodeLine{00090\ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Read\ the\ Crimes\ and\ put\ them\ in\ the\ array\ arrayCrimes}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ \ \ \ whenever\ they\ follow\ the\ required\ restrictions\ and\ }}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ \ \ \ once\ normalized}}
+\DoxyCodeLine{00094\ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ n\ \&\&\ used\ <\ DIM\_ARRAY)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ read\_crime\_str;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ getline(cin,\ read\_crime\_str);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ read\_crime\ (read\_crime\_str);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDateTime}{DateTime}}\ date\_crime\ =\ read\_crime.getDateTime();}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{bool}\ valid\_coords\ =\ read\_crime.getLocation().isValid();}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (date\_crime\ >=\ date\_1\ \&\&\ date\_crime\ <=\ date\_2\ \&\&\ valid\_coords)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ arrayCrimes[used]\ =\ read\_crime;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ used++;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Total\ number\ of\ crimes\ inserted\ in\ the\ array:\ "{}}\ <<\ used\ <<\ endl;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ display\ the\ number\ and\ the\ current\ content\ for\ the\ arrayCrimes}}
+\DoxyCodeLine{00113\ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ used;\ i++)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ cout\ <<\ arrayCrimes[i].toString()\ <<\ endl;}
+\DoxyCodeLine{00116\ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nCrimes\ within\ the\ given\ geographic\ area:"{}}\ <<\ endl;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ display\ all\ the\ Crimes\ in\ the\ array\ which\ Coordinates\ are\ inside\ the\ given\ area}}
+\DoxyCodeLine{00119\ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ used;\ i++)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arrayCrimes[i].getLocation().isInsideArea(coord1,coord2))}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ arrayCrimes[i].\mbox{\hyperlink{classCrime_af86d5372891f225707d5acf6fa551804}{toString}}()\ <<\ endl;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}

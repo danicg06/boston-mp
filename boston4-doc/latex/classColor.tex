@@ -1,0 +1,193 @@
+\doxysection{Color Class Reference}
+\hypertarget{classColor}{}\label{classColor}\index{Color@{Color}}
+
+
+A color object \doxylink{classColor}{Color(red, green, blue)} is used to encapsulate colors in the default RGB color space. An RGB color value is specified with 3 components (alpha components)\+: red, green and blue. Each component is represented using and unsigned char value (alpha value) in the range 0 -\/ 255. Value of 255 means that the basic color is completely opaque and an alpha value of 0 means that the color is completely transparent. For example\+:  
+
+
+
+
+{\ttfamily \#include $<$Color.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classColor_a2273b00de02271d674c5579c17eaf883}{Color}} (int red=DEFAULT\+\_\+\+RGB\+\_\+\+VALUE, int green=DEFAULT\+\_\+\+RGB\+\_\+\+VALUE, int blue=DEFAULT\+\_\+\+RGB\+\_\+\+VALUE)
+\begin{DoxyCompactList}\small\item\em Creates a RGB color with the specified red, green, and blue values, each one in the range (0 -\/ 255). Each one of the three components (red, green and blue) is 255 by default. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classColor_a366040ee493dc797f3877c747f70245e}{get\+Red}} () const
+\begin{DoxyCompactList}\small\item\em Returns the red component in the range 0-\/255 in the default RGB space. Query method. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classColor_ae97f0bb0f55f82c2e824899d9f8f60ad}{get\+Green}} () const
+\begin{DoxyCompactList}\small\item\em Returns the green component in the range 0-\/255 in the default RGB space. Query method. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{classColor_afda694abe0a33c924daf178603f44752}{get\+Blue}} () const
+\begin{DoxyCompactList}\small\item\em Returns the blue component in the range 0-\/255 in the default RGB space. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classColor_abb8258c40a757066e26538b6c4be9ed0}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Returns a string representation of this \doxylink{classColor}{Color} with the three component values separated by a whitespace. Query method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A color object \doxylink{classColor}{Color(red, green, blue)} is used to encapsulate colors in the default RGB color space. An RGB color value is specified with 3 components (alpha components)\+: red, green and blue. Each component is represented using and unsigned char value (alpha value) in the range 0 -\/ 255. Value of 255 means that the basic color is completely opaque and an alpha value of 0 means that the color is completely transparent. For example\+: 
+
+
+\begin{DoxyItemize}
+\item \doxylink{classColor}{Color(255, 0, 0)} represents red color, that is, red is set to its highest value (255), and the other two (green and blue) are set to 0
+\item \doxylink{classColor}{Color(0, 255, 0)} represents green color
+\item \doxylink{classColor}{Color(0, 0, 255)} represents blue color
+\item \doxylink{classColor}{Color(0, 0, 0)} represents black color
+\item \doxylink{classColor}{Color(255, 255, 255)} represents white color 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{Color_8h_source_l00036}{36}} of file \mbox{\hyperlink{Color_8h_source}{Color.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classColor_a2273b00de02271d674c5579c17eaf883}\label{classColor_a2273b00de02271d674c5579c17eaf883} 
+\index{Color@{Color}!Color@{Color}}
+\index{Color@{Color}!Color@{Color}}
+\doxysubsubsection{\texorpdfstring{Color()}{Color()}}
+{\footnotesize\ttfamily Color\+::\+Color (\begin{DoxyParamCaption}\item[{int}]{red = {\ttfamily DEFAULT\+\_\+RGB\+\_\+VALUE},  }\item[{int}]{green = {\ttfamily DEFAULT\+\_\+RGB\+\_\+VALUE},  }\item[{int}]{blue = {\ttfamily DEFAULT\+\_\+RGB\+\_\+VALUE} }\end{DoxyParamCaption})}
+
+
+
+Creates a RGB color with the specified red, green, and blue values, each one in the range (0 -\/ 255). Each one of the three components (red, green and blue) is 255 by default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & the red component. Input parameter \\
+\hline
+{\em green} & the green component. Input parameter \\
+\hline
+{\em blue} & the blue component. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & This method throws an std\+::invalid\+\_\+argument exception if red, green or blue are outside of the range \mbox{[}0..255\mbox{]}, ~\newline
+ both inclusive. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{Color_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{Color_8cpp_source}{Color.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (isValid(red)\ \&\&\ isValid(green)\ \&\&\ isValid(blue))\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \_r\ =\ red;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \_g\ =\ green;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \_b\ =\ blue;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}Color::Color(r,g,b)\ any\ of\ the\ three\ values\ "{}})}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ +\ \textcolor{stringliteral}{"{}\ are\ not\ a\ valid\ value\ for\ Color"{}});}
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classColor_afda694abe0a33c924daf178603f44752}\label{classColor_afda694abe0a33c924daf178603f44752} 
+\index{Color@{Color}!getBlue@{getBlue}}
+\index{getBlue@{getBlue}!Color@{Color}}
+\doxysubsubsection{\texorpdfstring{getBlue()}{getBlue()}}
+{\footnotesize\ttfamily unsigned char Color\+::get\+Blue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the blue component in the range 0-\/255 in the default RGB space. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The blue component of this \doxylink{classColor}{Color} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Color_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{Color_8cpp_source}{Color.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \_b;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classColor_ae97f0bb0f55f82c2e824899d9f8f60ad}\label{classColor_ae97f0bb0f55f82c2e824899d9f8f60ad} 
+\index{Color@{Color}!getGreen@{getGreen}}
+\index{getGreen@{getGreen}!Color@{Color}}
+\doxysubsubsection{\texorpdfstring{getGreen()}{getGreen()}}
+{\footnotesize\ttfamily unsigned char Color\+::get\+Green (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the green component in the range 0-\/255 in the default RGB space. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The green component of this \doxylink{classColor}{Color} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Color_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{Color_8cpp_source}{Color.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ \_g;}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classColor_a366040ee493dc797f3877c747f70245e}\label{classColor_a366040ee493dc797f3877c747f70245e} 
+\index{Color@{Color}!getRed@{getRed}}
+\index{getRed@{getRed}!Color@{Color}}
+\doxysubsubsection{\texorpdfstring{getRed()}{getRed()}}
+{\footnotesize\ttfamily unsigned char Color\+::get\+Red (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the red component in the range 0-\/255 in the default RGB space. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The red component of this \doxylink{classColor}{Color} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Color_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{Color_8cpp_source}{Color.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ \_r;}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classColor_abb8258c40a757066e26538b6c4be9ed0}\label{classColor_abb8258c40a757066e26538b6c4be9ed0} 
+\index{Color@{Color}!toString@{toString}}
+\index{toString@{toString}!Color@{Color}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Color\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a string representation of this \doxylink{classColor}{Color} with the three component values separated by a whitespace. Query method. 
+
+\begin{DoxyReturn}{Returns}
+the string composed 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Color_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{Color_8cpp_source}{Color.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{string}\ outputString\ =\ std::to\_string(\_r)\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_string(\_g)\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ std::to\_string(\_b);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ outputString;}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Color_8h}{Color.\+h}}\item 
+src/\mbox{\hyperlink{Color_8cpp}{Color.\+cpp}}\end{DoxyCompactItemize}

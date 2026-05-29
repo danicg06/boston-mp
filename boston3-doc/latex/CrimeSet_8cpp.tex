@@ -1,0 +1,51 @@
+\doxysection{src/\+Crime\+Set.cpp File Reference}
+\hypertarget{CrimeSet_8cpp}{}\label{CrimeSet_8cpp}\index{src/CrimeSet.cpp@{src/CrimeSet.cpp}}
+{\ttfamily \#include "{}Crime\+Set.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{CrimeSet_8cpp_aac3f6d8579777a6868f3b7b879b82d9a}{Format\+As\+Comment}} (const string \&comment, char comment\+Character)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{CrimeSet_8cpp_aac3f6d8579777a6868f3b7b879b82d9a}\label{CrimeSet_8cpp_aac3f6d8579777a6868f3b7b879b82d9a} 
+\index{CrimeSet.cpp@{CrimeSet.cpp}!FormatAsComment@{FormatAsComment}}
+\index{FormatAsComment@{FormatAsComment}!CrimeSet.cpp@{CrimeSet.cpp}}
+\doxysubsubsection{\texorpdfstring{FormatAsComment()}{FormatAsComment()}}
+{\footnotesize\ttfamily string Format\+As\+Comment (\begin{DoxyParamCaption}\item[{const string \&}]{comment,  }\item[{char}]{comment\+Character }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00311}{311}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ start\ =\ 0,\ end;}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{string}\ formatedComment;}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{if}\ (comment.size()\ >\ 0)\ \{\ \textcolor{comment}{//\ If\ comment\ has\ at\ least\ one\ character}}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((end\ =\ comment.find(\textcolor{charliteral}{'\(\backslash\)n'},\ start))\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ formatedComment\ +=\ commentCharacter\ +\ comment.substr(start,\ end\ -\/\ start)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ end\ +\ 1;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(start<comment.size())\{\ \textcolor{comment}{//\ This\ happens\ when\ last\ line\ of\ comment\ does\ not\ have\ \(\backslash\)n}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ formatedComment\ +=\ commentCharacter\ +\ comment.substr(start,\ comment.size()\ -\/\ start)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{return}\ formatedComment;}
+\DoxyCodeLine{00324\ \}}
+
+\end{DoxyCode}

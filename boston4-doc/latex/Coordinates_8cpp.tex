@@ -1,0 +1,92 @@
+\doxysection{src/\+Coordinates.cpp File Reference}
+\hypertarget{Coordinates_8cpp}{}\label{Coordinates_8cpp}\index{src/Coordinates.cpp@{src/Coordinates.cpp}}
+{\ttfamily \#include "{}Coordinates.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{Coordinates_8cpp_a68486995d9b18b17ed09bbf9e8b8097f}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&obj)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream insertion operator for \doxylink{classCoordinates}{Coordinates} class. Sends to the output stream the latitude and longitude converted to strings, separated by a comma. It must use the std\+::to\+\_\+string() function to convert latitude and longitude to strings. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{Coordinates_8cpp_abfd9876e7950981e020cd8a0761eee72}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classCoordinates}{Coordinates}} \&obj)
+\begin{DoxyCompactList}\small\item\em Overloading of the stream extraction operator for \doxylink{classCoordinates}{Coordinates} class. First it reads from the input stream the latitude, then a character (the comma character) and finally the longitude. Those two values (float numbers) will be used to set the latitude and longitude of the given \doxylink{classCoordinates}{Coordinates} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Coordinates_8cpp_a68486995d9b18b17ed09bbf9e8b8097f}\label{Coordinates_8cpp_a68486995d9b18b17ed09bbf9e8b8097f} 
+\index{Coordinates.cpp@{Coordinates.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Coordinates.cpp@{Coordinates.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{obj }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream insertion operator for \doxylink{classCoordinates}{Coordinates} class. Sends to the output stream the latitude and longitude converted to strings, separated by a comma. It must use the std\+::to\+\_\+string() function to convert latitude and longitude to strings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to be used. Input/output parameter \\
+\hline
+{\em obj} & The \doxylink{classCoordinates}{Coordinates} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily os} A reference to the output stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ os\ <<\ obj.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}();}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Coordinates_8cpp_abfd9876e7950981e020cd8a0761eee72}\label{Coordinates_8cpp_abfd9876e7950981e020cd8a0761eee72} 
+\index{Coordinates.cpp@{Coordinates.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Coordinates.cpp@{Coordinates.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{obj }\end{DoxyParamCaption})}
+
+
+
+Overloading of the stream extraction operator for \doxylink{classCoordinates}{Coordinates} class. First it reads from the input stream the latitude, then a character (the comma character) and finally the longitude. Those two values (float numbers) will be used to set the latitude and longitude of the given \doxylink{classCoordinates}{Coordinates} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & The input stream to be used. Input/output parameter \\
+\hline
+{\em obj} & The \doxylink{classCoordinates}{Coordinates} object. Output parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily A} reference to the input stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ is\ >>\ obj.\_latitude;}
+\DoxyCodeLine{00098\ \ \ \ \ is\ >>\ obj.\_longitude;}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}

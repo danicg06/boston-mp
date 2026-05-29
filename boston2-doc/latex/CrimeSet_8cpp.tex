@@ -1,0 +1,233 @@
+\doxysection{src/\+Crime\+Set.cpp File Reference}
+\hypertarget{CrimeSet_8cpp}{}\label{CrimeSet_8cpp}\index{src/CrimeSet.cpp@{src/CrimeSet.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}Crime\+Set.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{CrimeSet_8cpp_aac3f6d8579777a6868f3b7b879b82d9a}{Format\+As\+Comment}} (const string \&comment, char comment\+Character)
+\item 
+void \mbox{\hyperlink{CrimeSet_8cpp_a8747428968c4f83bd0c598f4cda6d08d}{Initialize\+Array\+Ints}} (int array\mbox{[}$\,$\mbox{]}, int size)
+\begin{DoxyCompactList}\small\item\em Initializes to 0 the elements of the provided array {\ttfamily array}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{CrimeSet_8cpp_a25ca7bc1c277195b044f060d72a909ad}{Print\+Histogram\+Array\+Crimes}} (int data\+Field, int histogram\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Displays the provided histogram (cumulative frequencies of crimes by day of the week or hour of the day) on the standard output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{CrimeSet_8cpp_a6eda4a5c19c5975d5db5b11025f6e046}{Swap\+Elements\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} array\mbox{[}$\,$\mbox{]}, int n\+Elements, int first, int second)
+\begin{DoxyCompactList}\small\item\em Swaps the elements at positions {\ttfamily first} and {\ttfamily second} in the given array of \doxylink{classCrime}{Crime}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{CrimeSet_8cpp_abb4919ac2fd7b17221365d7de8bd28b3}{Pos\+Min\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} array\mbox{[}$\,$\mbox{]}, int initial\+Pos, int final\+Pos)
+\begin{DoxyCompactList}\small\item\em Finds the position of the element with the minimum crime in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). The order criterion among Crimes uses the date\+Time and ID fields\+: crime1\texorpdfstring{$<$}{<}crime2 if crime1.\+date\+Time \texorpdfstring{$<$}{<} crime2.\+date\+Time. If crime1.\+date\+Time == crime2.\+date\+Time then the alphabetical order of the ID field is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{CrimeSet_8cpp_aac3f6d8579777a6868f3b7b879b82d9a}\label{CrimeSet_8cpp_aac3f6d8579777a6868f3b7b879b82d9a} 
+\index{CrimeSet.cpp@{CrimeSet.cpp}!FormatAsComment@{FormatAsComment}}
+\index{FormatAsComment@{FormatAsComment}!CrimeSet.cpp@{CrimeSet.cpp}}
+\doxysubsubsection{\texorpdfstring{FormatAsComment()}{FormatAsComment()}}
+{\footnotesize\ttfamily string Format\+As\+Comment (\begin{DoxyParamCaption}\item[{const string \&}]{comment,  }\item[{char}]{comment\+Character }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ start\ =\ 0,\ end;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{string}\ formatedComment;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (comment.size()\ >\ 0)\ \{\ \textcolor{comment}{//\ If\ comment\ has\ at\ least\ one\ character}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((end\ =\ comment.find(\textcolor{charliteral}{'\(\backslash\)n'},\ start))\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ formatedComment\ +=\ commentCharacter\ +\ comment.substr(start,\ end\ -\/\ start)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ end\ +\ 1;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(start<comment.size())\{\ \textcolor{comment}{//\ This\ happens\ when\ last\ line\ of\ comment\ does\ not\ have\ \(\backslash\)n}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ formatedComment\ +=\ commentCharacter\ +\ comment.substr(start,\ comment.size()\ -\/\ start)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ formatedComment;}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+\Hypertarget{CrimeSet_8cpp_a8747428968c4f83bd0c598f4cda6d08d}\label{CrimeSet_8cpp_a8747428968c4f83bd0c598f4cda6d08d} 
+\index{CrimeSet.cpp@{CrimeSet.cpp}!InitializeArrayInts@{InitializeArrayInts}}
+\index{InitializeArrayInts@{InitializeArrayInts}!CrimeSet.cpp@{CrimeSet.cpp}}
+\doxysubsubsection{\texorpdfstring{InitializeArrayInts()}{InitializeArrayInts()}}
+{\footnotesize\ttfamily void Initialize\+Array\+Ints (\begin{DoxyParamCaption}\item[{int}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Initializes to 0 the elements of the provided array {\ttfamily array}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Array of integers. Output parameter \\
+\hline
+{\em size} & Size of the array {\ttfamily array}. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00345}{345}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<size;\ i++)}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ array[i]=0;}
+\DoxyCodeLine{00348\ \}}
+
+\end{DoxyCode}
+\Hypertarget{CrimeSet_8cpp_abb4919ac2fd7b17221365d7de8bd28b3}\label{CrimeSet_8cpp_abb4919ac2fd7b17221365d7de8bd28b3} 
+\index{CrimeSet.cpp@{CrimeSet.cpp}!PosMinArrayCrimes@{PosMinArrayCrimes}}
+\index{PosMinArrayCrimes@{PosMinArrayCrimes}!CrimeSet.cpp@{CrimeSet.cpp}}
+\doxysubsubsection{\texorpdfstring{PosMinArrayCrimes()}{PosMinArrayCrimes()}}
+{\footnotesize\ttfamily int Pos\+Min\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{initial\+Pos,  }\item[{int}]{final\+Pos }\end{DoxyParamCaption})}
+
+
+
+Finds the position of the element with the minimum crime in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). The order criterion among Crimes uses the date\+Time and ID fields\+: crime1\texorpdfstring{$<$}{<}crime2 if crime1.\+date\+Time \texorpdfstring{$<$}{<} crime2.\+date\+Time. If crime1.\+date\+Time == crime2.\+date\+Time then the alphabetical order of the ID field is used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \doxylink{classCrime}{Crime}. Input parameter \\
+\hline
+{\em initial\+Pos} & The initial position of the subarray. Input parameter \\
+\hline
+{\em final\+Pos} & The final position of the subarray. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the position of the element with minimum crime in the subarray that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). If no element can be retrieved, it returns -\/1. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00379}{379}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ first\ value\ as\ the\ min\ value.}}
+\DoxyCodeLine{00381\ \ \ \ \ }
+\DoxyCodeLine{00382\ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ min\ =\ array[initialPos];}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{int}\ posMin\ =\ initialPos;}
+\DoxyCodeLine{00384\ \ \ \ \ }
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ another\ value\ smaller\ than\ the\ real\ min,\ then,\ update}}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{comment}{//\ min\ with\ the\ new\ minimum.}}
+\DoxyCodeLine{00387\ \ \ \ \ }
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ pos\ =\ initialPos;\ pos\ <=\ finalPos\ ;\ pos++)\ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (min.\mbox{\hyperlink{classCrime_a24051bba0d8a9dd18c1515e38963ca94}{IsSmaller}}(array[pos]))\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ min\ =\ array[pos];}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ posMin\ =\ pos;}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \}}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{if}\ (initialPos\ >\ finalPos)\ posMin\ =\ -\/1;}
+\DoxyCodeLine{00397\ \ \ \ \ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{return}\ posMin;}
+\DoxyCodeLine{00399\ \}}
+
+\end{DoxyCode}
+\Hypertarget{CrimeSet_8cpp_a25ca7bc1c277195b044f060d72a909ad}\label{CrimeSet_8cpp_a25ca7bc1c277195b044f060d72a909ad} 
+\index{CrimeSet.cpp@{CrimeSet.cpp}!PrintHistogramArrayCrimes@{PrintHistogramArrayCrimes}}
+\index{PrintHistogramArrayCrimes@{PrintHistogramArrayCrimes}!CrimeSet.cpp@{CrimeSet.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintHistogramArrayCrimes()}{PrintHistogramArrayCrimes()}}
+{\footnotesize\ttfamily void Print\+Histogram\+Array\+Crimes (\begin{DoxyParamCaption}\item[{int}]{data\+Field,  }\item[{int}]{histogram\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Displays the provided histogram (cumulative frequencies of crimes by day of the week or hour of the day) on the standard output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Field} & Integer to select the type of histogram to display (0 or 1)\+:
+\begin{DoxyItemize}
+\item value 0 when the histogram contains frequencies by days of the week. In this case, 7 lines will be displayed, one for each day of the week; first line for Sunday, second for Monday, and so on. Use method \doxylink{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}{Date\+Time\+::day\+Name(int day)} to recover a string with the name of each day of the week given an integer (0 for Sunday, 1 for Monday, ...). An example of output when using data\+Field==0 is the following\+: SUNDAY 25 MONDAY 11 TUESDAY 12 WEDNESDAY 5 THURSDAY 13 FRIDAY 17 SATURDAY 32
+\item value 1 when the histogram contains frequencies by hours of the day. In this case, 24 lines will be displayed, one for each hour of the day; first line for hour 0, second line for hour 1, and so on. An example of output when using data\+Field==1 is the following\+: 0 23 1 21 2 15 3 12 4 7 5 3 6 2 7 0 8 5 ...
+\item Other values for data\+Field produce empty output Input parameter 
+\end{DoxyItemize}\\
+\hline
+{\em histogram} & histogram with cumulative frequencies by day of the week or hour of the day. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00350}{350}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LONG\_WEEK=7;}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LONG\_DAY=24;}
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordflow}{switch}\ (dataField)\ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:\ \textcolor{comment}{//\ days\ of\ the\ week}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<LONG\_WEEK;\ i++)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl\ <<\ \mbox{\hyperlink{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}{DateTime::dayName}}(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ histogram[i];}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \textcolor{comment}{//\ hours\ of\ the\ day}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<LONG\_DAY;\ i++)}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ histogram[i];}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \}}
+
+\end{DoxyCode}
+\Hypertarget{CrimeSet_8cpp_a6eda4a5c19c5975d5db5b11025f6e046}\label{CrimeSet_8cpp_a6eda4a5c19c5975d5db5b11025f6e046} 
+\index{CrimeSet.cpp@{CrimeSet.cpp}!SwapElementsArrayCrimes@{SwapElementsArrayCrimes}}
+\index{SwapElementsArrayCrimes@{SwapElementsArrayCrimes}!CrimeSet.cpp@{CrimeSet.cpp}}
+\doxysubsubsection{\texorpdfstring{SwapElementsArrayCrimes()}{SwapElementsArrayCrimes()}}
+{\footnotesize\ttfamily void Swap\+Elements\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Elements,  }\item[{int}]{first,  }\item[{int}]{second }\end{DoxyParamCaption})}
+
+
+
+Swaps the elements at positions {\ttfamily first} and {\ttfamily second} in the given array of \doxylink{classCrime}{Crime}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \doxylink{classCrime}{Crime}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Input parameter \\
+\hline
+{\em first} & the position of the first element to be swaped. Input parameter \\
+\hline
+{\em second} & the position of the second element to be swaped. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::out\+\_\+of\+\_\+range exception if first or second are positions out of the range of the given array \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{CrimeSet_8cpp_source_l00366}{366}} of file \mbox{\hyperlink{CrimeSet_8cpp_source}{Crime\+Set.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{if}\ (first\ <\ nElements\ \&\&\ first\ >=\ 0\ \&\&\ second\ <\ nElements\ \&\&\ second\ >=\ 0)\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ tmp\ =\ array[first];}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ array[first]\ =\ array[second];}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ array[second]\ =\ tmp;}
+\DoxyCodeLine{00371\ \ \ \ \ \}}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//\ given\ positions\ not\ valid}}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ Crime::SwapElementsArrayCrimes(Crime\ array[],"{}}}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}int\ nElements,\ int\ first,\ int\ second)\ :\ "{}})\ +}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}given\ positions\ are\ not\ valid."{}});}
+\DoxyCodeLine{00377\ \}}
+
+\end{DoxyCode}

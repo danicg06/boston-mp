@@ -1,0 +1,710 @@
+\doxysection{Crime\+Counter Class Reference}
+\hypertarget{classCrimeCounter}{}\label{classCrimeCounter}\index{CrimeCounter@{CrimeCounter}}
+
+
+It is a helper class used to calculate the number of crimes (frequency) occurring within each one of the smaller areas (cells) in which is divided a given target geographical area of the world. The target geographical area is determined by the next two fields in this class (\doxylink{classCoordinates}{Coordinates} objects)\+:  
+
+
+
+
+{\ttfamily \#include $<$Crime\+Counter.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCrimeCounter_a37d693e8819733f30968058890c2bcc6}{Crime\+Counter}} (int n\+Rows=DEFAULT\+\_\+\+ROWS, int n\+Columns=DEFAULT\+\_\+\+COLUMNS, const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&bottom\+Left\+Coord=\mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{DEFAULT\+\_\+\+COORD\+\_\+\+BOTTOMLEFT}}, const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&top\+Right\+Coord=\mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{DEFAULT\+\_\+\+COORD\+\_\+\+TOPRIGHT}})
+\begin{DoxyCompactList}\small\item\em Constructor of the class. It allocates memory for the two-\/dimensional matrix of frequencies and sets the \doxylink{classCoordinates}{Coordinates} (bottom left corner and top right corner) that defines the target geographical area. Each element of the matrix will be initialized with 0 in this constructor. If the provided number of rows or columns is less or equals to zero, the matrix will be set with 0 rows and columns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCrimeCounter_a7f4d4f8b19eab4e09c4861996e491350}{Crime\+Counter}} (const \mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}} \&orig)
+\begin{DoxyCompactList}\small\item\em Copy constructor. Builds an exact copy of the provided object {\ttfamily orig}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCrimeCounter_a9564ec666f6d206eb3e8d053ff7d7e90}{\texorpdfstring{$\sim$}{\string~}\+Crime\+Counter}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}} \& \mbox{\hyperlink{classCrimeCounter_abebf3d5396e389cfacd805fc09a80fb1}{operator=}} (const \mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}} \&orig)
+\begin{DoxyCompactList}\small\item\em Overloads the assignment operator for \doxylink{classCrimeCounter}{Crime\+Counter} class. Modifier method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeCounter_aefb64a535ec8087e2cba500490181e3d}{get\+Num\+Rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns the numbers of rows of the frequency matrix in this object. Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeCounter_a68883d89716305e805256a3027328ac6}{get\+Num\+Cols}} () const
+\begin{DoxyCompactList}\small\item\em Returns the numbers of columns of the frequency matrix in this object. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classCrimeCounter_a016fb43c586a1dedfcf0f031a8079293}{get\+Left\+Location}} () const
+\begin{DoxyCompactList}\small\item\em Returns the bottom left corner (\doxylink{classCoordinates}{Coordinates}) of the target geographical area of this object. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classCrimeCounter_add234f2ca31343dae3eaccaa10f4f6b9}{get\+Right\+Location}} () const
+\begin{DoxyCompactList}\small\item\em Returns the top right corner (\doxylink{classCoordinates}{Coordinates}) of the target geographical area of this object. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrimeCounter_a402c6f09da7094f9054956a595fabf52}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Returns a string with the content of this object. This string is as follows\+: \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}{get\+Max\+Frequency}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum number of crimes (frequency) located in the frequency matrix of this object. Query method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrimeCounter_ac67fc56fcfd44a08f6cbb908955623aa}{get\+Total\+Located}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of counted crimes, that is the sum of the frequencies in the frequency matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Sets all values in the frequency matrix to 0. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}{increase\+Frequency}} (const \mbox{\hyperlink{classCrime}{Crime}} \&crime, int frequency=0)
+\begin{DoxyCompactList}\small\item\em Increases with the value {\ttfamily frequency} the current frequency of the cell of the frequency matrix that corresponds to the location of the given \doxylink{classCrime}{Crime}. If the coordinates of the given \doxylink{classCrime}{Crime} are not valid or the \doxylink{classCrime}{Crime} is not inside the area of the target geographical area of this object, this method performs no action (does not increase any frequency). If {\ttfamily frequency} is 0 or frequency is not provided, then 1 is added to the current frequency of the selected grid cell. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeCounter_ac701d99ded30662984ba056cac65924b}{calculate\+Frequencies}} (const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&crimes)
+\begin{DoxyCompactList}\small\item\em Calculates the frequencies of the crimes that can be ~\newline
+ obtained from the provided \doxylink{classCrimeSet}{Crime\+Set}. Only the crimes of the provided \doxylink{classCrimeSet}{Crime\+Set}, with a location inside the target area of this object will be considered; others will be ignored. This method sets to zero the frequency of each cell before starting to calculate frequencies. In this way, if this method is called twice consecutively, then this \doxylink{classCrimeCounter}{Crime\+Counter} will contain only the frecuencies calculated in the last call. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a}{save\+As\+PPMText\+Image}} (const std\+::string \&file\+Name, const \mbox{\hyperlink{classColorPalette}{Color\+Palette}} \&palette, const std\+::string \&comment="{}"{}) const
+\begin{DoxyCompactList}\small\item\em Saves the matrix of frequencies of this object as a PPM color image. In a PPM (portable pixmap format) color image, each pixel (\doxylink{classColor}{Color}) of the image is saved as three integer numbers\+: the red, green and blue components (each one in the range 0-\/255). This method follows the following steps to build the PPM file\+: \end{DoxyCompactList}\item 
+int \& \mbox{\hyperlink{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff}{operator()}} (int row, int column) const
+\begin{DoxyCompactList}\small\item\em Overloading of the () operator to access to the element at a given position in the matrix of frequencies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{DEFAULT\+\_\+\+COORD\+\_\+\+BOTTOMLEFT}}
+\item 
+static const \mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{DEFAULT\+\_\+\+COORD\+\_\+\+TOPRIGHT}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is a helper class used to calculate the number of crimes (frequency) occurring within each one of the smaller areas (cells) in which is divided a given target geographical area of the world. The target geographical area is determined by the next two fields in this class (\doxylink{classCoordinates}{Coordinates} objects)\+: 
+
+
+\begin{DoxyItemize}
+\item \+\_\+bottom\+Left\+Coord\+: Bottom left corner of the target geographical area
+\item \+\_\+top\+Right\+Coord\+: Top right corner of the target geographical area
+\end{DoxyItemize}
+
+The target geographical area is divided into smaller rectangular areas (cells) using a grid of n\+Rows x n\+Columns cells. ~\newline
+ This class uses a dynamic two-\/dimensional matrix of integers to store the frequencies for each cell of the grid. Each integer in this matrix allows to save the frequency of one of the cells. The field \+\_\+frequency of this class is a pointer to that matrix. 
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8h_source_l00039}{39}} of file \mbox{\hyperlink{CrimeCounter_8h_source}{Crime\+Counter.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCrimeCounter_a37d693e8819733f30968058890c2bcc6}\label{classCrimeCounter_a37d693e8819733f30968058890c2bcc6} 
+\index{CrimeCounter@{CrimeCounter}!CrimeCounter@{CrimeCounter}}
+\index{CrimeCounter@{CrimeCounter}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{CrimeCounter()}{CrimeCounter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Crime\+Counter\+::\+Crime\+Counter (\begin{DoxyParamCaption}\item[{int}]{n\+Rows = {\ttfamily DEFAULT\+\_\+ROWS},  }\item[{int}]{n\+Columns = {\ttfamily DEFAULT\+\_\+COLUMNS},  }\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{bottom\+Left\+Coord = {\ttfamily \mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{DEFAULT\+\_\+\+COORD\+\_\+\+BOTTOMLEFT}}},  }\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{top\+Right\+Coord = {\ttfamily \mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{DEFAULT\+\_\+\+COORD\+\_\+\+TOPRIGHT}}} }\end{DoxyParamCaption})}
+
+
+
+Constructor of the class. It allocates memory for the two-\/dimensional matrix of frequencies and sets the \doxylink{classCoordinates}{Coordinates} (bottom left corner and top right corner) that defines the target geographical area. Each element of the matrix will be initialized with 0 in this constructor. If the provided number of rows or columns is less or equals to zero, the matrix will be set with 0 rows and columns. 
+
+This constructor uses default values for the parameters {\ttfamily bottom\+Left\+Coord} and {\ttfamily top\+Right\+Coord} that have been taken from the border coordinates of the dataset for Boston city (1). That full dataset is the source of the different datasets used in this course. (1) (csv file located in \href{https://www.kaggle.com/datasets/shivamnegi1993/boston-crime-dataset-2022/data}{\texttt{ https\+://www.\+kaggle.\+com/datasets/shivamnegi1993/boston-\/crime-\/dataset-\/2022/data}}).
+
+\begin{DoxyPrecond}{Precondition}
+bottom\+Left\+Coord.\+latitude \texorpdfstring{$<$}{<} top\+Right\+Coord.\+latitude and bottom\+Left\+Coord.\+longitude \texorpdfstring{$<$}{<} top\+Right\+Coord.\+longitude in order to calculate correctly the area set by the two \doxylink{classCoordinates}{Coordinates}; otherwise incorrect calculations could be obtained with this class. This constructor does not check this precondition. 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Throws an std\+::invalid\+\_\+argument exception if any of the provided coordinates is invalid. In this case, the fields of the object are initialized as follows\+:
+\begin{DoxyItemize}
+\item \+\_\+n\+Rows=0
+\item \+\_\+r\+Cols=0
+\item \+\_\+frequency=nullptr
+\item \+\_\+bottom\+Left\+Coord and \+\_\+top\+Right\+Coord fields are left with the default value assigned by the default constructor of the class \doxylink{classCoordinates}{Coordinates}; ~\newline
+ After the fields are initialized as described above, the exception is thrown.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Rows} & Number of rows for the frequency matrix. Input parameter \\
+\hline
+{\em n\+Columns} & Number of columns for the frequency matrix. Input parameter. ~\newline
+ \\
+\hline
+{\em bottom\+Left\+Coord} & \doxylink{classCoordinates}{Coordinates} of the bottom left corner of the target geographical area. Input parameter \\
+\hline
+{\em top\+Right\+Coord} & \doxylink{classCoordinates}{Coordinates} of the top right corner of the target geographical area. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (nRows\ >\ 0\ \&\&\ nColumns\ >\ 0\ \&\&\ bottomLeftCoord.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}()\ \&\&\ topRightCoord.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}())\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \_nRows\ =\ nRows;}
+\DoxyCodeLine{00037\ \ \ \ \ \_nCols\ =\ nColumns;}
+\DoxyCodeLine{00038\ \ \ \ \ \_bottomLeftCoord\ =\ bottomLeftCoord;}
+\DoxyCodeLine{00039\ \ \ \ \ \_topRightCoord\ =\ topRightCoord;}
+\DoxyCodeLine{00040\ \ \ \ \ \_frequency\ =\ allocateMatrixFrequencies(\_nRows,\ \_nCols);}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{clear}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \_nRows\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \_nCols\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \_frequency\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}CrimeCounter::CrimeCounter"{}}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(int\ nRows,\ int\ nColumns,\ Coordinates\ \ bottomLeftCoord,\ "{}}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Coordinates\ \ topRightCoord)\ :\ "{}})\ +}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ given\ magic\ string\ is\ invalid)"{}});}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a7f4d4f8b19eab4e09c4861996e491350}\label{classCrimeCounter_a7f4d4f8b19eab4e09c4861996e491350} 
+\index{CrimeCounter@{CrimeCounter}!CrimeCounter@{CrimeCounter}}
+\index{CrimeCounter@{CrimeCounter}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{CrimeCounter()}{CrimeCounter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Crime\+Counter\+::\+Crime\+Counter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}} \&}]{orig }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. Builds an exact copy of the provided object {\ttfamily orig}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & object used as source for the copy. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \_frequency\ =\ allocateMatrixFrequencies(orig.\_nRows,\ orig.\_nCols);}
+\DoxyCodeLine{00058\ \ \ \ \ copy(orig);}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a9564ec666f6d206eb3e8d053ff7d7e90}\label{classCrimeCounter_a9564ec666f6d206eb3e8d053ff7d7e90} 
+\index{CrimeCounter@{CrimeCounter}!````~CrimeCounter@{\texorpdfstring{$\sim$}{\string~}CrimeCounter}}
+\index{````~CrimeCounter@{\texorpdfstring{$\sim$}{\string~}CrimeCounter}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CrimeCounter()}{\string~CrimeCounter()}}
+{\footnotesize\ttfamily Crime\+Counter\+::\texorpdfstring{$\sim$}{\string~}\+Crime\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ deallocateMatrixFrequencies();}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCrimeCounter_ac701d99ded30662984ba056cac65924b}\label{classCrimeCounter_ac701d99ded30662984ba056cac65924b} 
+\index{CrimeCounter@{CrimeCounter}!calculateFrequencies@{calculateFrequencies}}
+\index{calculateFrequencies@{calculateFrequencies}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{calculateFrequencies()}{calculateFrequencies()}}
+{\footnotesize\ttfamily void Crime\+Counter\+::calculate\+Frequencies (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&}]{crimes }\end{DoxyParamCaption})}
+
+
+
+Calculates the frequencies of the crimes that can be ~\newline
+ obtained from the provided \doxylink{classCrimeSet}{Crime\+Set}. Only the crimes of the provided \doxylink{classCrimeSet}{Crime\+Set}, with a location inside the target area of this object will be considered; others will be ignored. This method sets to zero the frequency of each cell before starting to calculate frequencies. In this way, if this method is called twice consecutively, then this \doxylink{classCrimeCounter}{Crime\+Counter} will contain only the frecuencies calculated in the last call. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crimes} & A \doxylink{classCrimeSet}{Crime\+Set} object. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{clear}}();}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ crimes.\mbox{\hyperlink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{getSize}}();\ i++)\ \mbox{\hyperlink{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}{increaseFrequency}}(crimes[i],\ 1);}
+\DoxyCodeLine{00162\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}\label{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c} 
+\index{CrimeCounter@{CrimeCounter}!clear@{clear}}
+\index{clear@{clear}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Crime\+Counter\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets all values in the frequency matrix to 0. Modifier method. 
+
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nRows;\ i++)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j\ <\ \_nCols;\ j++)}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \_frequency[i][j]\ =\ 0;}
+\DoxyCodeLine{00142\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a016fb43c586a1dedfcf0f031a8079293}\label{classCrimeCounter_a016fb43c586a1dedfcf0f031a8079293} 
+\index{CrimeCounter@{CrimeCounter}!getLeftLocation@{getLeftLocation}}
+\index{getLeftLocation@{getLeftLocation}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{getLeftLocation()}{getLeftLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinates}{Coordinates}} Crime\+Counter\+::get\+Left\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the bottom left corner (\doxylink{classCoordinates}{Coordinates}) of the target geographical area of this object. Query method. 
+
+\begin{DoxyReturn}{Returns}
+Returns the bottom left corner (\doxylink{classCoordinates}{Coordinates}) of the target geographical area of this object. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}(\_bottomLeftCoord);}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}\label{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba} 
+\index{CrimeCounter@{CrimeCounter}!getMaxFrequency@{getMaxFrequency}}
+\index{getMaxFrequency@{getMaxFrequency}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{getMaxFrequency()}{getMaxFrequency()}}
+{\footnotesize\ttfamily int Crime\+Counter\+::get\+Max\+Frequency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the maximum number of crimes (frequency) located in the frequency matrix of this object. Query method. 
+
+\begin{DoxyReturn}{Returns}
+the maximum frequency found in the 2D matrix. Returns 0 if the matrix has 0 rows and columns. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ -\/1;\ \textcolor{comment}{//\ First\ maximum,\ values\ are\ always\ positive}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f=0;\ f\ <\ \_nRows;\ f++)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c=0;\ c\ <\ \_nCols;\ c++)}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_frequency[f][c]\ >\ max)\ max\ =\ \_frequency[f][c];}
+\DoxyCodeLine{00120\ \ \ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ max;}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a68883d89716305e805256a3027328ac6}\label{classCrimeCounter_a68883d89716305e805256a3027328ac6} 
+\index{CrimeCounter@{CrimeCounter}!getNumCols@{getNumCols}}
+\index{getNumCols@{getNumCols}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{getNumCols()}{getNumCols()}}
+{\footnotesize\ttfamily int Crime\+Counter\+::get\+Num\+Cols (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the numbers of columns of the frequency matrix in this object. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The numbers of columns of the frequency matrix in this object 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_nCols);}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_aefb64a535ec8087e2cba500490181e3d}\label{classCrimeCounter_aefb64a535ec8087e2cba500490181e3d} 
+\index{CrimeCounter@{CrimeCounter}!getNumRows@{getNumRows}}
+\index{getNumRows@{getNumRows}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{getNumRows()}{getNumRows()}}
+{\footnotesize\ttfamily int Crime\+Counter\+::get\+Num\+Rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the numbers of rows of the frequency matrix in this object. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The numbers of rows of the frequency matrix in this object 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_nRows);}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_add234f2ca31343dae3eaccaa10f4f6b9}\label{classCrimeCounter_add234f2ca31343dae3eaccaa10f4f6b9} 
+\index{CrimeCounter@{CrimeCounter}!getRightLocation@{getRightLocation}}
+\index{getRightLocation@{getRightLocation}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{getRightLocation()}{getRightLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinates}{Coordinates}} Crime\+Counter\+::get\+Right\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the top right corner (\doxylink{classCoordinates}{Coordinates}) of the target geographical area of this object. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The top right corner (\doxylink{classCoordinates}{Coordinates}) of the target geographical area of this object. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_topRightCoord);}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_ac67fc56fcfd44a08f6cbb908955623aa}\label{classCrimeCounter_ac67fc56fcfd44a08f6cbb908955623aa} 
+\index{CrimeCounter@{CrimeCounter}!getTotalLocated@{getTotalLocated}}
+\index{getTotalLocated@{getTotalLocated}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{getTotalLocated()}{getTotalLocated()}}
+{\footnotesize\ttfamily int Crime\+Counter\+::get\+Total\+Located (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of counted crimes, that is the sum of the frequencies in the frequency matrix. 
+
+\begin{DoxyNote}{Note}
+That number includes only those crimes with valid coordinates located inside the target geographical area. Query method 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+the number of total crimes 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ totalLocated\ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nRows;\ i++)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j\ <\ \_nCols;\ j++)\{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ totalLocated\ +=\ \_frequency[i][j];}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ totalLocated;}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}\label{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5} 
+\index{CrimeCounter@{CrimeCounter}!increaseFrequency@{increaseFrequency}}
+\index{increaseFrequency@{increaseFrequency}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{increaseFrequency()}{increaseFrequency()}}
+{\footnotesize\ttfamily void Crime\+Counter\+::increase\+Frequency (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{crime,  }\item[{int}]{frequency = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Increases with the value {\ttfamily frequency} the current frequency of the cell of the frequency matrix that corresponds to the location of the given \doxylink{classCrime}{Crime}. If the coordinates of the given \doxylink{classCrime}{Crime} are not valid or the \doxylink{classCrime}{Crime} is not inside the area of the target geographical area of this object, this method performs no action (does not increase any frequency). If {\ttfamily frequency} is 0 or frequency is not provided, then 1 is added to the current frequency of the selected grid cell. Modifier method. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & The method throws an std\+::invalid\+\_\+argument exception when the given crime \doxylink{classCoordinates}{Coordinates} are valid but outside the target area. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em crime} & The crime to consider. Input parameter \\
+\hline
+{\em frequency} & The quantity to add at the current frequency of the corresponding grid cell. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ location\ =\ crime.\mbox{\hyperlink{classCrime_a9bf37f349e6f4ebe087689ba3cdc78dd}{getLocation}}();}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (location.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}()\ \&\&\ location.\mbox{\hyperlink{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}{isInsideArea}}(\_bottomLeftCoord,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_topRightCoord))\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ col;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ getRowColumn(location,\ row,\ col);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (frequency\ ==\ 0)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ frequency\ =\ 1;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \_frequency[row][col]\ +=\ frequency;}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff}\label{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff} 
+\index{CrimeCounter@{CrimeCounter}!operator()@{operator()}}
+\index{operator()@{operator()}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily int \& Crime\+Counter\+::operator() (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption}) const}
+
+
+
+Overloading of the () operator to access to the element at a given position in the matrix of frequencies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Row of the element \\
+\hline
+{\em column} & Column of the element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the element at the given position 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00164}{164}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{return}\ \_frequency[row][column];}
+\DoxyCodeLine{00166\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_abebf3d5396e389cfacd805fc09a80fb1}\label{classCrimeCounter_abebf3d5396e389cfacd805fc09a80fb1} 
+\index{CrimeCounter@{CrimeCounter}!operator=@{operator=}}
+\index{operator=@{operator=}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}} \& Crime\+Counter\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}} \&}]{orig }\end{DoxyParamCaption})}
+
+
+
+Overloads the assignment operator for \doxylink{classCrimeCounter}{Crime\+Counter} class. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & the \doxylink{classCrimeCounter}{Crime\+Counter} object used as source for the assignment. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this object 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (\&orig\ !=\ \textcolor{keyword}{this})\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ deallocateMatrixFrequencies();}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Hola"{}}\ <<\ endl;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \_frequency\ =\ allocateMatrixFrequencies(orig.\_nRows,\ orig.\_nCols);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ copy(orig);}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a}\label{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a} 
+\index{CrimeCounter@{CrimeCounter}!saveAsPPMTextImage@{saveAsPPMTextImage}}
+\index{saveAsPPMTextImage@{saveAsPPMTextImage}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{saveAsPPMTextImage()}{saveAsPPMTextImage()}}
+{\footnotesize\ttfamily void Crime\+Counter\+::save\+As\+PPMText\+Image (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{const \mbox{\hyperlink{classColorPalette}{Color\+Palette}} \&}]{palette,  }\item[{const std\+::string \&}]{comment = {\ttfamily "{}"{}} }\end{DoxyParamCaption}) const}
+
+
+
+Saves the matrix of frequencies of this object as a PPM color image. In a PPM (portable pixmap format) color image, each pixel (\doxylink{classColor}{Color}) of the image is saved as three integer numbers\+: the red, green and blue components (each one in the range 0-\/255). This method follows the following steps to build the PPM file\+: 
+
+
+\begin{DoxyItemize}
+\item It saves the string "{}\+P3"{} in a line.
+\item Then it saves the provided comments (if they are not empty). It is neccesary to insert the character \textquotesingle{}\#\textquotesingle{} at the beginning of the line.
+\item Next it saves the number of columns and rows (separated by white space).
+\item Next it saves the integer 255
+\item Finally it saves the pixels of the image (three integers for each pixel) separated by white space. Pixels should be traversed by rows, and then by column.
+\end{DoxyItemize}
+
+In this method, each frequency value in the matrix, is translated to a color of the output image with the help of the functions int \doxylink{CrimeCounter_8cpp_a1e25c23589359588c3102e9fdea370a7}{Get\+Index\+Palette()} and \doxylink{classColorPalette_a359d577ca613a09d7d9c901a1c43a31c}{Color\+Palette\+::get\+Color()} in the following way\+:
+
+int pixel\+Index = Get\+Index\+Palette(palette, log((\texorpdfstring{$\ast$}{*}this)(row,column)+1), log(max\+Frequency+1)); \doxylink{classColor}{Color} color = palette.\+get\+Color(pixel\+Index);
+
+where max\+Frequency is the maximum frequency value found in the frequency matrix.
+
+Example of a PPM file\+: P3 \hypertarget{classCrimeCounter_autotoc_md0}{}\doxysubsection{\texorpdfstring{"{}\+P3"{} means this is a PPM  color image in ASCII}{"P3" means this is a PPM  color image in ASCII}}\label{classCrimeCounter_autotoc_md0}
+\hypertarget{classCrimeCounter_autotoc_md1}{}\doxysubsection{\texorpdfstring{"{}3 2"{} is the width and height of the image in pixels}{"3 2" is the width and height of the image in pixels}}\label{classCrimeCounter_autotoc_md1}
+\hypertarget{classCrimeCounter_autotoc_md2}{}\doxysubsection{\texorpdfstring{"{}255"{} is the maximum value for each color}{"255" is the maximum value for each color}}\label{classCrimeCounter_autotoc_md2}
+\hypertarget{classCrimeCounter_autotoc_md3}{}\doxysubsection{\texorpdfstring{This, up through the "{}255"{} line below are the header.}{This, up through the "255" line below are the header.}}\label{classCrimeCounter_autotoc_md3}
+\hypertarget{classCrimeCounter_autotoc_md4}{}\doxysubsection{\texorpdfstring{Everything after that is the image data\+: RGB triplets.}{Everything after that is the image data: RGB triplets.}}\label{classCrimeCounter_autotoc_md4}
+\hypertarget{classCrimeCounter_autotoc_md5}{}\doxysubsection{\texorpdfstring{In order the pixel of this image are\+: red, green, blue,}{In order the pixel of this image are: red, green, blue,}}\label{classCrimeCounter_autotoc_md5}
+\hypertarget{classCrimeCounter_autotoc_md6}{}\doxysubsection{\texorpdfstring{yellow, white and black colors.}{yellow, white and black colors.}}\label{classCrimeCounter_autotoc_md6}
+3 2 255 255 0 0 0 255 0 0 0 255 255 255 0 255 255 255 0 0 0
+
+Query method 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & String with the name of the file for the output image. Input parameter \\
+\hline
+{\em palette} & The palette used to translate frequencies to colors of the output image. Input parameter \\
+\hline
+{\em comment} & The comment may include 0 or several lines separated by ~\newline
+. Input parameter any of them is prefixed with the \textquotesingle{}\#\textquotesingle{} character, ending by "{}\textbackslash{}n"{} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::ios\+\_\+base\+::failure} & Throws a std\+::ios\+\_\+base\+::failure exception if the given file cannot be opened or if an error occurs while writing to the file. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_COLOR\ \ \ \ \ \ \ \ \ \ \ =\ 255;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FORMAT\ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}P3"{}};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\_FIELDS\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00175\ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ ofstream\ file(fileName);}
+\DoxyCodeLine{00177\ \ \ \ \ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (file)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ colorIndex\ =\ 0;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ maxFrequency\ as\ the\ maximum\ frequency\ in\ the\ frequency\ matrix}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maxFrequency\ =\ \mbox{\hyperlink{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}{getMaxFrequency}}();}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ heading\ and\ comments\ into\ the\ ppm\ file}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ file\ <<\ FORMAT\ +\ SEPARATOR\_FIELDS;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ file\ <<\ comment;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ file\ <<\ \_nCols\ <<\ SEPARATOR\ <<\ \_nRows\ <<\ SEPARATOR\_FIELDS\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ MAX\_COLOR\ <<\ SEPARATOR\_FIELDS;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ every\ cell\ in\ the\ frequency\ matrix}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nRows;\ i++\ )\{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j\ <\ \_nCols;\ j++)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ colorIndex\ =\ \mbox{\hyperlink{CrimeCounter_8h_a1e25c23589359588c3102e9fdea370a7}{GetIndexPalette}}(palette,\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ log(\_frequency[i][j]+1),\ log(maxFrequency+1));}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ into\ the\ ppm\ file\ the\ RGB\ components\ of\ the\ color\ at\ }}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//the\ position\ colorIndex\ of\ the\ palette}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ palette.\mbox{\hyperlink{classColorPalette_a359d577ca613a09d7d9c901a1c43a31c}{getColor}}(colorIndex).\mbox{\hyperlink{classColor_abb8258c40a757066e26538b6c4be9ed0}{toString}}()\ <<\ SEPARATOR;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeCounter::saveAsPPMTextImage"{}}\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(const\ string\ \&fileName,\ const\ "{}}\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ColorPalette\ \&palette,\ const\ std::string\ "{}}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\&comment)\ :\ "{}})\ +\ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ "{}}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeCounter::saveAsPPMTextImage"{}}\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(const\ string\ \&fileName,\ const\ "{}}\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ColorPalette\ \&palette,\ const\ std::string\ "{}}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\&comment)\ :\ "{}})\ +\ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ "{}}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ file.close();}
+\DoxyCodeLine{00220\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrimeCounter_a402c6f09da7094f9054956a595fabf52}\label{classCrimeCounter_a402c6f09da7094f9054956a595fabf52} 
+\index{CrimeCounter@{CrimeCounter}!toString@{toString}}
+\index{toString@{toString}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Crime\+Counter\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a string with the content of this object. This string is as follows\+: 
+
+
+\begin{DoxyItemize}
+\item First line, the content of the private data \+\_\+n\+Rows and \+\_\+n\+Cols separated by a white space
+\item Second line, the \+\_\+bottom\+Left\+Coord coordinates (using comma between latitude and longitude)
+\item Third line, the \+\_\+top\+Right\+Coord coordinates (using comma between latitude and longitude)
+\item Next, a line for each row of the frequency matrix with the content of that row (white space between values). Query method \begin{DoxyReturn}{Returns}
+A string with the content of this object 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{string}\ rowsLines;}
+\DoxyCodeLine{00101\ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\_nRows;\ i++)\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j<\_nCols-\/1;\ j++)\{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ rowsLines\ +=\ to\_string(\_frequency[i][j])\ +\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ rowsLines\ +=\ to\_string(\_frequency[\_nRows-\/1][\_nCols-\/1]);}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ (to\_string(\_nRows)\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ to\_string(\_nCols)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ +\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \_bottomLeftCoord.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}()\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ +\ \_topRightCoord.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}()\ +}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ rowsLines\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCrimeCounter_ada32e892a144b6895adc89685907a961}\label{classCrimeCounter_ada32e892a144b6895adc89685907a961} 
+\index{CrimeCounter@{CrimeCounter}!DEFAULT\_COORD\_BOTTOMLEFT@{DEFAULT\_COORD\_BOTTOMLEFT}}
+\index{DEFAULT\_COORD\_BOTTOMLEFT@{DEFAULT\_COORD\_BOTTOMLEFT}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_COORD\_BOTTOMLEFT}{DEFAULT\_COORD\_BOTTOMLEFT}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCoordinates}{Coordinates}} Crime\+Counter\+::\+DEFAULT\+\_\+\+COORD\+\_\+\+BOTTOMLEFT\hspace{0.3cm}{\ttfamily [static]}}
+
+Constant with the default \doxylink{classCoordinates}{Coordinates} for the bottom left corner of the ~\newline
+ input geographical area. It is set to the bottom left corner of the Boston area
+
+DEFAULT\+\_\+\+COORD\+\_\+\+BOTTOMLEFT is set to the bottom left corner of the Boston area 
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8h_source_l00046}{46}} of file \mbox{\hyperlink{CrimeCounter_8h_source}{Crime\+Counter.\+h}}.
+
+\Hypertarget{classCrimeCounter_a77a985b3978880ba9782709b049d1341}\label{classCrimeCounter_a77a985b3978880ba9782709b049d1341} 
+\index{CrimeCounter@{CrimeCounter}!DEFAULT\_COORD\_TOPRIGHT@{DEFAULT\_COORD\_TOPRIGHT}}
+\index{DEFAULT\_COORD\_TOPRIGHT@{DEFAULT\_COORD\_TOPRIGHT}!CrimeCounter@{CrimeCounter}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_COORD\_TOPRIGHT}{DEFAULT\_COORD\_TOPRIGHT}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCoordinates}{Coordinates}} Crime\+Counter\+::\+DEFAULT\+\_\+\+COORD\+\_\+\+TOPRIGHT\hspace{0.3cm}{\ttfamily [static]}}
+
+Constant with the default \doxylink{classCoordinates}{Coordinates} for the top right corner of the ~\newline
+ input geographical area. It is set to the top right corner of the Boston area
+
+DEFAULT\+\_\+\+COORD\+\_\+\+TOPRIGHT is set to the top right corner of the Boston area 
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8h_source_l00053}{53}} of file \mbox{\hyperlink{CrimeCounter_8h_source}{Crime\+Counter.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{CrimeCounter_8h}{Crime\+Counter.\+h}}\item 
+src/\mbox{\hyperlink{CrimeCounter_8cpp}{Crime\+Counter.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,90 @@
+\doxysection{Crime\+Counter.\+h}
+\hypertarget{CrimeCounter_8h_source}{}\label{CrimeCounter_8h_source}\index{include/CrimeCounter.h@{include/CrimeCounter.h}}
+\mbox{\hyperlink{CrimeCounter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Metodología\ de\ la\ Programación}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00003}00003\ \textcolor{comment}{\ *\ Curso\ 2024/2025}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00014}00014\ \textcolor{preprocessor}{\#ifndef\ CRIMECOUNTER\_H}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00015}00015\ \textcolor{preprocessor}{\#define\ CRIMECOUNTER\_H}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{CrimeSet_8h}{CrimeSet.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ColorPalette_8h}{ColorPalette.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00039}\mbox{\hyperlink{classCrimeCounter}{00039}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00040}00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00046}\mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{00046}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{DEFAULT\_COORD\_BOTTOMLEFT}};\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00047}00047\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00053}\mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{00053}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{DEFAULT\_COORD\_TOPRIGHT}};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}(\textcolor{keywordtype}{int}\ nRows\ =\ DEFAULT\_ROWS,\ \textcolor{keywordtype}{int}\ nColumns\ =\ DEFAULT\_COLUMNS,}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&\ bottomLeftCoord\ =\ \mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{DEFAULT\_COORD\_BOTTOMLEFT}},\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&\ topRightCoord\ =\ \mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{DEFAULT\_COORD\_TOPRIGHT}});}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&orig);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00109}00109\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter_a9564ec666f6d206eb3e8d053ff7d7e90}{\string~CrimeCounter}}();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00110}00110\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&\mbox{\hyperlink{classCrimeCounter_abebf3d5396e389cfacd805fc09a80fb1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&orig);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_aefb64a535ec8087e2cba500490181e3d}{getNumRows}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_a68883d89716305e805256a3027328ac6}{getNumCols}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00143}00143\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_a016fb43c586a1dedfcf0f031a8079293}{getLeftLocation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_add234f2ca31343dae3eaccaa10f4f6b9}{getRightLocation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00153}00153\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00168}00168\ \ \ \ \ std::string\ \mbox{\hyperlink{classCrimeCounter_a402c6f09da7094f9054956a595fabf52}{toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00169}00169\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00177}00177\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}{getMaxFrequency}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00187}00187\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_ac67fc56fcfd44a08f6cbb908955623aa}{getTotalLocated}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00193}00193\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{clear}}();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00212}00212\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}{increaseFrequency}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrime}{Crime}}\ \&crime,\ \textcolor{keywordtype}{int}\ frequency\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00226}00226\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_ac701d99ded30662984ba056cac65924b}{calculateFrequencies}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ \&crimes);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00227}00227\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00284}00284\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a}{saveAsPPMTextImage}}(\textcolor{keyword}{const}\ std::string\ \&fileName,\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classColorPalette}{ColorPalette}}\ \&palette,\ \textcolor{keyword}{const}\ std::string\ \&comment\ =\ \textcolor{stringliteral}{"{}"{}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00286}00286\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00294}00294\ \ \ \ \ \textcolor{keywordtype}{int}\ \&\mbox{\hyperlink{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff}{operator()}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00295}00295\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00296}00296\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00297}00297\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00302}00302\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ DEFAULT\_ROWS\ =\ 15;\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00303}00303\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00308}00308\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ DEFAULT\_COLUMNS\ =\ 10;\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00309}00309\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00310}00310\ \ \ \ \ \textcolor{keywordtype}{int}**\ \_frequency;\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00311}00311\ \ \ \ \ \textcolor{keywordtype}{int}\ \_nRows;\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00312}00312\ \ \ \ \ \textcolor{keywordtype}{int}\ \_nCols;\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00319}00319\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \_bottomLeftCoord;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00325}00325\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \_topRightCoord;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00326}00326\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00357}00357\ \ \ \ \ \ \textcolor{keywordtype}{void}\ getRowColumn(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&coordinates,\ \textcolor{keywordtype}{int}\&\ row,\ \textcolor{keywordtype}{int}\&\ column)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00366}00366\ \ \ \ \ \textcolor{keywordtype}{int}\ \&\mbox{\hyperlink{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff}{operator()}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00367}00367\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00377}00377\ \ \ \ \ \textcolor{keywordtype}{int}**\ allocateMatrixFrequencies(\textcolor{keywordtype}{int}\ nRows,\ \textcolor{keywordtype}{int}\ nCols);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00378}00378\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00384}00384\ \ \ \ \ \textcolor{keywordtype}{void}\ deallocateMatrixFrequencies();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00385}00385\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00392}00392\ \ \ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&orig);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00393}00393\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00394}00394\ \};\ \textcolor{comment}{//\ end\ class\ CrimeCounter}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00411}00411\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{CrimeCounter_8h_a1e25c23589359588c3102e9fdea370a7}{GetIndexPalette}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classColorPalette}{ColorPalette}}\ \&palette,\ \textcolor{keywordtype}{float}\ frequency,\ \textcolor{keywordtype}{float}\ maxFrequency);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8h_source_l00413}00413\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CRIMECOUNTER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,191 @@
+\doxysection{Color\+Palette Class Reference}
+\hypertarget{classColorPalette}{}\label{classColorPalette}\index{ColorPalette@{ColorPalette}}
+
+
+A palette contains a list of Colors. The maximum number of colors in the list is MAX\+\_\+\+NUMBER\+\_\+\+COLORS.  
+
+
+
+
+{\ttfamily \#include $<$Color\+Palette.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classColorPalette_ad1b580e43e175c4e1daeb7e42618d366}{Color\+Palette}} (int da=2, int bl=2, int gr=2, int ye=2)
+\begin{DoxyCompactList}\small\item\em Builds a \doxylink{classColorPalette}{Color\+Palette} with a list of 4 intervals of "{}primary"{} colors and the red color (\doxylink{classColor}{Color(255, 0, 0)}). This constructor has 4 integer parameters to control the number of colors in each interval\+: \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}{get\+Num\+Colors}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of colors into the palette (a value among 1 and MAX\+\_\+\+NUMBER\+\_\+\+COLORS). Query method. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classColor}{Color}} \& \mbox{\hyperlink{classColorPalette_a359d577ca613a09d7d9c901a1c43a31c}{get\+Color}} (int index) const
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the \doxylink{classColor}{Color} at the given position A value between \mbox{[}0.. num\+Colors\mbox{[} . Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classColorPalette_a44f2a821cd50e4e214f067497c388342}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Returns a string composed one by one by the Colors stored into the palette separated by "{}\textbackslash{}n"{}. Query method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A palette contains a list of Colors. The maximum number of colors in the list is MAX\+\_\+\+NUMBER\+\_\+\+COLORS. 
+
+Definition at line \mbox{\hyperlink{ColorPalette_8h_source_l00026}{26}} of file \mbox{\hyperlink{ColorPalette_8h_source}{Color\+Palette.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classColorPalette_ad1b580e43e175c4e1daeb7e42618d366}\label{classColorPalette_ad1b580e43e175c4e1daeb7e42618d366} 
+\index{ColorPalette@{ColorPalette}!ColorPalette@{ColorPalette}}
+\index{ColorPalette@{ColorPalette}!ColorPalette@{ColorPalette}}
+\doxysubsubsection{\texorpdfstring{ColorPalette()}{ColorPalette()}}
+{\footnotesize\ttfamily Color\+Palette\+::\+Color\+Palette (\begin{DoxyParamCaption}\item[{int}]{da = {\ttfamily 2},  }\item[{int}]{bl = {\ttfamily 2},  }\item[{int}]{gr = {\ttfamily 2},  }\item[{int}]{ye = {\ttfamily 2} }\end{DoxyParamCaption})}
+
+
+
+Builds a \doxylink{classColorPalette}{Color\+Palette} with a list of 4 intervals of "{}primary"{} colors and the red color (\doxylink{classColor}{Color(255, 0, 0)}). This constructor has 4 integer parameters to control the number of colors in each interval\+: 
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily da\+:} number of colors from dark blue \doxylink{classColor}{Color(0, 0, 255)} (included) to light blue \doxylink{classColor}{Color(0, 255, 255)} (not included).
+\item {\ttfamily bl\+:} number of colors from light blue \doxylink{classColor}{Color(0, 255, 255)} (included) to green \doxylink{classColor}{Color(0, 255, 0)} (not included).
+\item {\ttfamily gr\+:} number of colors from green \doxylink{classColor}{Color(0, 255, 0)} (included) to yellow \doxylink{classColor}{Color(255, 255, 0)} (not included).
+\item {\ttfamily bl\+:} number of colors from yellow \doxylink{classColor}{Color(255, 255, 0)} (included) to red \doxylink{classColor}{Color(255, 0, 0)} (not included).
+\end{DoxyEnumerate}
+
+The total number of colors in the palette is the addition of all the tones in each interval plus 1 (red color).
+
+Examples\+:
+\begin{DoxyItemize}
+\item \doxylink{classColorPalette}{Color\+Palette(0,0,0,0)} has only one color, the red one \doxylink{classColor}{Color(255, 0, 0)}
+\item \doxylink{classColorPalette}{Color\+Palette(1,1,1,1)} has got 5 colors\+: \doxylink{classColor}{Color(0, 0, 255)}, \doxylink{classColor}{Color(0, 255, 255)}, \doxylink{classColor}{Color(0, 255, 0)}, ~\newline
+ \doxylink{classColor}{Color(255, 255, 0)} and \doxylink{classColor}{Color(255, 0, 0)}.
+\item \doxylink{classColorPalette}{Color\+Palette(3,0,0,0)} has 4 colors\+: \doxylink{classColor}{Color(0, 0, 255)}, \doxylink{classColor}{Color(0, 85, 255)}, \doxylink{classColor}{Color(0, 170, 255)} and \doxylink{classColor}{Color(255, 0, 0)}.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+If the total number of colors in the new palette is greater than Color\+Palette\+::\+MAX\+\_\+\+NUMBER\+\_\+\+COLORS or any of the provided parameters is negative this constructor builds a palette using the values da=2, bl=2, gr=2, ye=2
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em da} & number of tones from dark blue (included) to light blue (not included) \\
+\hline
+{\em bl} & number of tones from light blue (included) to green (not included) \\
+\hline
+{\em gr} & number of tones from green (included) to yellow (not included) \\
+\hline
+{\em ye} & number of tones from yellow(included) to red (not included) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ColorPalette_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{ColorPalette_8cpp_source}{Color\+Palette.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ init(da,\ bl,\ gr,\ ye);\ \textcolor{comment}{//\ palette}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{catch}(\textcolor{keyword}{const}\ std::invalid\_argument\ \&e)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ init(2,\ 2,\ 2,\ 2);}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classColorPalette_a359d577ca613a09d7d9c901a1c43a31c}\label{classColorPalette_a359d577ca613a09d7d9c901a1c43a31c} 
+\index{ColorPalette@{ColorPalette}!getColor@{getColor}}
+\index{getColor@{getColor}!ColorPalette@{ColorPalette}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classColor}{Color}} \& Color\+Palette\+::get\+Color (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Gets a const reference to the \doxylink{classColor}{Color} at the given position A value between \mbox{[}0.. num\+Colors\mbox{[} . Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the position to consider. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Throws an std\+::out\+\_\+of\+\_\+range exception if the given index is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A const reference to the \doxylink{classColor}{Color} at the given position. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ColorPalette_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{ColorPalette_8cpp_source}{Color\+Palette.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ 0\ \&\&\ index\ <\ \_numColors)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_palette[index];}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}ColorPalette::getColor(int\ index)\ Index\ of\ color,\ not\ valid:\ "{}})}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ +\ std::to\_string(index));}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}\label{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb} 
+\index{ColorPalette@{ColorPalette}!getNumColors@{getNumColors}}
+\index{getNumColors@{getNumColors}!ColorPalette@{ColorPalette}}
+\doxysubsubsection{\texorpdfstring{getNumColors()}{getNumColors()}}
+{\footnotesize\ttfamily int Color\+Palette\+::get\+Num\+Colors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of colors into the palette (a value among 1 and MAX\+\_\+\+NUMBER\+\_\+\+COLORS). Query method. 
+
+\begin{DoxyReturn}{Returns}
+number of colors into the palette. ~\newline
+ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ColorPalette_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{ColorPalette_8cpp_source}{Color\+Palette.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \_numColors;}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classColorPalette_a44f2a821cd50e4e214f067497c388342}\label{classColorPalette_a44f2a821cd50e4e214f067497c388342} 
+\index{ColorPalette@{ColorPalette}!toString@{toString}}
+\index{toString@{toString}!ColorPalette@{ColorPalette}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Color\+Palette\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a string composed one by one by the Colors stored into the palette separated by "{}\textbackslash{}n"{}. Query method. 
+
+\begin{DoxyReturn}{Returns}
+A string with the list of Colors into the palette separated by "{}\textbackslash{}n"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ColorPalette_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{ColorPalette_8cpp_source}{Color\+Palette.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{string}\ outputString;\ \textcolor{comment}{//\ =\ }}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}{getNumColors}}();\ i++)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ outputString\ +=\ \_palette[i].\mbox{\hyperlink{classColor_abb8258c40a757066e26538b6c4be9ed0}{toString}}()\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ outputString;}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ColorPalette_8h}{Color\+Palette.\+h}}\item 
+src/\mbox{\hyperlink{ColorPalette_8cpp}{Color\+Palette.\+cpp}}\end{DoxyCompactItemize}

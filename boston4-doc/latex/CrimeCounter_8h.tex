@@ -1,0 +1,72 @@
+\doxysection{include/\+Crime\+Counter.h File Reference}
+\hypertarget{CrimeCounter_8h}{}\label{CrimeCounter_8h}\index{include/CrimeCounter.h@{include/CrimeCounter.h}}
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}Crime\+Set.\+h"{}}\newline
+{\ttfamily \#include "{}Color\+Palette.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCrimeCounter}{Crime\+Counter}}
+\begin{DoxyCompactList}\small\item\em It is a helper class used to calculate the number of crimes (frequency) occurring within each one of the smaller areas (cells) in which is divided a given target geographical area of the world. The target geographical area is determined by the next two fields in this class (\doxylink{classCoordinates}{Coordinates} objects)\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{CrimeCounter_8h_a1e25c23589359588c3102e9fdea370a7}{Get\+Index\+Palette}} (const \mbox{\hyperlink{classColorPalette}{Color\+Palette}} \&palette, float frequency, float max\+Frequency)
+\begin{DoxyCompactList}\small\item\em Computes the index into the given palette that corresponds to the provided frequency. This index is calculated as follow\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+To be implemented by students 
+\end{DoxyNote}
+
+
+Definition in file \mbox{\hyperlink{CrimeCounter_8h_source}{Crime\+Counter.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{CrimeCounter_8h_a1e25c23589359588c3102e9fdea370a7}\label{CrimeCounter_8h_a1e25c23589359588c3102e9fdea370a7} 
+\index{CrimeCounter.h@{CrimeCounter.h}!GetIndexPalette@{GetIndexPalette}}
+\index{GetIndexPalette@{GetIndexPalette}!CrimeCounter.h@{CrimeCounter.h}}
+\doxysubsubsection{\texorpdfstring{GetIndexPalette()}{GetIndexPalette()}}
+{\footnotesize\ttfamily int Get\+Index\+Palette (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classColorPalette}{Color\+Palette}} \&}]{palette,  }\item[{float}]{frequency,  }\item[{float}]{max\+Frequency }\end{DoxyParamCaption})}
+
+
+
+Computes the index into the given palette that corresponds to the provided frequency. This index is calculated as follow\+: 
+
+
+\begin{DoxyItemize}
+\item If frequency == max\+Frequency then index=palette.\+get\+Num\+Colors()-\/1;
+\item Else index=frequency \texorpdfstring{$\ast$}{*} palette.\+get\+Num\+Colors() / max\+Frequency 
+\begin{DoxyParams}{Parameters}
+{\em palette} & The given palette. Input parameter \\
+\hline
+{\em frequency} & The input value for which we want to obtain its corresponding index in the palette. Input parameter \\
+\hline
+{\em max\+Frequency} & Maximum value of frequency to consider. It should be previously obtained as the maximum value in the frequency matrix. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index into the \doxylink{classColor}{Color} palette that corresponds to the provided frequency 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{CrimeCounter_8cpp_source_l00272}{272}} of file \mbox{\hyperlink{CrimeCounter_8cpp_source}{Crime\+Counter.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{return}\ frequency\ ==\ maxFrequency\ ?\ palette.\mbox{\hyperlink{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}{getNumColors}}()\ -\/\ 1\ :\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ frequency\ *\ palette.\mbox{\hyperlink{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}{getNumColors}}()\ /\ maxFrequency;}
+\DoxyCodeLine{00275\ \}}
+
+\end{DoxyCode}

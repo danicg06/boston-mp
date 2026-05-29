@@ -1,0 +1,458 @@
+\doxysection{include/\+Array\+Crimes\+Functions.h File Reference}
+\hypertarget{ArrayCrimesFunctions_8h}{}\label{ArrayCrimesFunctions_8h}\index{include/ArrayCrimesFunctions.h@{include/ArrayCrimesFunctions.h}}
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_a8747428968c4f83bd0c598f4cda6d08d}{Initialize\+Array\+Ints}} (int array\mbox{[}$\,$\mbox{]}, int size)
+\begin{DoxyCompactList}\small\item\em Initializes to 0 the elements of the provided array {\ttfamily array}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_a26d0a0a824459b235baf97f1a5a93b2c}{Compute\+Max\+Pos\+Array\+Ints}} (int array\mbox{[}$\,$\mbox{]}, int size, int \&max, int \&pos\+Max)
+\begin{DoxyCompactList}\small\item\em Obtains the maximum value and its position (index) in the provided array of integers {\ttfamily array}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_a25ca7bc1c277195b044f060d72a909ad}{Print\+Histogram\+Array\+Crimes}} (int data\+Field, int histogram\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Displays the provided histogram (cumulative frequencies of crimes by day of the week or hour of the day) on the standard output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_ac046662baf78bfea752a6e2617e12b38}{Print\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} crimes\mbox{[}$\,$\mbox{]}, int n\+Crimes)
+\begin{DoxyCompactList}\small\item\em Displays the content of the provided array of Crimes on the standard output. Each \doxylink{classCrime}{Crime} is displayed in a new line with the help of the \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{Crime\+::to\+String()} method. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ArrayCrimesFunctions_8h_abb4919ac2fd7b17221365d7de8bd28b3}{Pos\+Min\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} array\mbox{[}$\,$\mbox{]}, int initial\+Pos, int final\+Pos)
+\begin{DoxyCompactList}\small\item\em Finds the position of the element with the minimum crime in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). The order criterion among Crimes uses the date\+Time and ID fields\+: crime1\texorpdfstring{$<$}{<}crime2 if crime1.\+date\+Time \texorpdfstring{$<$}{<} crime2.\+date\+Time. If crime1.\+date\+Time == crime2.\+date\+Time then the alphabetical order of the ID field is used. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_a6eda4a5c19c5975d5db5b11025f6e046}{Swap\+Elements\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} array\mbox{[}$\,$\mbox{]}, int n\+Elements, int first, int second)
+\begin{DoxyCompactList}\small\item\em Swaps the elements at positions {\ttfamily first} and {\ttfamily second} in the given array of \doxylink{classCrime}{Crime}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_a5f389c34b93a94e2cdc3b0cfd18a5060}{Sort\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} array\mbox{[}$\,$\mbox{]}, int n\+Elements)
+\begin{DoxyCompactList}\small\item\em Sorts the given array of \doxylink{classCrime}{Crime} in increasing order using a sorting algorithm. The criterion order among Crimes is the same as the one explained in the function Pos\+Min\+Array\+Crimes, that uses the date\+Time and ID fields of each \doxylink{classCrime}{Crime}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ArrayCrimesFunctions_8h_a4c65b57fd49166317b2345e9607076a1}{Find\+Crime\+In\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} array\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{classCrime}{Crime}} crime, int initial\+Pos, int final\+Pos)
+\begin{DoxyCompactList}\small\item\em Searchs if the Id of the provided \doxylink{classCrime}{Crime} is in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_ab1468bba8fde87af4243d6453ef16383}{Compute\+Histogram\+Array\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} crimes\mbox{[}$\,$\mbox{]}, int n\+Crimes, int data\+Field, int histogram\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{ArrayCrimesFunctions_8h_aa3bcf928a2e7858e24693e76b706d423}{Select\+Where\+EQArray\+Crimes}} (\mbox{\hyperlink{classCrime}{Crime}} input\+Crimes\mbox{[}$\,$\mbox{]}, int input\+Crimes\+Size, std\+::string field, std\+::string value, \mbox{\hyperlink{classCrime}{Crime}} output\+Crimes\mbox{[}$\,$\mbox{]}, int \&output\+Crimes\+Size)
+\begin{DoxyCompactList}\small\item\em Saves in the array {\ttfamily output\+Crimes} those crimes in the array {\ttfamily input\+Crimes} whose name of attribute is provided with {\ttfamily field} parameter and whose value is equals to {\ttfamily value} parameter. This function enables simple queries as\+: "{}\+Code"{} == "{}unknown"{} or "{}\+Code"{}== "{}3114"{} as well as "{}\+Street"{}== "{}\+WASHINGTON ST"{} or "{}\+Date\+Time"{}==dd.\+to\+\_\+string() (being dd, a \doxylink{classDateTime}{Date\+Time} object),\texorpdfstring{$\ast$}{*} but no other relational operators as greater than etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Created on September 19, 2024, 1\+:14 \+PM 
+
+Definition in file \mbox{\hyperlink{ArrayCrimesFunctions_8h_source}{Array\+Crimes\+Functions.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ArrayCrimesFunctions_8h_ab1468bba8fde87af4243d6453ef16383}\label{ArrayCrimesFunctions_8h_ab1468bba8fde87af4243d6453ef16383} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!ComputeHistogramArrayCrimes@{ComputeHistogramArrayCrimes}}
+\index{ComputeHistogramArrayCrimes@{ComputeHistogramArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ComputeHistogramArrayCrimes()}{ComputeHistogramArrayCrimes()}}
+{\footnotesize\ttfamily void Compute\+Histogram\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{crimes\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Crimes,  }\item[{int}]{data\+Field,  }\item[{int}]{histogram\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+It takes the array of Crimes {\ttfamily crimes} as input and calculates the cumulative frequency distribution of crimes (histogram) by days of the week or by hours of the day. The histogram is saved in the array {\ttfamily histogram}. The \doxylink{classDateTime}{Date\+Time} field of each \doxylink{classCrime}{Crime} contains the information about when it took place. \begin{DoxyPrecond}{Precondition}
+the array {\ttfamily histogram} should have enough capacity to save the calculated frequencies. Otherwise, possible runtime errors will be obtained 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if {\ttfamily data\+Field} is neither 0 nor 1 \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em crimes} & Input array of \doxylink{classCrime}{Crime} objects. Input parameter \\
+\hline
+{\em n\+Crimes} & The size of {\ttfamily crimes}. Input parameter \\
+\hline
+{\em data\+Field} & Integer to select the type of calculation to be performed\+:
+\begin{DoxyItemize}
+\item value 0 to calculate by day of the week
+\item value 1 to calculate by hours of the day Input parameter 
+\end{DoxyItemize}\\
+\hline
+{\em histogram} & output array where the cumulative frequencies will be saved. Input/output parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MODE\_WEEK\ \ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MODE\_HOURS\ =\ 1;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_CAP\ \ \ \ =\ 24;}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_a8747428968c4f83bd0c598f4cda6d08d}{InitializeArrayInts}}(histogram,\ MAX\_CAP);}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{switch}\ (dataField)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MODE\_WEEK:\ \textcolor{comment}{//\ days\ of\ the\ week}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nCrimes;\ i++)}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ histogram[crimes[i].getDateTime().weekDay()]++;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MODE\_HOURS:\ \textcolor{comment}{//\ hours\ of\ the\ day}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nCrimes;\ i++)}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ histogram[crimes[i].getDateTime().hour()]++;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//\ not\ valid\ data\ field}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ Crime::ComputeHistogramArrayCrimes(Crime\ crimes[],"{}}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}int\ dataField,\ int\ histogram[])\ :\ "{}})\ +}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}histogram\ datField\ not\ valid."{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_a26d0a0a824459b235baf97f1a5a93b2c}\label{ArrayCrimesFunctions_8h_a26d0a0a824459b235baf97f1a5a93b2c} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!ComputeMaxPosArrayInts@{ComputeMaxPosArrayInts}}
+\index{ComputeMaxPosArrayInts@{ComputeMaxPosArrayInts}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ComputeMaxPosArrayInts()}{ComputeMaxPosArrayInts()}}
+{\footnotesize\ttfamily void Compute\+Max\+Pos\+Array\+Ints (\begin{DoxyParamCaption}\item[{int}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{size,  }\item[{int \&}]{max,  }\item[{int \&}]{pos\+Max }\end{DoxyParamCaption})}
+
+
+
+Obtains the maximum value and its position (index) in the provided array of integers {\ttfamily array}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Array of integers. Input parameter \\
+\hline
+{\em size} & The size of {\ttfamily array}. Input parameter \\
+\hline
+{\em max} & The maximum value found in the vector. Output parameter \\
+\hline
+{\em pos\+Max} & The position in the array of the value with the maximun. Output parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+size \texorpdfstring{$>$}{>}= 1 
+\end{DoxyPrecond}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ first\ value\ as\ the\ max\ value.}}
+\DoxyCodeLine{00023\ \ \ \ \ max\ =\ array[0];}
+\DoxyCodeLine{00024\ \ \ \ \ posMax\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ another\ value\ greater\ than\ the\ real\ max,\ then,\ update}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ max\ with\ the\ new\ maximum.}}
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ pos\ =\ 1;\ pos\ <\ size\ ;\ pos++)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (array[pos]\ >\ max)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ max\ =\ array[pos];}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ posMax\ =\ pos;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_a4c65b57fd49166317b2345e9607076a1}\label{ArrayCrimesFunctions_8h_a4c65b57fd49166317b2345e9607076a1} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!FindCrimeInArrayCrimes@{FindCrimeInArrayCrimes}}
+\index{FindCrimeInArrayCrimes@{FindCrimeInArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{FindCrimeInArrayCrimes()}{FindCrimeInArrayCrimes()}}
+{\footnotesize\ttfamily int Find\+Crime\+In\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{crime,  }\item[{int}]{initial\+Pos,  }\item[{int}]{final\+Pos }\end{DoxyParamCaption})}
+
+
+
+Searchs if the Id of the provided \doxylink{classCrime}{Crime} is in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \doxylink{classCrime}{Crime} objects. Input parameter \\
+\hline
+{\em \doxylink{classCrime}{Crime}} & The \doxylink{classCrime}{Crime} to be found. Input parameter \\
+\hline
+{\em initial\+Pos} & The initial position of the subarray. Input parameter \\
+\hline
+{\em final\+Pos} & The final position of the subarray. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the position where the Id of the given \doxylink{classCrime}{Crime} is in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). If the given \doxylink{classCrime}{Crime} is not found, then -\/1 is returned. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ initialPos;}
+\DoxyCodeLine{00109\ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ finalPos\ \&\&\ !is\_found)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (array[i].getId()\ ==\ crime.\mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}())}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ is\_found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_found)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ i\ =\ -\/1;}
+\DoxyCodeLine{00119\ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_a8747428968c4f83bd0c598f4cda6d08d}\label{ArrayCrimesFunctions_8h_a8747428968c4f83bd0c598f4cda6d08d} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!InitializeArrayInts@{InitializeArrayInts}}
+\index{InitializeArrayInts@{InitializeArrayInts}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{InitializeArrayInts()}{InitializeArrayInts()}}
+{\footnotesize\ttfamily void Initialize\+Array\+Ints (\begin{DoxyParamCaption}\item[{int}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Initializes to 0 the elements of the provided array {\ttfamily array}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & Array of integers. Output parameter \\
+\hline
+{\em size} & Size of the array {\ttfamily array}. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<size;\ i++)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ array[i]=0;}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_abb4919ac2fd7b17221365d7de8bd28b3}\label{ArrayCrimesFunctions_8h_abb4919ac2fd7b17221365d7de8bd28b3} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!PosMinArrayCrimes@{PosMinArrayCrimes}}
+\index{PosMinArrayCrimes@{PosMinArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{PosMinArrayCrimes()}{PosMinArrayCrimes()}}
+{\footnotesize\ttfamily int Pos\+Min\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{initial\+Pos,  }\item[{int}]{final\+Pos }\end{DoxyParamCaption})}
+
+
+
+Finds the position of the element with the minimum crime in the subarray of {\ttfamily array} that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). The order criterion among Crimes uses the date\+Time and ID fields\+: crime1\texorpdfstring{$<$}{<}crime2 if crime1.\+date\+Time \texorpdfstring{$<$}{<} crime2.\+date\+Time. If crime1.\+date\+Time == crime2.\+date\+Time then the alphabetical order of the ID field is used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \doxylink{classCrime}{Crime}. Input parameter \\
+\hline
+{\em initial\+Pos} & The initial position of the subarray. Input parameter \\
+\hline
+{\em final\+Pos} & The final position of the subarray. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the position of the element with minimum crime in the subarray that begins at position {\ttfamily initial\+Pos} and ends at position {\ttfamily final\+Pos} (both included). If no element can be retrieved, it returns -\/1. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ first\ value\ as\ the\ min\ value.}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ min\ =\ array[initialPos];}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ posMin\ =\ initialPos;}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ If\ there\ is\ another\ value\ smaller\ than\ the\ real\ min,\ then,\ update}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ min\ with\ the\ new\ minimum.}}
+\DoxyCodeLine{00065\ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ pos\ =\ initialPos\ +\ 1;\ pos\ <=\ finalPos\ ;\ pos++)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (min.\mbox{\hyperlink{classCrime_a24051bba0d8a9dd18c1515e38963ca94}{IsSmaller}}(array[pos]))\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ min\ =\ array[pos];}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ posMin\ =\ pos;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ posMin;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_ac046662baf78bfea752a6e2617e12b38}\label{ArrayCrimesFunctions_8h_ac046662baf78bfea752a6e2617e12b38} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!PrintArrayCrimes@{PrintArrayCrimes}}
+\index{PrintArrayCrimes@{PrintArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{PrintArrayCrimes()}{PrintArrayCrimes()}}
+{\footnotesize\ttfamily void Print\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{crimes\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Crimes }\end{DoxyParamCaption})}
+
+
+
+Displays the content of the provided array of Crimes on the standard output. Each \doxylink{classCrime}{Crime} is displayed in a new line with the help of the \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{Crime\+::to\+String()} method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em crimes} & array of Crimes. Input parameter \\
+\hline
+{\em n\+Crimes} & number of crimes in the array. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nCrimes;\ i++)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ cout\ <<\ crimes[i].toString()\ <<\ endl;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_a25ca7bc1c277195b044f060d72a909ad}\label{ArrayCrimesFunctions_8h_a25ca7bc1c277195b044f060d72a909ad} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!PrintHistogramArrayCrimes@{PrintHistogramArrayCrimes}}
+\index{PrintHistogramArrayCrimes@{PrintHistogramArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{PrintHistogramArrayCrimes()}{PrintHistogramArrayCrimes()}}
+{\footnotesize\ttfamily void Print\+Histogram\+Array\+Crimes (\begin{DoxyParamCaption}\item[{int}]{data\+Field,  }\item[{int}]{histogram\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Displays the provided histogram (cumulative frequencies of crimes by day of the week or hour of the day) on the standard output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Field} & Integer to select the type of histogram to display (0 or 1)\+:
+\begin{DoxyItemize}
+\item value 0 when the histogram contains frequencies by days of the week. In this case, 7 lines will be displayed, one for each day of the week; first line for Sunday, second for Monday, and so on. Use method \doxylink{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}{Date\+Time\+::day\+Name(int day)} to recover a string with the name of each day of the week given an integer (0 for Sunday, 1 for Monday, ...). An example of output when using data\+Field==0 is the following\+: SUNDAY 25 MONDAY 11 TUESDAY 12 WEDNESDAY 5 THURSDAY 13 FRIDAY 17 SATURDAY 32
+\item value 1 when the histogram contains frequencies by hours of the day. In this case, 24 lines will be displayed, one for each hour of the day; first line for hour 0, 1 for hour 1, and so on. An example of output when using data\+Field==1 is the following\+: 0 23 1 21 2 15 3 12 4 7 5 3 6 2 7 0 8 5 ...
+\item Other values for data\+Field produce empty output Input parameter 
+\end{DoxyItemize}\\
+\hline
+{\em histogram} & histogram with cumulative frequencies by day of the week or hour of the day. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LONG\_WEEK=7;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LONG\_DAY=24;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{switch}\ (dataField)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:\ \textcolor{comment}{//\ days\ of\ the\ week}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<LONG\_WEEK;\ i++)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl\ <<\ \mbox{\hyperlink{classDateTime_a5b169c8a9284f85f5a69162562bb32e4}{DateTime::dayName}}(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ histogram[i];}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \textcolor{comment}{//\ hours\ of\ the\ day}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<LONG\_DAY;\ i++)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ histogram[i];}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_aa3bcf928a2e7858e24693e76b706d423}\label{ArrayCrimesFunctions_8h_aa3bcf928a2e7858e24693e76b706d423} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!SelectWhereEQArrayCrimes@{SelectWhereEQArrayCrimes}}
+\index{SelectWhereEQArrayCrimes@{SelectWhereEQArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SelectWhereEQArrayCrimes()}{SelectWhereEQArrayCrimes()}}
+{\footnotesize\ttfamily void Select\+Where\+EQArray\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{input\+Crimes\mbox{[}$\,$\mbox{]},  }\item[{int}]{input\+Crimes\+Size,  }\item[{std\+::string}]{field,  }\item[{std\+::string}]{value,  }\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{output\+Crimes\mbox{[}$\,$\mbox{]},  }\item[{int \&}]{output\+Crimes\+Size }\end{DoxyParamCaption})}
+
+
+
+Saves in the array {\ttfamily output\+Crimes} those crimes in the array {\ttfamily input\+Crimes} whose name of attribute is provided with {\ttfamily field} parameter and whose value is equals to {\ttfamily value} parameter. This function enables simple queries as\+: "{}\+Code"{} == "{}unknown"{} or "{}\+Code"{}== "{}3114"{} as well as "{}\+Street"{}== "{}\+WASHINGTON ST"{} or "{}\+Date\+Time"{}==dd.\+to\+\_\+string() (being dd, a \doxylink{classDateTime}{Date\+Time} object),\texorpdfstring{$\ast$}{*} but no other relational operators as greater than etc. 
+
+\begin{DoxyPrecond}{Precondition}
+The array {\ttfamily output\+Crimes} must have enough capacity to save all the Crimes that verify the given condition. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Crimes} & Input array of crimes. Input parameter \\
+\hline
+{\em input\+Crimes\+Size} & size of the array {\ttfamily input\+Crimes}. Input parameter \\
+\hline
+{\em field} & The label of the selected attribute of the \doxylink{classCrime}{Crime} class. See the description of method Crime\+::get\+Field(string) for possible values. Input parameter \\
+\hline
+{\em value} & The value of the selected attribute. Input parameter \\
+\hline
+{\em output\+Crimes} & Output array where the selected Crimes will be stored. Output parameter \\
+\hline
+{\em output\+Crimes\+Size} & Size of the array {\ttfamily output\+Crimes}. Output parameter \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ArrayCrimesFunctions_8h_a5f389c34b93a94e2cdc3b0cfd18a5060}\label{ArrayCrimesFunctions_8h_a5f389c34b93a94e2cdc3b0cfd18a5060} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!SortArrayCrimes@{SortArrayCrimes}}
+\index{SortArrayCrimes@{SortArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SortArrayCrimes()}{SortArrayCrimes()}}
+{\footnotesize\ttfamily void Sort\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Elements }\end{DoxyParamCaption})}
+
+
+
+Sorts the given array of \doxylink{classCrime}{Crime} in increasing order using a sorting algorithm. The criterion order among Crimes is the same as the one explained in the function Pos\+Min\+Array\+Crimes, that uses the date\+Time and ID fields of each \doxylink{classCrime}{Crime}. 
+
+\begin{DoxyNote}{Note}
+It is not allowed to use any sorting algorithm available in any C++ library. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \doxylink{classCrime}{Crime}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ left\ =\ 0\ ;\ left\ <\ nElements\ ;\ left++)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculates\ the\ minimum\ between\ "{}left"{}\ and\ "{}nElements"{}-\/1}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ min\ =\ array[left];\ \textcolor{comment}{//\ Minimum\ crime's\ value}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos\_min\ =\ left;\ \textcolor{comment}{//\ Minimum\ crime's\ position}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ pos\_min\ =\ \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_abb4919ac2fd7b17221365d7de8bd28b3}{PosMinArrayCrimes}}(array,\ left,\ nElements\ -\/\ 1);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ min\ =\ array[pos\_min];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Swap\ values\ in\ left\ and\ pos\_min\ positions.}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_a6eda4a5c19c5975d5db5b11025f6e046}{SwapElementsArrayCrimes}}\ (array,\ nElements,\ left,\ pos\_min);}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimesFunctions_8h_a6eda4a5c19c5975d5db5b11025f6e046}\label{ArrayCrimesFunctions_8h_a6eda4a5c19c5975d5db5b11025f6e046} 
+\index{ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}!SwapElementsArrayCrimes@{SwapElementsArrayCrimes}}
+\index{SwapElementsArrayCrimes@{SwapElementsArrayCrimes}!ArrayCrimesFunctions.h@{ArrayCrimesFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SwapElementsArrayCrimes()}{SwapElementsArrayCrimes()}}
+{\footnotesize\ttfamily void Swap\+Elements\+Array\+Crimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}}}]{array\mbox{[}$\,$\mbox{]},  }\item[{int}]{n\+Elements,  }\item[{int}]{first,  }\item[{int}]{second }\end{DoxyParamCaption})}
+
+
+
+Swaps the elements at positions {\ttfamily first} and {\ttfamily second} in the given array of \doxylink{classCrime}{Crime}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & An array of \doxylink{classCrime}{Crime}. Input/output parameter \\
+\hline
+{\em n\+Elements} & The number of elements used by the array. Input parameter \\
+\hline
+{\em first} & the position of the first element to be swaped. Input parameter \\
+\hline
+{\em second} & the position of the second element to be swaped. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::out\+\_\+of\+\_\+range exception if first or second are positions out of the range of the given array \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{ArrayCrimesFunctions_8cpp_source}{Array\+Crimes\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (first\ <\ nElements\ \&\&\ first\ >=\ 0\ \&\&\ second\ <\ nElements\ \&\&\ second\ >=\ 0)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime}{Crime}}\ tmp\ =\ array[first];}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ array[first]\ =\ array[second];}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ array[second]\ =\ tmp;}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{//\ given\ positions\ not\ valid}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ Crime::SwapElementsArrayCrimes(Crime\ array[],"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}int\ nElements,\ int\ first,\ int\ second)\ :\ "{}})\ +}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}given\ positions\ are\ not\ valid."{}});}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,342 @@
+\doxysection{src/\+Date\+Time.cpp File Reference}
+\hypertarget{DateTime_8cpp}{}\label{DateTime_8cpp}\index{src/DateTime.cpp@{src/DateTime.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include "{}Date\+Time.\+h"{}}\newline
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{DateTime_8cpp_a9962ec9b30855e08347df66f3fc99345}{is\+Correct}} (int year, int month, int day, int hour, int min, int sec)
+\begin{DoxyCompactList}\small\item\em Auxiliar function to check if the provided date and time are in correct format, taking into account, leap year, day in a month, etc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{DateTime_8cpp_af2b9a13e863e39a34e807bef47cbbd16}{split}} (const std\+::string \&line, int \&y, int \&m, int \&d, int \&h, int \&mn, int \&s)
+\begin{DoxyCompactList}\small\item\em Auxiliar function to obtain from the provided string {\ttfamily line} the 6 components of a \doxylink{classDateTime}{Date\+Time} object. Please consider using string\+::substr(int, int)\mbox{[}\href{https://en.cppreference.com/w/cpp/string/basic_string/substr}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/string/basic\+\_\+string/substr}}\mbox{]} to cut the line into the appropriate substrings and then convert it into integer values with the function stoi(string) \mbox{[}\href{https://en.cppreference.com/w/cpp/string/basic_string/stol}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/string/basic\+\_\+string/stol}}\mbox{]}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{DateTime_8cpp_a23444895d28f2286ce37e97cfa7718dc}{operator$<$}} (const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time1, const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time2)
+\begin{DoxyCompactList}\small\item\em Overloading of the relational operator \texorpdfstring{$<$}{<} for \doxylink{classDateTime}{Date\+Time} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{DateTime_8cpp_a6ea8870fbfe1de04400cd26b9fbfff99}{operator$>$}} (const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time1, const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator \texorpdfstring{$>$}{>} for \doxylink{classDateTime}{Date\+Time} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{DateTime_8cpp_ac484b13d6d9d789d7585e8807a5481fd}{operator==}} (const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time1, const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator == for \doxylink{classDateTime}{Date\+Time} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{DateTime_8cpp_a2f3bd783b2a7e24fac502967fd6c087d}{operator!=}} (const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time1, const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator != for \doxylink{classDateTime}{Date\+Time} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{DateTime_8cpp_af30b4841f71fda8fed9eec00705f58ea}{operator$<$=}} (const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time1, const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator \texorpdfstring{$<$}{<}= for \doxylink{classDateTime}{Date\+Time} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{DateTime_8cpp_a0b2221821c4c03d766481ce8b1222579}{operator$>$=}} (const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time1, const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&date\+Time2)
+\begin{DoxyCompactList}\small\item\em Overloading of the operator \texorpdfstring{$>$}{>}= for \doxylink{classDateTime}{Date\+Time} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Silvia Acid Carrillo \href{mailto:acid@decsai.ugr.es}{\texttt{ acid@decsai.\+ugr.\+es}} 
+
+Andrés Cano Utrera \href{mailto:acu@decsai.ugr.es}{\texttt{ acu@decsai.\+ugr.\+es}} 
+
+Luis Castillo Vidal \href{mailto:L.Castillo@decsai.ugr.es}{\texttt{ L.\+Castillo@decsai.\+ugr.\+es}}
+\end{DoxyAuthor}
+Created on September 17, 2024, 5\+:43 \+PM 
+
+Definition in file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{DateTime_8cpp_a9962ec9b30855e08347df66f3fc99345}\label{DateTime_8cpp_a9962ec9b30855e08347df66f3fc99345} 
+\index{DateTime.cpp@{DateTime.cpp}!isCorrect@{isCorrect}}
+\index{isCorrect@{isCorrect}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{isCorrect()}{isCorrect()}}
+{\footnotesize\ttfamily bool is\+Correct (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day,  }\item[{int}]{hour,  }\item[{int}]{min,  }\item[{int}]{sec }\end{DoxyParamCaption})}
+
+
+
+Auxiliar function to check if the provided date and time are in correct format, taking into account, leap year, day in a month, etc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & input \\
+\hline
+{\em month} & input \\
+\hline
+{\em day} & input \\
+\hline
+{\em hour} & input \\
+\hline
+{\em min} & input \\
+\hline
+{\em sec} & input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if is correct, else return false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ lastDay\ =\ 31;\ \textcolor{comment}{//\ by\ default\ length\ of\ the\ month}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (month\ ==\ 4\ ||\ month\ ==\ 6\ ||\ month\ ==\ 9\ ||\ month\ ==\ 11)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ lastDay\ =\ 30;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (month\ ==\ 2)\ \{\ \textcolor{comment}{//\ february}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ lastDay\ =\ 28;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((year\ \%\ 4\ ==\ 0\ \&\&\ year\ \%\ 100\ !=\ 0)\ ||\ (year\ \%\ 400\ ==\ 0))\ \textcolor{comment}{//\ leap\ year}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ lastDay\ =\ 29;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ ok\ =\ (month\ >=\ 1\ \&\&\ month\ <=\ 12)\ \&\&(day\ >\ 0\ \&\&\ day\ <=\ lastDay)\ \&\&\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ (hour\ >=\ 0\ \&\&\ hour\ <\ 24)\ \&\&\ (min\ >=\ 0\ \&\&\ min\ <\ 60)\ \&\&\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ (sec\ >=\ 0\ \&\&\ sec\ <\ 60);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ ok;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_a2f3bd783b2a7e24fac502967fd6c087d}\label{DateTime_8cpp_a2f3bd783b2a7e24fac502967fd6c087d} 
+\index{DateTime.cpp@{DateTime.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time1,  }\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator != for \doxylink{classDateTime}{Date\+Time} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time1} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+{\em date\+Time2} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two Date\+Times are not equals (see operator==); false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00157}{157}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{return}\ !(dateTime1\ ==\ dateTime2);}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_a23444895d28f2286ce37e97cfa7718dc}\label{DateTime_8cpp_a23444895d28f2286ce37e97cfa7718dc} 
+\index{DateTime.cpp@{DateTime.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time1,  }\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the relational operator \texorpdfstring{$<$}{<} for \doxylink{classDateTime}{Date\+Time} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time1} & The first object to be compared. Input parameter \\
+\hline
+{\em date\+Time2} & The second object to be compared. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the \doxylink{classDateTime}{Date\+Time} of {\ttfamily date\+Time1} is smaller (before) than that of {\ttfamily date\+Time2}; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (dateTime1.\mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}()\ <\ dateTime2.\mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}())\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_af30b4841f71fda8fed9eec00705f58ea}\label{DateTime_8cpp_af30b4841f71fda8fed9eec00705f58ea} 
+\index{DateTime.cpp@{DateTime.cpp}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time1,  }\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator \texorpdfstring{$<$}{<}= for \doxylink{classDateTime}{Date\+Time} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time1} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+{\em date\+Time2} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if date\+Time1 \texorpdfstring{$<$}{<}= date\+Time2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ dateTime1\ <\ dateTime2\ ||\ dateTime1\ ==\ dateTime2;}
+\DoxyCodeLine{00163\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_ac484b13d6d9d789d7585e8807a5481fd}\label{DateTime_8cpp_ac484b13d6d9d789d7585e8807a5481fd} 
+\index{DateTime.cpp@{DateTime.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time1,  }\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator == for \doxylink{classDateTime}{Date\+Time} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time1} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+{\em date\+Time2} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two Date\+Times are the same, that is same date and hour; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ dateTime1.\mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}()\ ==\ dateTime2.\mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}();}
+\DoxyCodeLine{00155\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_a6ea8870fbfe1de04400cd26b9fbfff99}\label{DateTime_8cpp_a6ea8870fbfe1de04400cd26b9fbfff99} 
+\index{DateTime.cpp@{DateTime.cpp}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time1,  }\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator \texorpdfstring{$>$}{>} for \doxylink{classDateTime}{Date\+Time} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time1} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+{\em date\+Time2} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if date\+Time1 \texorpdfstring{$>$}{>} date\+Time2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00149}{149}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ dateTime2<dateTime1;}
+\DoxyCodeLine{00151\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_a0b2221821c4c03d766481ce8b1222579}\label{DateTime_8cpp_a0b2221821c4c03d766481ce8b1222579} 
+\index{DateTime.cpp@{DateTime.cpp}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time1,  }\item[{const \mbox{\hyperlink{classDateTime}{Date\+Time}} \&}]{date\+Time2 }\end{DoxyParamCaption})}
+
+
+
+Overloading of the operator \texorpdfstring{$>$}{>}= for \doxylink{classDateTime}{Date\+Time} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time1} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+{\em date\+Time2} & a \doxylink{classDateTime}{Date\+Time} object. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if date\+Time1 \texorpdfstring{$>$}{>}= date\+Time2; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{return}\ dateTime1\ >\ dateTime2\ ||\ dateTime1\ ==\ dateTime2;}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}
+\Hypertarget{DateTime_8cpp_af2b9a13e863e39a34e807bef47cbbd16}\label{DateTime_8cpp_af2b9a13e863e39a34e807bef47cbbd16} 
+\index{DateTime.cpp@{DateTime.cpp}!split@{split}}
+\index{split@{split}!DateTime.cpp@{DateTime.cpp}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily void split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line,  }\item[{int \&}]{y,  }\item[{int \&}]{m,  }\item[{int \&}]{d,  }\item[{int \&}]{h,  }\item[{int \&}]{mn,  }\item[{int \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Auxiliar function to obtain from the provided string {\ttfamily line} the 6 components of a \doxylink{classDateTime}{Date\+Time} object. Please consider using string\+::substr(int, int)\mbox{[}\href{https://en.cppreference.com/w/cpp/string/basic_string/substr}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/string/basic\+\_\+string/substr}}\mbox{]} to cut the line into the appropriate substrings and then convert it into integer values with the function stoi(string) \mbox{[}\href{https://en.cppreference.com/w/cpp/string/basic_string/stol}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/string/basic\+\_\+string/stol}}\mbox{]}. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{YYYY-\/MM-\/dd\ hh:mm:ss\ }
+\DoxyCodeLine{+-\/-\/-\/-\/+-\/-\/-\/-\/+-\/-\/-\/-\/+-\/-\/-\/-\/+}
+\DoxyCodeLine{|\ \ \ \ |\ \ \ \ |\ \ \ \ |\ \ \ \ |}
+\DoxyCodeLine{0\ \ \ \ 5\ \ \ \ 10\ \ \ 15\ \ \ 20\ \ }
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & input string \\
+\hline
+{\em y} & output int \\
+\hline
+{\em m} & output int \\
+\hline
+{\em d} & output int \\
+\hline
+{\em h} & output int \\
+\hline
+{\em mn} & output int \\
+\hline
+{\em s} & output int \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{DateTime_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{DateTime_8cpp_source}{Date\+Time.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{string}\ line2;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ line2\ =\ line.substr(line.find\_first\_not\_of(\textcolor{stringliteral}{"{}\ \(\backslash\)t"{}}));\ \textcolor{comment}{//\ to\ remove\ initial\ spaces}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ y\ =\ stoi(line2.substr(0,\ 4));}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ m\ =\ stoi(line2.substr(5,\ 2));}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ d\ =\ stoi(line2.substr(8,\ 2));}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ h\ =\ stoi(line2.substr(11,\ 2));}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ mn\ =\ stoi(line2.substr(14,\ 2));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ s\ =\ stoi(line2.substr(17,\ 2));}
+\DoxyCodeLine{00074\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::invalid\_argument\ \&e)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{DateTime_8cpp_af2b9a13e863e39a34e807bef47cbbd16}{split}}(\mbox{\hyperlink{classDateTime_a74d8583b1220c100c5f1a33b35623aba}{DateTime::DATETIME\_STRING\_DEFAULT}},\ y,\ m,\ d,\ h,\ mn,\ s);}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}

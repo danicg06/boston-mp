@@ -1,0 +1,269 @@
+\doxysection{Crime\+Counter.\+cpp}
+\hypertarget{CrimeCounter_8cpp_source}{}\label{CrimeCounter_8cpp_source}\index{src/CrimeCounter.cpp@{src/CrimeCounter.cpp}}
+\mbox{\hyperlink{CrimeCounter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Metodología\ de\ la\ Programación}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ Curso\ 2024/2025}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00004}00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{CrimeCounter_8h}{CrimeCounter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00018}00018\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00024}00024\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_ada32e892a144b6895adc89685907a961}{CrimeCounter::DEFAULT\_COORD\_BOTTOMLEFT}}(42.207760,-\/71.178673);\ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00029}00029\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_a77a985b3978880ba9782709b049d1341}{CrimeCounter::DEFAULT\_COORD\_TOPRIGHT}}(42.395042,-\/70.953728);\ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00032}\mbox{\hyperlink{classCrimeCounter_a37d693e8819733f30968058890c2bcc6}{00032}}\ \mbox{\hyperlink{classCrimeCounter_a37d693e8819733f30968058890c2bcc6}{CrimeCounter::CrimeCounter}}(\textcolor{keywordtype}{int}\ nRows,\ \textcolor{keywordtype}{int}\ nColumns,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&\ bottomLeftCoord,\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&\ topRightCoord)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (nRows\ >\ 0\ \&\&\ nColumns\ >\ 0\ \&\&\ bottomLeftCoord.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}()\ \&\&\ topRightCoord.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}())\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00036}00036\ \ \ \ \ \_nRows\ =\ nRows;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00037}00037\ \ \ \ \ \_nCols\ =\ nColumns;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00038}00038\ \ \ \ \ \_bottomLeftCoord\ =\ bottomLeftCoord;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00039}00039\ \ \ \ \ \_topRightCoord\ =\ topRightCoord;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00040}00040\ \ \ \ \ \_frequency\ =\ allocateMatrixFrequencies(\_nRows,\ \_nCols);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{clear}}();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \_nRows\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \_nCols\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \_frequency\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}CrimeCounter::CrimeCounter"{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(int\ nRows,\ int\ nColumns,\ Coordinates\ \ bottomLeftCoord,\ "{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Coordinates\ \ topRightCoord)\ :\ "{}})\ +}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}the\ given\ magic\ string\ is\ invalid)"{}});}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00055}\mbox{\hyperlink{classCrimeCounter_a7f4d4f8b19eab4e09c4861996e491350}{00055}}\ \mbox{\hyperlink{classCrimeCounter_a37d693e8819733f30968058890c2bcc6}{CrimeCounter::CrimeCounter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&\ orig)\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00056}00056\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00057}00057\ \ \ \ \ \_frequency\ =\ allocateMatrixFrequencies(orig.\_nRows,\ orig.\_nCols);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00058}00058\ \ \ \ \ copy(orig);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00061}\mbox{\hyperlink{classCrimeCounter_a9564ec666f6d206eb3e8d053ff7d7e90}{00061}}\ \mbox{\hyperlink{classCrimeCounter_a9564ec666f6d206eb3e8d053ff7d7e90}{CrimeCounter::\string~CrimeCounter}}()\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00062}00062\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00063}00063\ \ \ \ \ deallocateMatrixFrequencies();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00066}\mbox{\hyperlink{classCrimeCounter_abebf3d5396e389cfacd805fc09a80fb1}{00066}}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&\mbox{\hyperlink{classCrimeCounter_abebf3d5396e389cfacd805fc09a80fb1}{CrimeCounter::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&\ orig)\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00067}00067\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (\&orig\ !=\ \textcolor{keyword}{this})\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ deallocateMatrixFrequencies();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Hola"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \_frequency\ =\ allocateMatrixFrequencies(orig.\_nRows,\ orig.\_nCols);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ copy(orig);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00078}\mbox{\hyperlink{classCrimeCounter_aefb64a535ec8087e2cba500490181e3d}{00078}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_aefb64a535ec8087e2cba500490181e3d}{CrimeCounter::getNumRows}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00079}00079\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_nRows);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00083}\mbox{\hyperlink{classCrimeCounter_a68883d89716305e805256a3027328ac6}{00083}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_a68883d89716305e805256a3027328ac6}{CrimeCounter::getNumCols}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00084}00084\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_nCols);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00088}\mbox{\hyperlink{classCrimeCounter_a016fb43c586a1dedfcf0f031a8079293}{00088}}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_a016fb43c586a1dedfcf0f031a8079293}{CrimeCounter::getLeftLocation}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{return}(\_bottomLeftCoord);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00093}\mbox{\hyperlink{classCrimeCounter_add234f2ca31343dae3eaccaa10f4f6b9}{00093}}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classCrimeCounter_add234f2ca31343dae3eaccaa10f4f6b9}{CrimeCounter::getRightLocation}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00094}00094\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_topRightCoord);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00098}\mbox{\hyperlink{classCrimeCounter_a402c6f09da7094f9054956a595fabf52}{00098}}\ std::string\ \mbox{\hyperlink{classCrimeCounter_a402c6f09da7094f9054956a595fabf52}{CrimeCounter::toString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00099}00099\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{string}\ rowsLines;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00101}00101\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\_nRows;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j<\_nCols-\/1;\ j++)\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ rowsLines\ +=\ to\_string(\_frequency[i][j])\ +\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00107}00107\ \ \ \ \ rowsLines\ +=\ to\_string(\_frequency[\_nRows-\/1][\_nCols-\/1]);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00108}00108\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{return}\ (to\_string(\_nRows)\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ to\_string(\_nCols)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ +\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \_bottomLeftCoord.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}()\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ +\ \_topRightCoord.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}()\ +}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ rowsLines\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00114}\mbox{\hyperlink{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}{00114}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}{CrimeCounter::getMaxFrequency}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00115}00115\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ -\/1;\ \textcolor{comment}{//\ First\ maximum,\ values\ are\ always\ positive}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f=0;\ f\ <\ \_nRows;\ f++)}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c=0;\ c\ <\ \_nCols;\ c++)}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_frequency[f][c]\ >\ max)\ max\ =\ \_frequency[f][c];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00120}00120\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{return}\ max;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00122}00122\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00124}\mbox{\hyperlink{classCrimeCounter_ac67fc56fcfd44a08f6cbb908955623aa}{00124}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCrimeCounter_ac67fc56fcfd44a08f6cbb908955623aa}{CrimeCounter::getTotalLocated}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00125}00125\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{int}\ totalLocated\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00127}00127\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nRows;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j\ <\ \_nCols;\ j++)\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ totalLocated\ +=\ \_frequency[i][j];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00133}00133\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{return}\ totalLocated;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00137}\mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{00137}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{CrimeCounter::clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00138}00138\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00139}00139\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nRows;\ i++)}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j\ <\ \_nCols;\ j++)}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \_frequency[i][j]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00142}00142\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00144}\mbox{\hyperlink{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}{00144}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}{CrimeCounter::increaseFrequency}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrime}{Crime}}\ \&crime,\ \textcolor{keywordtype}{int}\ frequency)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00145}00145\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00146}00146\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ location\ =\ crime.\mbox{\hyperlink{classCrime_a9bf37f349e6f4ebe087689ba3cdc78dd}{getLocation}}();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (location.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}()\ \&\&\ location.\mbox{\hyperlink{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}{isInsideArea}}(\_bottomLeftCoord,}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_topRightCoord))\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ col;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ getRowColumn(location,\ row,\ col);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (frequency\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ frequency\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \_frequency[row][col]\ +=\ frequency;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00157}00157\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00159}\mbox{\hyperlink{classCrimeCounter_ac701d99ded30662984ba056cac65924b}{00159}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_ac701d99ded30662984ba056cac65924b}{CrimeCounter::calculateFrequencies}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ \&crimes)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{classCrimeCounter_ab296fd591586c06c4ec21941759b5c9c}{clear}}();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ crimes.\mbox{\hyperlink{classCrimeSet_abc9eb8814b2bfde0b0e3c5d168557141}{getSize}}();\ i++)\ \mbox{\hyperlink{classCrimeCounter_a08c076398cee39e11c3ec255be8084b5}{increaseFrequency}}(crimes[i],\ 1);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00164}\mbox{\hyperlink{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff}{00164}}\ \textcolor{keywordtype}{int}\ \&\ \mbox{\hyperlink{classCrimeCounter_afa8b9c292122d7b5a5dc8cabb3928fff}{CrimeCounter::operator()}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{return}\ \_frequency[row][column];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00166}00166\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00168}\mbox{\hyperlink{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a}{00168}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCrimeCounter_a83cdf706254eac6d619c186349c8f81a}{CrimeCounter::saveAsPPMTextImage}}(\textcolor{keyword}{const}\ std::string\ \&fileName,\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classColorPalette}{ColorPalette}}\ \&palette,\ \textcolor{keyword}{const}\ std::string\ \&comment)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00170}00170\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00171}00171\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_COLOR\ \ \ \ \ \ \ \ \ \ \ =\ 255;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ FORMAT\ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}P3"{}};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\_FIELDS\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00174}00174\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\ \ \ \ \ \ \ \ =\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00175}00175\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00176}00176\ \ \ \ \ ofstream\ file(fileName);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00177}00177\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (file)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ colorIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ maxFrequency\ as\ the\ maximum\ frequency\ in\ the\ frequency\ matrix}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maxFrequency\ =\ \mbox{\hyperlink{classCrimeCounter_a22dd03ec3be549b9c3ee654dceda40ba}{getMaxFrequency}}();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ heading\ and\ comments\ into\ the\ ppm\ file}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ file\ <<\ FORMAT\ +\ SEPARATOR\_FIELDS;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ file\ <<\ comment;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ file\ <<\ \_nCols\ <<\ SEPARATOR\ <<\ \_nRows\ <<\ SEPARATOR\_FIELDS\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ MAX\_COLOR\ <<\ SEPARATOR\_FIELDS;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ every\ cell\ in\ the\ frequency\ matrix}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ \_nRows;\ i++\ )\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j\ <\ \_nCols;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ colorIndex\ =\ \mbox{\hyperlink{CrimeCounter_8h_a1e25c23589359588c3102e9fdea370a7}{GetIndexPalette}}(palette,\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ log(\_frequency[i][j]+1),\ log(maxFrequency+1));}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ into\ the\ ppm\ file\ the\ RGB\ components\ of\ the\ color\ at\ }}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//the\ position\ colorIndex\ of\ the\ palette}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ palette.\mbox{\hyperlink{classColorPalette_a359d577ca613a09d7d9c901a1c43a31c}{getColor}}(colorIndex).\mbox{\hyperlink{classColor_abb8258c40a757066e26538b6c4be9ed0}{toString}}()\ <<\ SEPARATOR;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeCounter::saveAsPPMTextImage"{}}\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(const\ string\ \&fileName,\ const\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ColorPalette\ \&palette,\ const\ std::string\ "{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\&comment)\ :\ "{}})\ +\ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ "{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00209}00209\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00210}00210\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::ios\_base::failure(}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ CrimeCounter::saveAsPPMTextImage"{}}\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(const\ string\ \&fileName,\ const\ "{}}\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ColorPalette\ \&palette,\ const\ std::string\ "{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\&comment)\ :\ "{}})\ +\ \textcolor{stringliteral}{"{}file\ cannot\ be\ opened\ "{}}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ an\ error\ has\ occured"{}});}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00218}00218\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00219}00219\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00220}00220\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00222}00222\ \textcolor{keywordtype}{void}\ CrimeCounter::getRowColumn(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \&coordinates,\ \textcolor{keywordtype}{int}\&\ row,\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ column)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00224}00224\ \ \ \ \ \textcolor{keywordflow}{if}\ (!coordinates.\mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{isValid}}()\ ||\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ !coordinates.\mbox{\hyperlink{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}{isInsideArea}}(\_bottomLeftCoord,\ \_topRightCoord))\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}(\textcolor{stringliteral}{"{}void\ CrimeCounter::getRowColumn((const\ Coordinates\ \&loc,\ int\&\ row,\ int\&\ column)\ const:\ "{}})\ +}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ coordinates.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}()\ +\ \textcolor{stringliteral}{"{}\ is\ not\ a\ valid\ location\ or\ is\ outside\ the\ target\ area"{}});}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00229}00229\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00230}00230\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ targetArea\ =\ this-\/>\_bottomLeftCoord.\mbox{\hyperlink{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1}{length}}(this-\/>\_topRightCoord);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00231}00231\ \ \ \ \ \textcolor{keywordtype}{float}\ cellHeight\ =\ targetArea.\mbox{\hyperlink{classCoordinates_ae18ad56858312ab30035729677f202d2}{getLatitude}}()/\_nRows;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00232}00232\ \ \ \ \ \textcolor{keywordtype}{float}\ cellWidth\ =\ targetArea.\mbox{\hyperlink{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}{getLongitude}}()/\_nCols;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00233}00233\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ delta\ =\ \_bottomLeftCoord.\mbox{\hyperlink{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1}{length}}(coordinates);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00234}00234\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00235}00235\ \ \ \ \ row\ =\ \_nRows\ -\/\ (delta.\mbox{\hyperlink{classCoordinates_ae18ad56858312ab30035729677f202d2}{getLatitude}}()\ /\ cellHeight);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00236}00236\ \ \ \ \ column\ =\ (delta.\mbox{\hyperlink{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}{getLongitude}}()\ /\ cellWidth);}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ ==\ \_nRows)\ row\ =\ \_nRows-\/1;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00238}00238\ \ \ \ \ \textcolor{keywordflow}{if}\ (column\ ==\ \_nCols)\ column\ =\ \_nCols-\/1;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00239}00239\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00241}00241\ \textcolor{keywordtype}{int}**\ CrimeCounter::allocateMatrixFrequencies(\textcolor{keywordtype}{int}\ nRows,\ \textcolor{keywordtype}{int}\ nCols)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00242}00242\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00243}00243\ \ \ \ \ \textcolor{keywordtype}{int}\ **m;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00244}00244\ \ \ \ \ m\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}*[nRows];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00245}00245\ \ \ \ \ m[0]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[nRows*nCols];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00246}00246\ \textcolor{comment}{//cerr\ <<\ "{}Filas:\ "{}\ <<\ nRows\ <<\ "{},\ columnas:\ "{}\ <<\ nCols\ <<\ endl;}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i<nRows;++i)}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ m[i]\ =\ m[i-\/1]+nCols;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00249}00249\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00250}00250\ \ \ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00251}00251\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00253}00253\ \textcolor{keywordtype}{void}\ CrimeCounter::deallocateMatrixFrequencies()\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00255}00255\ \ \ \ \ \textcolor{keyword}{delete}[]\ \_frequency[0];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{keyword}{delete}[]\ \_frequency;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00257}00257\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00259}00259\ \textcolor{keywordtype}{void}\ CrimeCounter::copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCrimeCounter}{CrimeCounter}}\ \&orig)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00260}00260\ \ \ \ \ \_nRows\ =\ orig.\_nRows;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00261}00261\ \ \ \ \ \_nCols\ =\ orig.\_nCols;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00262}00262\ \ \ \ \ \_bottomLeftCoord\ =\ orig.\_bottomLeftCoord;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00263}00263\ \ \ \ \ \_topRightCoord\ =\ orig.\_topRightCoord;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\_nRows;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j<\_nCols;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \_frequency[i][j]\ =\ orig.\_frequency[i][j];}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00268}00268\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00269}00269\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00271}00271\ \textcolor{comment}{//\ External\ functions}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00272}\mbox{\hyperlink{CrimeCounter_8cpp_a1e25c23589359588c3102e9fdea370a7}{00272}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{CrimeCounter_8cpp_a1e25c23589359588c3102e9fdea370a7}{GetIndexPalette}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classColorPalette}{ColorPalette}}\ \&palette,\ \textcolor{keywordtype}{float}\ frequency,\ \textcolor{keywordtype}{float}\ maxFrequency)\ \{}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{keywordflow}{return}\ frequency\ ==\ maxFrequency\ ?\ palette.\mbox{\hyperlink{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}{getNumColors}}()\ -\/\ 1\ :\ }
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ frequency\ *\ palette.\mbox{\hyperlink{classColorPalette_a7600e56e9b65b9ff029873ef3bed84bb}{getNumColors}}()\ /\ maxFrequency;}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00275}00275\ \}}
+\DoxyCodeLine{\Hypertarget{CrimeCounter_8cpp_source_l00276}00276\ }
+
+\end{DoxyCode}

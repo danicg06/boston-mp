@@ -1,0 +1,201 @@
+\doxysection{src/\+Array\+Crime\+Set\+Functions.cpp File Reference}
+\hypertarget{ArrayCrimeSetFunctions_8cpp}{}\label{ArrayCrimeSetFunctions_8cpp}\index{src/ArrayCrimeSetFunctions.cpp@{src/ArrayCrimeSetFunctions.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Array\+Crime\+Set\+Functions.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_a4ccfe0c646f92a875b3ee8c61a42e14c}{Read\+Array\+Crime\+Set}} (std\+::istream \&input\+Stream, \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&array\+Crime\+Set, int \&n\+Crime\+Sets)
+\begin{DoxyCompactList}\small\item\em Reads the Crime\+Sets contained in the files whose names are provided in the given input stream (one name of file in each line) and appends then at the end of the dynamic array {\ttfamily array\+Crime\+Set}. In case that the input stream contains empty lines, they should be ignored, because an empty line corresponds with the empty string for the name of the file to be read. This function can be implemented with the help of the function \doxylink{ArrayCrimeSetFunctions_8h_ad7e2f0aca53ff03dc99c8852d78b3451}{Append\+Crime\+Array\+Crime\+Set()} that automatically reallocate the dynamic array, each time a new \doxylink{classCrimeSet}{Crime\+Set} is appended to the array. n\+Crime\+Sets will contain the number of \doxylink{classCrimeSet}{Crime\+Set} saved in the the dynamic array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_ab80f37b4dcfb4ad97bb6d0bacf474207}{Print\+Array\+Crime\+Set}} (\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&array\+Crime\+Set, int n\+Crime\+Sets)
+\item 
+\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_a6a4baec416b6526dff253bd0d3f1a379}{Allocate\+Array\+Crime\+Set}} (int n\+Crime\+Sets)
+\begin{DoxyCompactList}\small\item\em Allocates memory for a dynamic array of Crime\+Sets with a capacity equals to {\ttfamily n\+Crime\+Sets}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_ac247ae90f8861b8f973f3f9a61ce9543}{Deallocate\+Array\+Crime\+Set}} (\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&array\+Crime\+Set)
+\begin{DoxyCompactList}\small\item\em Deallocates the memory pointed by the provided dynamic array of Crime\+Sets @array\+Crime\+Set. That pointer will also be set to nullptr. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_ad7e2f0aca53ff03dc99c8852d78b3451}{Append\+Crime\+Array\+Crime\+Set}} (\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&array\+Crime\+Set, int \&n\+Crime\+Sets, const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&new\+Crime\+Set)
+\begin{DoxyCompactList}\small\item\em Appends the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily new\+Crime\+Set} at the end of the dynamic array of \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily array\+Crime\+Set}. This function starts by reallocating the array, increasing its capacity by 1 to allow saving the new \doxylink{classCrimeSet}{Crime\+Set}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source}{Array\+Crime\+Set\+Functions.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ArrayCrimeSetFunctions_8cpp_a6a4baec416b6526dff253bd0d3f1a379}\label{ArrayCrimeSetFunctions_8cpp_a6a4baec416b6526dff253bd0d3f1a379} 
+\index{ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}!AllocateArrayCrimeSet@{AllocateArrayCrimeSet}}
+\index{AllocateArrayCrimeSet@{AllocateArrayCrimeSet}!ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{AllocateArrayCrimeSet()}{AllocateArrayCrimeSet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*} Allocate\+Array\+Crime\+Set (\begin{DoxyParamCaption}\item[{int}]{n\+Crime\+Sets }\end{DoxyParamCaption})}
+
+
+
+Allocates memory for a dynamic array of Crime\+Sets with a capacity equals to {\ttfamily n\+Crime\+Sets}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Crime\+Sets} & number of Crime\+Sets to allocate in the dynamic array. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated memory for the dynamic array. If {\ttfamily n\+Crime\+Sets} \texorpdfstring{$<$}{<}= 0 it returns nullptr 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source}{Array\+Crime\+Set\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ *array\_crime\_set\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (nCrimeSets\ >\ 0)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ array\_crime\_set\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ [nCrimeSets];}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ array\_crime\_set;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimeSetFunctions_8cpp_ad7e2f0aca53ff03dc99c8852d78b3451}\label{ArrayCrimeSetFunctions_8cpp_ad7e2f0aca53ff03dc99c8852d78b3451} 
+\index{ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}!AppendCrimeArrayCrimeSet@{AppendCrimeArrayCrimeSet}}
+\index{AppendCrimeArrayCrimeSet@{AppendCrimeArrayCrimeSet}!ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{AppendCrimeArrayCrimeSet()}{AppendCrimeArrayCrimeSet()}}
+{\footnotesize\ttfamily void Append\+Crime\+Array\+Crime\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&}]{array\+Crime\+Set,  }\item[{int \&}]{n\+Crime\+Sets,  }\item[{const \mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \&}]{new\+Crime\+Set }\end{DoxyParamCaption})}
+
+
+
+Appends the provided \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily new\+Crime\+Set} at the end of the dynamic array of \doxylink{classCrimeSet}{Crime\+Set} {\ttfamily array\+Crime\+Set}. This function starts by reallocating the array, increasing its capacity by 1 to allow saving the new \doxylink{classCrimeSet}{Crime\+Set}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array\+Crime\+Set} & A pointer to a dynamic array of \doxylink{classCrimeSet}{Crime\+Set}. The pointer is an input/output parameter and the content of the array can be modified \\
+\hline
+{\em n\+Crime\+Sets} & Number of Crime\+Sets in the dynamic array array\+Crime\+Set. Input/output parameter \\
+\hline
+{\em new\+Crime\+Set} & The new \doxylink{classCrimeSet}{Crime\+Set} to be inserted at the end of the dynamic array. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source}{Array\+Crime\+Set\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ *new\_array\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00062\ \ \ \ \ new\_array\ =\ \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_a6a4baec416b6526dff253bd0d3f1a379}{AllocateArrayCrimeSet}}(nCrimeSets\ +\ 1);}
+\DoxyCodeLine{00063\ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nCrimeSets;\ i++)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ new\_array[i]\ =\ arrayCrimeSet[i];}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ new\ element}}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ new\_array[nCrimeSets++]\ =\ newCrimeSet;}
+\DoxyCodeLine{00070\ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_ac247ae90f8861b8f973f3f9a61ce9543}{DeallocateArrayCrimeSet}}(arrayCrimeSet);}
+\DoxyCodeLine{00072\ \ \ \ \ arrayCrimeSet\ =\ new\_array;}
+\DoxyCodeLine{00073\ \ \ \ \ }
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimeSetFunctions_8cpp_ac247ae90f8861b8f973f3f9a61ce9543}\label{ArrayCrimeSetFunctions_8cpp_ac247ae90f8861b8f973f3f9a61ce9543} 
+\index{ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}!DeallocateArrayCrimeSet@{DeallocateArrayCrimeSet}}
+\index{DeallocateArrayCrimeSet@{DeallocateArrayCrimeSet}!ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{DeallocateArrayCrimeSet()}{DeallocateArrayCrimeSet()}}
+{\footnotesize\ttfamily void Deallocate\+Array\+Crime\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&}]{array\+Crime\+Set }\end{DoxyParamCaption})}
+
+
+
+Deallocates the memory pointed by the provided dynamic array of Crime\+Sets @array\+Crime\+Set. That pointer will also be set to nullptr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array\+Crime\+Set} & A pointer to a dynamic array of \doxylink{classCrimeSet}{Crime\+Set}. The pointer is an input/output parameter and the content of the array is modified \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source}{Array\+Crime\+Set\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{delete}\ []\ arrayCrimeSet;}
+\DoxyCodeLine{00056\ \ \ \ \ arrayCrimeSet\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimeSetFunctions_8cpp_ab80f37b4dcfb4ad97bb6d0bacf474207}\label{ArrayCrimeSetFunctions_8cpp_ab80f37b4dcfb4ad97bb6d0bacf474207} 
+\index{ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}!PrintArrayCrimeSet@{PrintArrayCrimeSet}}
+\index{PrintArrayCrimeSet@{PrintArrayCrimeSet}!ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintArrayCrimeSet()}{PrintArrayCrimeSet()}}
+{\footnotesize\ttfamily void Print\+Array\+Crime\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&}]{array\+Crime\+Set,  }\item[{int}]{n\+Crime\+Sets }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source}{Array\+Crime\+Set\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nCrimeSets;\ i++)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ cout\ <<\ arrayCrimeSet[i].toString();}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ArrayCrimeSetFunctions_8cpp_a4ccfe0c646f92a875b3ee8c61a42e14c}\label{ArrayCrimeSetFunctions_8cpp_a4ccfe0c646f92a875b3ee8c61a42e14c} 
+\index{ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}!ReadArrayCrimeSet@{ReadArrayCrimeSet}}
+\index{ReadArrayCrimeSet@{ReadArrayCrimeSet}!ArrayCrimeSetFunctions.cpp@{ArrayCrimeSetFunctions.cpp}}
+\doxysubsubsection{\texorpdfstring{ReadArrayCrimeSet()}{ReadArrayCrimeSet()}}
+{\footnotesize\ttfamily void Read\+Array\+Crime\+Set (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input\+Stream,  }\item[{\mbox{\hyperlink{classCrimeSet}{Crime\+Set}} \texorpdfstring{$\ast$}{*}\&}]{array\+Crime\+Set,  }\item[{int \&}]{n\+Crime\+Sets }\end{DoxyParamCaption})}
+
+
+
+Reads the Crime\+Sets contained in the files whose names are provided in the given input stream (one name of file in each line) and appends then at the end of the dynamic array {\ttfamily array\+Crime\+Set}. In case that the input stream contains empty lines, they should be ignored, because an empty line corresponds with the empty string for the name of the file to be read. This function can be implemented with the help of the function \doxylink{ArrayCrimeSetFunctions_8h_ad7e2f0aca53ff03dc99c8852d78b3451}{Append\+Crime\+Array\+Crime\+Set()} that automatically reallocate the dynamic array, each time a new \doxylink{classCrimeSet}{Crime\+Set} is appended to the array. n\+Crime\+Sets will contain the number of \doxylink{classCrimeSet}{Crime\+Set} saved in the the dynamic array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Stream} & Input stream. Input/output parameter \\
+\hline
+{\em array\+Crime\+Set} & A pointer to a dynamic array of \doxylink{classCrimeSet}{Crime\+Set}. The pointer is an input/output parameter and the content of the array can be modified \\
+\hline
+{\em n\+Crime\+Sets} & Number of Crime\+Sets in the dynamic array array\+Crime\+Set. Input/output parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_source}{Array\+Crime\+Set\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00019\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ INVALID\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ filename;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ getline(inputStream,\ filename);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ to\_append;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (filename\ !=\ INVALID)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ to\_append.\mbox{\hyperlink{classCrimeSet_a4ab193077750f47966ef6705b70c05e0}{load}}(filename);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ to\_append.\mbox{\hyperlink{classCrimeSet_a53600ecbbe902cf797db8f3a802ae2af}{setComment}}(\textcolor{stringliteral}{"{}Fusion\ of\ the\ crm\ files\ whose\ names\ are\ in\ the\ file:\ "{}}\ +\ filename);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ArrayCrimeSetFunctions_8cpp_ad7e2f0aca53ff03dc99c8852d78b3451}{AppendCrimeArrayCrimeSet}}(arrayCrimeSet,\ nCrimeSets,\ to\_append);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(inputStream);}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}

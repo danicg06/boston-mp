@@ -35,12 +35,16 @@ for C/C++ projects in NetBeans 22, as explained [here](https://gist.github.com/b
 ```
 boston-mp/
 ├── boston0/
+├── boston0-doc/
 ├── boston1/
+├── boston1-doc/
 ├── boston2/
+├── boston2-doc/
 ├── boston3/
+├── boston3-doc/
 ├── boston4/
+├── boston4-doc/
 ├── DataSets/
-├── Pasar_Tests_MP-main/
 └── Scripts/
 ```
 

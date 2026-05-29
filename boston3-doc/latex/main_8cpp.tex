@@ -1,0 +1,128 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Crime\+Set.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a3d8fc16b5c6a232781d48b3a2886eeca}{show\+Help}} (std\+::ostream \&output\+Stream)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The purpose of this program is to read a list of crm files, each one containing information about a \doxylink{classCrimeSet}{Crime\+Set}, and make the fusion of all the Crime\+Sets, saving the result in a new crm file. The names of the input crm files are passed as arguments to the program. The name of the output crm file can be provided to the program as an optional argument (if not provided, the output file is /tmp/output.crm). See below the Running sintax.
+
+The program begins by processing the running arguments. Next, it obtains the fusion of the crm files whose names are passed as arguments to the program. The resulting \doxylink{classCrimeSet}{Crime\+Set} will have a comment with the list of the input crm files used to do the fusion. See below, the Running example. Finally, the resulting \doxylink{classCrimeSet}{Crime\+Set} is normalized, sorted and saved in the output crm file.
+
+Running sintax\+: \begin{quote}
+dist/\+Debug/\+GNU-\/\+Linux/boston3 \mbox{[}-\/o \texorpdfstring{$<$}{<}output\+File.\+crm\texorpdfstring{$>$}{>}\mbox{]} \texorpdfstring{$<$}{<}input\+File1.\+crm\texorpdfstring{$>$}{>} \{\texorpdfstring{$<$}{<}input\+File.\+crm\texorpdfstring{$>$}{>}\}
+
+Running example\+: dist/\+Debug/\+GNU-\/\+Linux/boston3 -\/o /tmp/output.crm ../\+Data\+Sets/crimes\+\_\+01.crm ../\+Data\+Sets/crimes\+\_\+05.crm
+
+cat /tmp/output.crm \end{quote}
+MP-\/\+CRIME-\/\+T-\/1.\+0 \#\+Fusion of the following crm files\+: \#../\+Data\+Sets/crimes\+\_\+01.crm \#../\+Data\+Sets/crimes\+\_\+05.crm 6 2,222201764,724,UNKNOWN,AUTO THEFT,C6,200,0,2022-\/01-\/09 00\+:00\+:00,W BROADWAY,42.\+341286,-\/71.\+054680 7,222073971,611,UNKNOWN,LARCENY PICK-\/\+POCKET,A1,77,1,2022-\/02-\/01 10\+:07\+:00,NEW SUDBURY ST,42.\+361839,-\/71.\+059769 1,222648862,3831,UNKNOWN,M/V -\/ LEAVING SCENE -\/ PROPERTY DAMAGE,B2,288,1,2022-\/02-\/05 00\+:00\+:00,WASHINGTON ST,42.\+329750,-\/71.\+084541 0,225520077,3126,UNKNOWN,WARRANT ARREST -\/ OUTSIDE OF BOSTON WARRANT,D14,786,1,2022-\/02-\/05 00\+:00\+:00,WASHINGTON ST,42.\+343082,-\/71.\+141724 3,222201559,301,UNKNOWN,ROBBERY,D4,UNKNOWN,1,2022-\/03-\/05 13\+:00\+:00,ALBANY ST,42.\+333183,-\/71.\+073936 5,222107076,3126,UNKNOWN,WARRANT ARREST -\/ OUTSIDE OF BOSTON WARRANT,D4,UNKNOWN,1,2022-\/03-\/11 10\+:45\+:00,MASSACHUSETTS AVE \& ALBANY ST BOSTON MA 02118 UNI ,42.\+333500,-\/71.\+073509 \begin{DoxyReturn}{Returns}
+Returns 1 in case of error in program arguments; 0 otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{string}\ outputFileName\ =\ \textcolor{stringliteral}{"{}tests/output/output.crm"{}};\ \textcolor{comment}{//\ Name\ of\ the\ output\ crm\ file}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{string}\ comment\ =\ \textcolor{stringliteral}{"{}Fusion\ of\ the\ following\ crm\ files:\ \(\backslash\)n"{}};\ \textcolor{comment}{//\ Comments\ for\ the\ result\ of\ fusion}}
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3d8fc16b5c6a232781d48b3a2886eeca}{showHelp}}(cout);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Process\ program\ arguments}}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ fusion;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ initialPos\ =\ 1;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{string}\ firstArg\ =\ argv[1];}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 3)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (firstArg.at(0)\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (firstArg\ ==\ \textcolor{stringliteral}{"{}-\/o"{}})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outputFileName\ =\ argv[2];}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initialPos\ =\ 3;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3d8fc16b5c6a232781d48b3a2886eeca}{showHelp}}(cout);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ for\ every\ file\ from\ the\ main\ arguments}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ load\ the\ file}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ do\ the\ fusion\ }}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compose\ the\ comment}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ initialPos;\ i\ <\ argc;\ i++)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrimeSet}{CrimeSet}}\ aux;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ aux.\mbox{\hyperlink{classCrimeSet_a4ab193077750f47966ef6705b70c05e0}{load}}(argv[i]);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ fusion.\mbox{\hyperlink{classCrimeSet_a50a206be22e11082c5c9219a8c20e3a9}{join}}(aux);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ comment\ +=\ (string)(argv[i])\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ set\ the\ comments,\ normalize,\ sort\ and\ save}}
+\DoxyCodeLine{00114\ \ \ \ \ fusion.\mbox{\hyperlink{classCrimeSet_a53600ecbbe902cf797db8f3a802ae2af}{setComment}}(comment);}
+\DoxyCodeLine{00115\ \ \ \ \ fusion.\mbox{\hyperlink{classCrimeSet_ac2dbcf933745071f8e441700fea8db32}{normalize}}();}
+\DoxyCodeLine{00116\ \ \ \ \ fusion.\mbox{\hyperlink{classCrimeSet_a6fcaa1e5a527b596aaf9727523032f6d}{sort}}();}
+\DoxyCodeLine{00117\ \ \ \ \ fusion.\mbox{\hyperlink{classCrimeSet_a084370bc253ff9097569fbf200796a3f}{save}}(outputFileName);}
+\DoxyCodeLine{00118\ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00120\ \}}
+
+\end{DoxyCode}
+\Hypertarget{main_8cpp_a3d8fc16b5c6a232781d48b3a2886eeca}\label{main_8cpp_a3d8fc16b5c6a232781d48b3a2886eeca} 
+\index{main.cpp@{main.cpp}!showHelp@{showHelp}}
+\index{showHelp@{showHelp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showHelp()}{showHelp()}}
+{\footnotesize\ttfamily void show\+Help (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+
+Shows help about the use of this program in the given output stream 
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & The output stream where the help will be shown (for example, cout, cerr, etc) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}ERROR\ in\ boston3\ parameters"{}}\ <<\ endl;}
+\DoxyCodeLine{00029\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}Run\ with\ the\ following\ arguments:"{}}\ <<\ endl;}
+\DoxyCodeLine{00030\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}boston3\ [-\/o\ <outputFile.crm>]\ <inputFile1.crm>\ \{<inputFile.crm>\}"{}}\ <<\ endl;}
+\DoxyCodeLine{00031\ \ \ \ \ outputStream\ <<\ endl;}
+\DoxyCodeLine{00032\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}Parameters:"{}}\ <<\ endl;}
+\DoxyCodeLine{00033\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}-\/o\ <outputFile.crm>:\ name\ of\ the\ output\ file\ (tests/output/output.crm\ by\ default)"{}}\ <<\ endl;}
+\DoxyCodeLine{00034\ \ \ \ \ outputStream\ <<\ \textcolor{stringliteral}{"{}<inputFile1.crm>\ \{<inputFile.crm>\}:\ input\ crm\ files"{}}\ <<\ endl;}
+\DoxyCodeLine{00035\ \ \ \ \ outputStream\ <<\ endl;}
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}

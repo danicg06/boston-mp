@@ -1,0 +1,95 @@
+\doxysection{include/\+Coordinates.h File Reference}
+\hypertarget{Coordinates_8h}{}\label{Coordinates_8h}\index{include/Coordinates.h@{include/Coordinates.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCoordinates}{Coordinates}}
+\begin{DoxyCompactList}\small\item\em GPS \doxylink{classCoordinates}{Coordinates} (geographic coordinates) for measuring positions in the Earth. It consists of a pair of float values (latitude and longitude) that express angles (degrees). See for example \href{https://en.wikipedia.org/wiki/Geographic_coordinate_system}{\texttt{ Wikipedia Geographic coordinate system}} ~\newline
+ Values for latitude are between -\/90 and 90, while values for longitude must be between -\/180 and 180. It is possible to build a \doxylink{classCoordinates}{Coordinates} object with a latitude or longitude out of that ranges, but that object will be considered as invalid (method \doxylink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{is\+Valid()} will return true).~\newline
+ The value latitude == 0 is the EQUATOR, and the value longitude == 0 is the Greenwich meridian. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{Coordinates_8h_a93fc45fc88a5cfdea03ed78b8c9ac09b}{Extract\+Number\+First\+Ocurrence}} (const std\+::string \&number\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Extracts the first number found in the string provided. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{Coordinates_8h_source}{Coordinates.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Coordinates_8h_a93fc45fc88a5cfdea03ed78b8c9ac09b}\label{Coordinates_8h_a93fc45fc88a5cfdea03ed78b8c9ac09b} 
+\index{Coordinates.h@{Coordinates.h}!ExtractNumberFirstOcurrence@{ExtractNumberFirstOcurrence}}
+\index{ExtractNumberFirstOcurrence@{ExtractNumberFirstOcurrence}!Coordinates.h@{Coordinates.h}}
+\doxysubsubsection{\texorpdfstring{ExtractNumberFirstOcurrence()}{ExtractNumberFirstOcurrence()}}
+{\footnotesize\ttfamily float Extract\+Number\+First\+Ocurrence (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{number\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Extracts the first number found in the string provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+str,the} & string that contains a number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The string contains a valid number (decimal or integer). 
+\end{DoxyPrecond}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ DECIMAL\ \ \ \ \ =\ \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ SIGN\_SUBSTR\ =\ \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ SIGN\_ADD\ \ \ \ =\ \textcolor{charliteral}{'+'};}
+\DoxyCodeLine{00104\ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ number\_str.length();}
+\DoxyCodeLine{00107\ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{while}\ (!isdigit(number\_str.at(i))\ \&\&\ number\_str.at(i)\ !=\ SIGN\_SUBSTR\ \&\&\ number\_str.at(i)\ !=\ SIGN\_ADD)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00110\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ The\ bucle\ has\ finished\ beacuse\ it\ has\ found\ a\ digit,\ so\ the\ number\ starts}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ in\ the\ i-\/position.}}
+\DoxyCodeLine{00113\ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ n\ will\ be\ the\ number\ of\ digits\ of\ the\ number\ in\ the\ string.}}
+\DoxyCodeLine{00115\ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 1;}
+\DoxyCodeLine{00117\ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ continue\_working\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00119\ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ First\ of\ all,\ the\ bucle\ checks\ if\ the\ position\ is\ correct.\ Then,\ it}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ checks\ wether\ the\ character\ is\ valid\ or\ not.}}
+\DoxyCodeLine{00122\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{while}\ ((i\ +\ n)\ <\ length\ \&\&\ continue\_working)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isdigit(number\_str.at(i\ +\ n))\ ||\ number\_str.at(i\ +\ n)\ ==\ DECIMAL)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ continue\_working\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ So\ I\ can\ extract\ the\ substring\ that\ contains\ the\ number.}}
+\DoxyCodeLine{00131\ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{string}\ result\_str\ =\ number\_str.substr(i,n);}
+\DoxyCodeLine{00133\ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ stof(result\_str);}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}

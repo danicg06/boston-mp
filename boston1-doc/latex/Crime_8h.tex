@@ -1,0 +1,121 @@
+\doxysection{include/\+Crime.h File Reference}
+\hypertarget{Crime_8h}{}\label{Crime_8h}\index{include/Crime.h@{include/Crime.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}Coordinates.\+h"{}}\newline
+{\ttfamily \#include "{}Date\+Time.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCrime}{Crime}}
+\begin{DoxyCompactList}\small\item\em It stores data about a crime occurred in Boston city between 2017-\/01-\/20 02\+:00\+:00 and 2022-\/02-\/02 00\+:00\+:00 The data of each crime comes from a csv file located in \href{https://www.kaggle.com/datasets/shivamnegi1993/boston-crime-dataset-2022/data}{\texttt{ https\+://www.\+kaggle.\+com/datasets/shivamnegi1993/boston-\/crime-\/dataset-\/2022/data}} where some fields will be ignored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}} (std\+::string \&my\+String)
+\item 
+void \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}} (std\+::string \&my\+String)
+\item 
+void \mbox{\hyperlink{Crime_8h_a5713e9a4ee5cf24b996e193cd9bd8f28}{Normalize}} (\mbox{\hyperlink{classCrime}{Crime}} \&crime)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+To be implemented by students Created on September 10, 2024, 6\+:26 \+PM 
+\end{DoxyNote}
+
+
+Definition in file \mbox{\hyperlink{Crime_8h_source}{Crime.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}\label{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681} 
+\index{Crime.h@{Crime.h}!Capitalize@{Capitalize}}
+\index{Capitalize@{Capitalize}!Crime.h@{Crime.h}}
+\doxysubsubsection{\texorpdfstring{Capitalize()}{Capitalize()}}
+{\footnotesize\ttfamily void Capitalize (\begin{DoxyParamCaption}\item[{std\+::string \&}]{my\+String }\end{DoxyParamCaption})}
+
+Converts to uppercase all the characters in the provided string {\ttfamily my\+String} 
+\begin{DoxyParams}{Parameters}
+{\em my\+String} & a string. Input/\+Output parameter \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Crime_8h_a5713e9a4ee5cf24b996e193cd9bd8f28}\label{Crime_8h_a5713e9a4ee5cf24b996e193cd9bd8f28} 
+\index{Crime.h@{Crime.h}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!Crime.h@{Crime.h}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily void Normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCrime}{Crime}} \&}]{crime }\end{DoxyParamCaption})}
+
+Normalizes every string field in the provided \doxylink{classCrime}{Crime} object. That is\+:
+\begin{DoxyEnumerate}
+\item It removes spaces and \textbackslash{}t characters at the beginning and at the end of every string field
+\item It converts to uppercase every string field For the ID field only the conversion to uppercase is necessary because an ID cannot contains leading or trailing blanks 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00257}{257}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//\ ID}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{string}\ local\ =\ crime.\mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{getId}}();}
+\DoxyCodeLine{00261\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00262\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00263\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a7673992790abe492efa0a217aa103aaa}{setId}}(local);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{comment}{//\ code}}
+\DoxyCodeLine{00266\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a16d248767dbac457fc673fb42b93ddef}{getCode}}();}
+\DoxyCodeLine{00267\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00268\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00269\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c}{setCode}}(local);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//\ group}}
+\DoxyCodeLine{00272\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_aa9028f50559cf76e73800ac89253780e}{getGroup}}();}
+\DoxyCodeLine{00273\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00274\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00275\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a427dd5b54e3be745bbb4c4a015903aa8}{setGroup}}(local);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{comment}{//\ desc}}
+\DoxyCodeLine{00278\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a4e28a714688d442056aec4a1a3a794af}{getDescription}}();}
+\DoxyCodeLine{00279\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00280\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00281\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_ae610196a15e0b62044699410d1746eab}{setDescription}}(local);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{comment}{//\ District\ alphaNumeric}}
+\DoxyCodeLine{00284\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_aa4e5996577e7f0a084ddd2c8d4602ce1}{getDistrict}}();}
+\DoxyCodeLine{00285\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00286\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00287\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a5380fb793e6ca49ba658cbf2051e9914}{setDistrict}}(local);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{comment}{//\ area\ report\ }}
+\DoxyCodeLine{00290\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a0a70151b23043fd0232527eea3fc9517}{getAreaReport}}();}
+\DoxyCodeLine{00291\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00292\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00293\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_ad52d06de49d143b60b75307150f0b73e}{setAreaReport}}(local);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{//\ street}}
+\DoxyCodeLine{00296\ \ \ \ \ local\ =\ crime.\mbox{\hyperlink{classCrime_a517287d19ff71b72eb0be9cd557dd957}{getStreet}}();}
+\DoxyCodeLine{00297\ \ \ \ \ Trim(local);}
+\DoxyCodeLine{00298\ \ \ \ \ Capitalize(local);}
+\DoxyCodeLine{00299\ \ \ \ \ crime.\mbox{\hyperlink{classCrime_a41cf373119047504ce4e8623152cc459}{setStreet}}(local);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00301\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Crime_8h_a64b042637fe611c801668dca049c4ab8}\label{Crime_8h_a64b042637fe611c801668dca049c4ab8} 
+\index{Crime.h@{Crime.h}!Trim@{Trim}}
+\index{Trim@{Trim}!Crime.h@{Crime.h}}
+\doxysubsubsection{\texorpdfstring{Trim()}{Trim()}}
+{\footnotesize\ttfamily void Trim (\begin{DoxyParamCaption}\item[{std\+::string \&}]{my\+String }\end{DoxyParamCaption})}
+
+Removes spaces and \textbackslash{}t characters at the beginning and at the end of the provided string {\ttfamily my\+String}. If the provided string {\ttfamily my\+String} is empty or contains only spaces or \textbackslash{}t characters then {\ttfamily my\+String} will contain an empty string after calling to this function. \begin{DoxyNote}{Note}
+This function can be easily implemented using the methods find\+\_\+first\+\_\+not\+\_\+of(string) and find\+\_\+last\+\_\+not\+\_\+of(string) of class string. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em my\+String} & a string. Input/\+Output parameter \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,50 @@
+\doxysection{include/\+Crime\+Set.h File Reference}
+\hypertarget{CrimeSet_8h}{}\label{CrimeSet_8h}\index{include/CrimeSet.h@{include/CrimeSet.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}Date\+Time.\+h"{}}\newline
+{\ttfamily \#include "{}Crime.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCrimeSet}{Crime\+Set}}
+\begin{DoxyCompactList}\small\item\em A \doxylink{classCrimeSet}{Crime\+Set} defines a set of instances of the \doxylink{classCrime}{Crime} class that includes data on crimes (offenses) committed anywhere in the world and with the types of crimes specifically considered within its own jurisdiction. This class uses a dynamic array of objects of the \doxylink{classCrime}{Crime} class to store the set of crimes. This class also contains a field to store comments, free text that allows, for example, to describe in natural language the time period considered, the origin, the query applied to obtain the set, etc. In general, the records in the set are not sorted by date and time when each crime was committed. Usually the records appear in the order in which they were recorded when the crimes were collected by the police department. The public methods of this class do not allow a \doxylink{classCrimeSet}{Crime\+Set} to contain two \doxylink{classCrime}{Crime} objects with identical IDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{CrimeSet_8h_ae40ffd837bbf448d01531322f9b2fa1b}{Format\+As\+Comment}} (const std\+::string \&comment, char comment\+Character=\textquotesingle{}\#\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Casasola Guerrero, Daniel 
+
+Castro García, Sergio 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{CrimeSet_8h_source}{Crime\+Set.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{CrimeSet_8h_ae40ffd837bbf448d01531322f9b2fa1b}\label{CrimeSet_8h_ae40ffd837bbf448d01531322f9b2fa1b} 
+\index{CrimeSet.h@{CrimeSet.h}!FormatAsComment@{FormatAsComment}}
+\index{FormatAsComment@{FormatAsComment}!CrimeSet.h@{CrimeSet.h}}
+\doxysubsubsection{\texorpdfstring{FormatAsComment()}{FormatAsComment()}}
+{\footnotesize\ttfamily std\+::string Format\+As\+Comment (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{comment,  }\item[{char}]{comment\+Character = {\ttfamily \textquotesingle{}\#\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Returns a string with the same content as the provided string {\ttfamily comment}, but with the character {\ttfamily comment\+Character} inserted at the begining of each line, thus obtaining a formatted comment. The character {\ttfamily comment\+Character} is \textquotesingle{}\#\textquotesingle{} by default. In case that the last line in {\ttfamily comment} does not have \textquotesingle{}~\newline
+\textquotesingle{} at the end, this function add it to the end of the returned string. 
+\begin{DoxyParams}{Parameters}
+{\em comment} & The input string to be used to format the comment. \\
+\hline
+{\em comment\+Character} & The character to use at the begining of the formatted string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string with the same content as the provided string {\ttfamily comment}, but with the character {\ttfamily comment\+Character} inserted at the begining of each line 
+\end{DoxyReturn}

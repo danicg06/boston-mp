@@ -1,0 +1,1144 @@
+\doxysection{Crime Class Reference}
+\hypertarget{classCrime}{}\label{classCrime}\index{Crime@{Crime}}
+
+
+It stores data about a crime occurred in Boston city between 2017-\/01-\/20 02\+:00\+:00 and 2022-\/02-\/02 00\+:00\+:00 The data of each crime comes from a csv file located in \href{https://www.kaggle.com/datasets/shivamnegi1993/boston-crime-dataset-2022/data}{\texttt{ https\+://www.\+kaggle.\+com/datasets/shivamnegi1993/boston-\/crime-\/dataset-\/2022/data}} where some fields will be ignored.  
+
+
+
+
+{\ttfamily \#include $<$Crime.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCrime_a21bd2dc3006c5204e30aed286c506df1}{Crime}} ()
+\begin{DoxyCompactList}\small\item\em default constructor that builds a \doxylink{classCrime}{Crime} object with a default value for every field. The default values for each field are obtained from the string Crime\+::\+CRIME\+\_\+\+DEFAULT \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCrime_a631cd497a1c307bf280638863be008eb}{Crime}} (const std\+::string \&line)
+\begin{DoxyCompactList}\small\item\em Builds a \doxylink{classCrime}{Crime} object with the data contained in the provided string. This string is a line of a csv file with fields separated by commas. The details are described in the documentation of this class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCrime_a7b3284010c75d8c14b8962b0c0b94a66}{get\+Counter}} () const
+\begin{DoxyCompactList}\small\item\em Returns the counter of this \doxylink{classCrime}{Crime} Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the offense ID, a primary key for identify any crime in a dataset. This ID is unique in a dataset of crimes. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_a16d248767dbac457fc673fb42b93ddef}{get\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Returns the offense code of this crime. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_aa9028f50559cf76e73800ac89253780e}{get\+Group}} () const
+\begin{DoxyCompactList}\small\item\em Returns the group offense of this crime. It is a string that may contain identifying words to group the offense Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_a4e28a714688d442056aec4a1a3a794af}{get\+Description}} () const
+\begin{DoxyCompactList}\small\item\em Returns the description for this crime. It contains some keys words for the description of this crime. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_aa4e5996577e7f0a084ddd2c8d4602ce1}{get\+District}} () const
+\begin{DoxyCompactList}\small\item\em Returns the name of the district for this crime. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_a517287d19ff71b72eb0be9cd557dd957}{get\+Street}} () const
+\begin{DoxyCompactList}\small\item\em Returns the name of street where this crime took place. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_a0a70151b23043fd0232527eea3fc9517}{get\+Area\+Report}} () const
+\begin{DoxyCompactList}\small\item\em Returns the coded area where this crime took place. It is a a string that may contain a letter and a number Query method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCrime_a3da0d063e063bba3b289bcd515193099}{is\+Shooting}} () const
+\begin{DoxyCompactList}\small\item\em Returns if the crime was caused by a gunshot. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDateTime}{Date\+Time}} \mbox{\hyperlink{classCrime_a26854d8f97cbb410c6d2a6be37f7bbce}{get\+Date\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Returns the date and time of this crime. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classCrime_a9bf37f349e6f4ebe087689ba3cdc78dd}{get\+Location}} () const
+\begin{DoxyCompactList}\small\item\em Returns the value of the \doxylink{classCoordinates}{Coordinates} where this crime took place. Query method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCrime_a0489986a4b1b20dab81d0af777c472ee}{is\+IDUnknown}} () const
+\begin{DoxyCompactList}\small\item\em Returns if the object has UNKNOWN ID. Query method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_af86d5372891f225707d5acf6fa551804}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Obtains a string with the fields of this \doxylink{classCrime}{Crime} object, by using comma as separator. Fields appears in the following order\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a9203f0954935a78a6f434e6865eba43b}{set\+Counter}} (int c)
+\begin{DoxyCompactList}\small\item\em Sets the counter for this crime with the provide value Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a7673992790abe492efa0a217aa103aaa}{set\+Id}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Sets the offense ID (primary key for identify the crime in a dataset) of this object using the provided string {\ttfamily id}. First of all, this method trims spaces and \textbackslash{}t characters at the beginning and at the end of the provided string. It the resulting string is empty, this method does not modify the ID of this object and an std\+::invalid\+\_\+argument exception will be thrown; otherwise it assigns the resulting string to the field for the offense ID. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c}{set\+Code}} (const std\+::string \&code)
+\begin{DoxyCompactList}\small\item\em Sets the offense code of this crime. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a427dd5b54e3be745bbb4c4a015903aa8}{set\+Group}} (const std\+::string \&group)
+\begin{DoxyCompactList}\small\item\em Sets the group offense that belongs the crime. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_ae610196a15e0b62044699410d1746eab}{set\+Description}} (const std\+::string \&description)
+\begin{DoxyCompactList}\small\item\em Sets the description for the offense. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a5380fb793e6ca49ba658cbf2051e9914}{set\+District}} (const std\+::string \&district)
+\begin{DoxyCompactList}\small\item\em Sets the name of the district for the crime. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_ad52d06de49d143b60b75307150f0b73e}{set\+Area\+Report}} (const std\+::string \&area\+Report)
+\begin{DoxyCompactList}\small\item\em Sets the coded area where the offense took place. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a41cf373119047504ce4e8623152cc459}{set\+Street}} (const std\+::string \&street)
+\begin{DoxyCompactList}\small\item\em Sets the name of street where the offense took place. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a908316c83028edb1316294fd98ae4051}{set\+Shooting}} (bool shotting)
+\begin{DoxyCompactList}\small\item\em It gives the aggravating evidence for the crime. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a36a3dada05c7b7137b5ba206701210af}{set\+Date\+Time}} (const std\+::string \&time)
+\begin{DoxyCompactList}\small\item\em Sets the Data\+Time field (date and time) of this crime object with the data in the provided string {\ttfamily time}. If {\ttfamily time} is empty or it is in invalid format, the date and time of this object will be set with Date\+Time\+::\+DATETIME\+\_\+\+DEFAULT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a9b5bd466a154d3eec934878946c52825}{set\+Location}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates)
+\begin{DoxyCompactList}\small\item\em Sets the coordinates where the crime took place. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_ae946ef5716ff3d45739047c479b3c4af}{set}} (const std\+::string \&line)
+\begin{DoxyCompactList}\small\item\em It sets all the data members of the object by extracting their values (in the order indicated in the below list) from the provided string {\ttfamily line} that describes the crime in csv format, that is, concatenation of every field by using commas as separator between fields. ~\newline
+ To set the value of each field in this class, this method will use each one of the set methods in this class. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCrime_acdd098eccc37433acbb98b56c6f8e7bf}{get\+Field}} (const std\+::string \&field) const
+\begin{DoxyCompactList}\small\item\em Gets a string with the value of the provided field. Query method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCrime_a33cadabcdc043b4daae16a125b41e01f}{normalize}} ()
+\begin{DoxyCompactList}\small\item\em Normalizes every string field in this \doxylink{classCrime}{Crime} object. That is\+: \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCrime_a24051bba0d8a9dd18c1515e38963ca94}{Is\+Smaller}} (const \mbox{\hyperlink{classCrime}{Crime}} \&compare) const
+\begin{DoxyCompactList}\small\item\em Returns if {\ttfamily crime} is smaller than the implicit object; criterion among Crimes uses the date\+Time and ID fields\+: crime1\texorpdfstring{$<$}{<}crime2 if crime1.\+date\+Time \texorpdfstring{$<$}{<} crime2.\+date\+Time. If crime1.\+date\+Time == crime2.\+date\+Time then the alphabetical order of the ID field is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It stores data about a crime occurred in Boston city between 2017-\/01-\/20 02\+:00\+:00 and 2022-\/02-\/02 00\+:00\+:00 The data of each crime comes from a csv file located in \href{https://www.kaggle.com/datasets/shivamnegi1993/boston-crime-dataset-2022/data}{\texttt{ https\+://www.\+kaggle.\+com/datasets/shivamnegi1993/boston-\/crime-\/dataset-\/2022/data}} where some fields will be ignored. 
+
+The selected fields for a \doxylink{classCrime}{Crime} are\+:
+\begin{DoxyItemize}
+\item 0 COUNTER\+: integer number that represents a counter that begins from 0 for each year.
+\item 1 IDENTIFIER\+\_\+\+NUMBER\+: Identifier of the crime. It is an integer value stored as a string, that is, like "{}0020"{}. It is unique in a dataset of crimes. The string for this field must contain at least one character different from whitespace and \textbackslash{}t character. An ID will never contain leading or trailing blanks.
+\item 2 OFFENSE\+\_\+\+CODE\+: string with an internal code whose group and description come in the next two fields.
+\item 3 OFFENSE\+\_\+\+CODE\+\_\+\+GROUP\+: string with the group of the crime.
+\item 4 OFFENSE\+\_\+\+DESCRIPTION\+: string with the description of the crime.
+\item 5 DISTRICT\+: string with the district where the crime took place.
+\item 6 REPORTING\+\_\+\+AREA\+: string with the area where the crime took place
+\item 7 SHOOTING\+: a boolean where true represents that the crime was caused by a gunshot.
+\item 8 OCCURRED\+\_\+\+ON\+\_\+\+DATE\+: date and time when the crime took place.
+\item 9 STREET\+: name of the street where it took place.
+\item 10 LOCATION (latitude, longitude) where it took place.
+\end{DoxyItemize}
+
+Example of a crime\+: 2784,182102975,3820,Motor Vehicle Accident Response,M/V ACCIDENT INVOLVING PEDESTRIAN -\/ INJURY,C6,175,0,2018-\/12-\/22 00\+:45\+:00,SOUTHAMPTON ST,42.\+331680,-\/71.\+067986 ~\newline
+ corresponding values to the fields\+: ~\newline
+ COUNTER 2784 ~\newline
+ IDENTIFIER\+\_\+\+NUMBER 182102975 ~\newline
+ OFFENSE\+\_\+\+CODE 3820 ~\newline
+ OFFENSE\+\_\+\+CODE\+\_\+\+GROUP Motor Vehicle Accident Response ~\newline
+ OFFENSE\+\_\+\+DESCRIPTION M/V ACCIDENT INVOLVING PEDESTRIAN -\/ INJURY ~\newline
+ DISTRICT C6 ~\newline
+ REPORTING\+\_\+\+AREA 175 ~\newline
+ SHOOTING false ~\newline
+ OCCURRED\+\_\+\+ON\+\_\+\+DATE 2018-\/12-\/22 00\+:45\+:00 ~\newline
+ STREET SOUTHAMPTON ST ~\newline
+ LOCATION 42.\+331680,-\/71.\+067986 ~\newline
+ 
+
+Definition at line \mbox{\hyperlink{Crime_8h_source_l00066}{66}} of file \mbox{\hyperlink{Crime_8h_source}{Crime.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCrime_a21bd2dc3006c5204e30aed286c506df1}\label{classCrime_a21bd2dc3006c5204e30aed286c506df1} 
+\index{Crime@{Crime}!Crime@{Crime}}
+\index{Crime@{Crime}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{Crime()}{Crime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Crime\+::\+Crime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+default constructor that builds a \doxylink{classCrime}{Crime} object with a default value for every field. The default values for each field are obtained from the string Crime\+::\+CRIME\+\_\+\+DEFAULT 
+
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classCrime_ae946ef5716ff3d45739047c479b3c4af}{set}}(CRIME\_DEFAULT);}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a631cd497a1c307bf280638863be008eb}\label{classCrime_a631cd497a1c307bf280638863be008eb} 
+\index{Crime@{Crime}!Crime@{Crime}}
+\index{Crime@{Crime}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{Crime()}{Crime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Crime\+::\+Crime (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line }\end{DoxyParamCaption})}
+
+
+
+Builds a \doxylink{classCrime}{Crime} object with the data contained in the provided string. This string is a line of a csv file with fields separated by commas. The details are described in the documentation of this class. 
+
+\begin{DoxyPrecond}{Precondition}
+The {\ttfamily line} parameter has the same preconditions as the method \doxylink{classCrime_ae946ef5716ff3d45739047c479b3c4af}{Crime\+::set(const std\+::string \& line)} 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em line} & a string with the data to build the object. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCrime_a0a70151b23043fd0232527eea3fc9517}\label{classCrime_a0a70151b23043fd0232527eea3fc9517} 
+\index{Crime@{Crime}!getAreaReport@{getAreaReport}}
+\index{getAreaReport@{getAreaReport}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getAreaReport()}{getAreaReport()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+Area\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the coded area where this crime took place. It is a a string that may contain a letter and a number Query method. 
+
+\begin{DoxyReturn}{Returns}
+The area of this crime 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ \_areaReport;}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a16d248767dbac457fc673fb42b93ddef}\label{classCrime_a16d248767dbac457fc673fb42b93ddef} 
+\index{Crime@{Crime}!getCode@{getCode}}
+\index{getCode@{getCode}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the offense code of this crime. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The offense code number 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \_code;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a7b3284010c75d8c14b8962b0c0b94a66}\label{classCrime_a7b3284010c75d8c14b8962b0c0b94a66} 
+\index{Crime@{Crime}!getCounter@{getCounter}}
+\index{getCounter@{getCounter}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getCounter()}{getCounter()}}
+{\footnotesize\ttfamily int Crime\+::get\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the counter of this \doxylink{classCrime}{Crime} Query method. 
+
+\begin{DoxyReturn}{Returns}
+The counter of this \doxylink{classCrime}{Crime} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ \_counter;}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a26854d8f97cbb410c6d2a6be37f7bbce}\label{classCrime_a26854d8f97cbb410c6d2a6be37f7bbce} 
+\index{Crime@{Crime}!getDateTime@{getDateTime}}
+\index{getDateTime@{getDateTime}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getDateTime()}{getDateTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDateTime}{Date\+Time}} Crime\+::get\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the date and time of this crime. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The date and time 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ \_dateTime;}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a4e28a714688d442056aec4a1a3a794af}\label{classCrime_a4e28a714688d442056aec4a1a3a794af} 
+\index{Crime@{Crime}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the description for this crime. It contains some keys words for the description of this crime. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The description of this crime 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ \_description;}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_aa4e5996577e7f0a084ddd2c8d4602ce1}\label{classCrime_aa4e5996577e7f0a084ddd2c8d4602ce1} 
+\index{Crime@{Crime}!getDistrict@{getDistrict}}
+\index{getDistrict@{getDistrict}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getDistrict()}{getDistrict()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+District (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the name of the district for this crime. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The district of this crime 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ \_district;}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_acdd098eccc37433acbb98b56c6f8e7bf}\label{classCrime_acdd098eccc37433acbb98b56c6f8e7bf} 
+\index{Crime@{Crime}!getField@{getField}}
+\index{getField@{getField}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getField()}{getField()}}
+{\footnotesize\ttfamily string Crime\+::get\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field }\end{DoxyParamCaption}) const}
+
+
+
+Gets a string with the value of the provided field. Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & a string for selecting any of the field of a crime object. Namely the possible labels used for the {\ttfamily field} parameter are\+: Counter ID Code Group Description District Area Street Shooting \doxylink{classDateTime}{Date\+Time} Location\\
+\hline
+\end{DoxyParams}
+The above labels correspond respectively to the record fields\+: ~\newline
+ \+\_\+counter, \+\_\+id, \+\_\+code, \+\_\+group, \+\_\+description, \+\_\+district, \+\_\+area\+Report, \+\_\+street, \+\_\+shooting, \+\_\+date\+Time, \+\_\+location. Depending on the type of the field, it may be necessary to convert the value to a string as for example with\+: \+\_\+counter, \+\_\+shotting, \+\_\+date\+Time, \+\_\+location\+:
+\begin{DoxyItemize}
+\item In the case of Counter the returned string will be obtained using the std\+::to\+\_\+string() function.
+\item In the case of Shooting the returned string will be "{}0"{} or "{}1"{}.
+\item In the case of \doxylink{classDateTime}{Date\+Time} and Location the returned string will be obtained with the \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{to\+String()} method of the corresponding class. Input parameter 
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & exception if the label of the field is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+a string with the value of the selected field of the object. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00303}{303}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{string}\ str\_field;\ \textcolor{comment}{//\ string\ with\ the\ value\ of\ the\ provided\ field}}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{bool}\ not\_valid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ NUM\_FIELDS\ =\ 11;}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ fields[NUM\_FIELDS]\ \{\textcolor{stringliteral}{"{}Counter"{}},\ \textcolor{stringliteral}{"{}ID"{}},\ \textcolor{stringliteral}{"{}Code"{}},\ \textcolor{stringliteral}{"{}Group"{}},}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Description"{}},\ \textcolor{stringliteral}{"{}District"{}},\ \textcolor{stringliteral}{"{}Area"{}},}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Street"{}},\ \textcolor{stringliteral}{"{}Shooting"{}},\ \textcolor{stringliteral}{"{}DateTime"{}},}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Location"{}}\};}
+\DoxyCodeLine{00312\ \ \ \ \ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{bool}\ found\ =\ (fields[i]\ ==\ field);}
+\DoxyCodeLine{00315\ \ \ \ \ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ NUM\_FIELDS\ \&\&\ !found)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ found\ =\ (fields[i]\ ==\ field);}
+\DoxyCodeLine{00319\ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(std::string(\textcolor{stringliteral}{"{}void\ Crime::getField(const\ std::string\ \&\ field)\ const\ :\ "{}})\ +}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}label\ of\ the\ field\ is\ not\ valid"{}});}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(i)\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ to\_string(\_counter);}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_id;}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_code;}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_group;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_description;}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_district;}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_areaReport;}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 7:}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_street;}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 8:}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ to\_string(\_shooting);}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 9:}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_dateTime.\mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}();}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 10:}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str\_field\ =\ \_location.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}();}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{return}\ str\_field;}
+\DoxyCodeLine{00363\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_aa9028f50559cf76e73800ac89253780e}\label{classCrime_aa9028f50559cf76e73800ac89253780e} 
+\index{Crime@{Crime}!getGroup@{getGroup}}
+\index{getGroup@{getGroup}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getGroup()}{getGroup()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the group offense of this crime. It is a string that may contain identifying words to group the offense Query method. 
+
+\begin{DoxyReturn}{Returns}
+The group offense of this crime 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \_group;}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c}\label{classCrime_ab05e0ae19a73743bf4f2023a5db7f80c} 
+\index{Crime@{Crime}!getId@{getId}}
+\index{getId@{getId}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the offense ID, a primary key for identify any crime in a dataset. This ID is unique in a dataset of crimes. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The offense ID. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \_id;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a9bf37f349e6f4ebe087689ba3cdc78dd}\label{classCrime_a9bf37f349e6f4ebe087689ba3cdc78dd} 
+\index{Crime@{Crime}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getLocation()}{getLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinates}{Coordinates}} Crime\+::get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the value of the \doxylink{classCoordinates}{Coordinates} where this crime took place. Query method. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classCoordinates}{Coordinates} where this crime took place 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \_location;}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a517287d19ff71b72eb0be9cd557dd957}\label{classCrime_a517287d19ff71b72eb0be9cd557dd957} 
+\index{Crime@{Crime}!getStreet@{getStreet}}
+\index{getStreet@{getStreet}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{getStreet()}{getStreet()}}
+{\footnotesize\ttfamily std\+::string Crime\+::get\+Street (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the name of street where this crime took place. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The street where this crime took place 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ \_street;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a0489986a4b1b20dab81d0af777c472ee}\label{classCrime_a0489986a4b1b20dab81d0af777c472ee} 
+\index{Crime@{Crime}!isIDUnknown@{isIDUnknown}}
+\index{isIDUnknown@{isIDUnknown}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{isIDUnknown()}{isIDUnknown()}}
+{\footnotesize\ttfamily bool Crime\+::is\+IDUnknown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns if the object has UNKNOWN ID. Query method. 
+
+\begin{DoxyReturn}{Returns}
+bool true if the crime ID is equals to constant UNKNOWN\+\_\+\+VALUE; false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_id\ ==\ UNKNOWN\_VALUE);}
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a3da0d063e063bba3b289bcd515193099}\label{classCrime_a3da0d063e063bba3b289bcd515193099} 
+\index{Crime@{Crime}!isShooting@{isShooting}}
+\index{isShooting@{isShooting}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{isShooting()}{isShooting()}}
+{\footnotesize\ttfamily bool Crime\+::is\+Shooting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns if the crime was caused by a gunshot. Query method. 
+
+\begin{DoxyReturn}{Returns}
+true if this crime was caused by a gunshot; false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ \_shooting;}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a24051bba0d8a9dd18c1515e38963ca94}\label{classCrime_a24051bba0d8a9dd18c1515e38963ca94} 
+\index{Crime@{Crime}!IsSmaller@{IsSmaller}}
+\index{IsSmaller@{IsSmaller}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{IsSmaller()}{IsSmaller()}}
+{\footnotesize\ttfamily bool Crime\+::\+Is\+Smaller (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCrime}{Crime}} \&}]{compare }\end{DoxyParamCaption}) const}
+
+
+
+Returns if {\ttfamily crime} is smaller than the implicit object; criterion among Crimes uses the date\+Time and ID fields\+: crime1\texorpdfstring{$<$}{<}crime2 if crime1.\+date\+Time \texorpdfstring{$<$}{<} crime2.\+date\+Time. If crime1.\+date\+Time == crime2.\+date\+Time then the alphabetical order of the ID field is used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em compare} & An object of \doxylink{classCrime}{Crime}. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if {\ttfamily compare} is smaller than the implicit object based on the criteria previously defined. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00392}{392}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{bool}\ smaller=\textcolor{keyword}{true};}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_dateTime\ <\ compare.\_dateTime)}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ smaller=\textcolor{keyword}{false};}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_dateTime\ >\ compare.\_dateTime)}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ smaller=\textcolor{keyword}{true};}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ smaller=IsAphabeticallySmall(compare);}}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ smaller=(\_id\ >\ compare.\_id);}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{return}\ smaller;}
+\DoxyCodeLine{00405\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a33cadabcdc043b4daae16a125b41e01f}\label{classCrime_a33cadabcdc043b4daae16a125b41e01f} 
+\index{Crime@{Crime}!normalize@{normalize}}
+\index{normalize@{normalize}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily void Crime\+::normalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Normalizes every string field in this \doxylink{classCrime}{Crime} object. That is\+: 
+
+
+\begin{DoxyEnumerate}
+\item It removes spaces and \textbackslash{}t characters at the beginning and at the end of every string field
+\item It converts to uppercase every string field For the ID field only the conversion to uppercase is necessary because an ID cannot contains leading or trailing blanks Modifier method 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00365}{365}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{comment}{//\ code}}
+\DoxyCodeLine{00368\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_code);}
+\DoxyCodeLine{00369\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_code);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{comment}{//\ group}}
+\DoxyCodeLine{00372\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_group);}
+\DoxyCodeLine{00373\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_group);}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{comment}{//\ desc}}
+\DoxyCodeLine{00376\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_description);}
+\DoxyCodeLine{00377\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_description);}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{comment}{//\ District\ alphaNumeric}}
+\DoxyCodeLine{00380\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_district);}
+\DoxyCodeLine{00381\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_district);}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{comment}{//\ area\ report\ }}
+\DoxyCodeLine{00384\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_areaReport);}
+\DoxyCodeLine{00385\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_areaReport);}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{comment}{//\ street}}
+\DoxyCodeLine{00388\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_street);}
+\DoxyCodeLine{00389\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_street);}
+\DoxyCodeLine{00390\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_ae946ef5716ff3d45739047c479b3c4af}\label{classCrime_ae946ef5716ff3d45739047c479b3c4af} 
+\index{Crime@{Crime}!set@{set}}
+\index{set@{set}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void Crime\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line }\end{DoxyParamCaption})}
+
+
+
+It sets all the data members of the object by extracting their values (in the order indicated in the below list) from the provided string {\ttfamily line} that describes the crime in csv format, that is, concatenation of every field by using commas as separator between fields. ~\newline
+ To set the value of each field in this class, this method will use each one of the set methods in this class. 
+
+The values to set the object are\+:
+\begin{DoxyItemize}
+\item 0 COUNTER ~\newline
+
+\item 1 IDENTIFIER\+\_\+\+NUMBER ~\newline
+
+\item 2 OFFENSE\+\_\+\+CODE ~\newline
+
+\item 3 OFFENSE\+\_\+\+CODE\+\_\+\+GROUP ~\newline
+
+\item 4 OFFENSE\+\_\+\+DESCRIPTION ~\newline
+
+\item 5 DISTRICT ~\newline
+
+\item 6 REPORTING\+\_\+\+AREA ~\newline
+
+\item 7 SHOOTING ~\newline
+
+\item 8 OCCURRED\+\_\+\+ON\+\_\+\+DATE ~\newline
+
+\item 9 STREET ~\newline
+
+\item 10 LATITUDE ~\newline
+ ~\newline
+
+\item 11 LONGITUDE ~\newline
+
+\end{DoxyItemize}
+
+Modifier method
+
+\begin{DoxyPrecond}{Precondition}
+The string for the COUNTER field must contain an integer number; otherwise an unpredictable behavior or runtime error will be obtained 
+
+The string for the ID field must contain at least one character different from whitespace and \textbackslash{}t character; otherwise an unpredictable behavior or runtime error will be obtained 
+
+The string for the SHOOTING field must contain "{}0"{} or "{}1"{}; otherwise an unpredictable behavior or runtime error will be obtained 
+
+The string for both latitude and longitude fields must contain an integer number; otherwise an unpredictable behavior or runtime error will be obtained 
+
+The string for the OCCURRED\+\_\+\+ON\+\_\+\+DATE field must be in valid format "{}year-\/month-\/day hour\+:minutes\+:seconds"{}; otherwise an unpredictable behavior or runtime error will be obtained 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em line} & a string that contains a crime in csv format. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00164}{164}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ NFIELDS\ =\ 11;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{string}\ data\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \ \ \ \ \ \ \textcolor{comment}{//piece\ of\ data\ detached\ from\ line;}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\ =\ 0;}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ posn\ =\ 0;\ \ \ \textcolor{comment}{//\ aux\ for\ the\ beginning\ of\ the\ fields}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ nfield\ =\ 0;\ nfield\ <\ NFIELDS\ -\/\ 1\ \&\&\ posn\ !=\ string::npos;\ nfield++)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ posn\ =\ line.find(\textcolor{charliteral}{','},\ pos);\ \textcolor{comment}{//\ beginning\ of\ the\ next\ field}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ data\ =\ line.substr(pos,\ posn\ -\/\ pos);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ pos\ =\ posn\ +\ 1;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (nfield)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:\ \textcolor{comment}{//\ counter}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a9203f0954935a78a6f434e6865eba43b}{setCounter}}(stoi(data));}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \textcolor{comment}{//\ ID}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a7673992790abe492efa0a217aa103aaa}{setId}}(data);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:\ \textcolor{comment}{//\ code}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c}{setCode}}(data);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:\ \textcolor{comment}{//\ group}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a427dd5b54e3be745bbb4c4a015903aa8}{setGroup}}(data);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:\ \textcolor{comment}{//\ desc}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_ae610196a15e0b62044699410d1746eab}{setDescription}}(data);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:\ \textcolor{comment}{//\ District\ alphaNumeric}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a5380fb793e6ca49ba658cbf2051e9914}{setDistrict}}(data);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:\ \textcolor{comment}{//\ areaReport}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_ad52d06de49d143b60b75307150f0b73e}{setAreaReport}}(data);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 7:\ \textcolor{comment}{//\ shooting}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a908316c83028edb1316294fd98ae4051}{setShooting}}(stoi(data));}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 8:\ \textcolor{comment}{//\ date\ time}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a36a3dada05c7b7137b5ba206701210af}{setDateTime}}(data);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 9:\ \textcolor{comment}{//\ street}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCrime_a41cf373119047504ce4e8623152cc459}{setStreet}}(data);\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ }
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ location}}
+\DoxyCodeLine{00211\ \ \ \ \ data\ =\ line.substr(pos,\ line.length()\ -\/\ pos\ +\ 1);}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{int}\ pos\_separator\ =\ data.find(\textcolor{charliteral}{','},\ 0);\ \textcolor{comment}{//\ position\ where\ the\ separator\ between\ latitude\ and\ longitude\ is\ }}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{string}\ str\_latitude\ =\ data.substr(0,\ pos\_separator);\ \textcolor{comment}{//\ part\ of\ the\ 'data'\ string\ that\ contains\ the\ latitude}}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{string}\ str\_longitude\ =\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ data.substr(pos\_separator\ +\ 1,\ data.length()-\/1\ -\/\ pos\_separator);\ \textcolor{comment}{//\ part\ of\ the\ 'data'\ string\ that\ contains\ the\ longitude}}
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord(stof(str\_latitude),\ stof(str\_longitude));}
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{classCrime_a9b5bd466a154d3eec934878946c52825}{setLocation}}(coord);}
+\DoxyCodeLine{00219\ \ \ \ \ }
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{classCrime_a33cadabcdc043b4daae16a125b41e01f}{normalize}}();}
+\DoxyCodeLine{00221\ \ \ \ }
+\DoxyCodeLine{00222\ \}\ \textcolor{comment}{//end\ of\ set()}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_ad52d06de49d143b60b75307150f0b73e}\label{classCrime_ad52d06de49d143b60b75307150f0b73e} 
+\index{Crime@{Crime}!setAreaReport@{setAreaReport}}
+\index{setAreaReport@{setAreaReport}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setAreaReport()}{setAreaReport()}}
+{\footnotesize\ttfamily void Crime\+::set\+Area\+Report (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{area\+Report }\end{DoxyParamCaption})}
+
+
+
+Sets the coded area where the offense took place. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area\+Report} & the area value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string that may contain a letter and a number 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \_areaReport\ =\ areaReport;}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_areaReport);}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_areaReport);}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c}\label{classCrime_a1dcdd8c42b6f2f95a043d31d498b6e0c} 
+\index{Crime@{Crime}!setCode@{setCode}}
+\index{setCode@{setCode}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}}
+{\footnotesize\ttfamily void Crime\+::set\+Code (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{code }\end{DoxyParamCaption})}
+
+
+
+Sets the offense code of this crime. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & the offense code value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \_code\ =\ code;}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_code);}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_code);}
+\DoxyCodeLine{00120\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a9203f0954935a78a6f434e6865eba43b}\label{classCrime_a9203f0954935a78a6f434e6865eba43b} 
+\index{Crime@{Crime}!setCounter@{setCounter}}
+\index{setCounter@{setCounter}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setCounter()}{setCounter()}}
+{\footnotesize\ttfamily void Crime\+::set\+Counter (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+Sets the counter for this crime with the provide value Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the counter value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \_counter\ =\ c;}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a36a3dada05c7b7137b5ba206701210af}\label{classCrime_a36a3dada05c7b7137b5ba206701210af} 
+\index{Crime@{Crime}!setDateTime@{setDateTime}}
+\index{setDateTime@{setDateTime}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setDateTime()}{setDateTime()}}
+{\footnotesize\ttfamily void Crime\+::set\+Date\+Time (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{time }\end{DoxyParamCaption})}
+
+
+
+Sets the Data\+Time field (date and time) of this crime object with the data in the provided string {\ttfamily time}. If {\ttfamily time} is empty or it is in invalid format, the date and time of this object will be set with Date\+Time\+::\+DATETIME\+\_\+\+DEFAULT. 
+
+\begin{DoxyNote}{Note}
+The implementation of this method needs only call to method Date\+Time\+::set(time).
+\end{DoxyNote}
+Modifier method 
+\begin{DoxyParams}{Parameters}
+{\em time} & Datetime in the format specified in \doxylink{classDateTime}{Date\+Time}. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \_dateTime\ =\ time;}
+\DoxyCodeLine{00158\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_ae610196a15e0b62044699410d1746eab}\label{classCrime_ae610196a15e0b62044699410d1746eab} 
+\index{Crime@{Crime}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}}
+{\footnotesize\ttfamily void Crime\+::set\+Description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{description }\end{DoxyParamCaption})}
+
+
+
+Sets the description for the offense. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & the offense description value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string that contains some keys words for the description 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00128}{128}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \_description\ =\ description;}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_description);}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_description);}
+\DoxyCodeLine{00132\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a5380fb793e6ca49ba658cbf2051e9914}\label{classCrime_a5380fb793e6ca49ba658cbf2051e9914} 
+\index{Crime@{Crime}!setDistrict@{setDistrict}}
+\index{setDistrict@{setDistrict}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setDistrict()}{setDistrict()}}
+{\footnotesize\ttfamily void Crime\+::set\+District (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{district }\end{DoxyParamCaption})}
+
+
+
+Sets the name of the district for the crime. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em district} & the identifier for the district to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \_district\ =\ district;}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_district);}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_district);}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a427dd5b54e3be745bbb4c4a015903aa8}\label{classCrime_a427dd5b54e3be745bbb4c4a015903aa8} 
+\index{Crime@{Crime}!setGroup@{setGroup}}
+\index{setGroup@{setGroup}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setGroup()}{setGroup()}}
+{\footnotesize\ttfamily void Crime\+::set\+Group (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{group }\end{DoxyParamCaption})}
+
+
+
+Sets the group offense that belongs the crime. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & the offense group value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \_group\ =\ group;}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_group);}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_group);}
+\DoxyCodeLine{00126\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a7673992790abe492efa0a217aa103aaa}\label{classCrime_a7673992790abe492efa0a217aa103aaa} 
+\index{Crime@{Crime}!setId@{setId}}
+\index{setId@{setId}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void Crime\+::set\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the offense ID (primary key for identify the crime in a dataset) of this object using the provided string {\ttfamily id}. First of all, this method trims spaces and \textbackslash{}t characters at the beginning and at the end of the provided string. It the resulting string is empty, this method does not modify the ID of this object and an std\+::invalid\+\_\+argument exception will be thrown; otherwise it assigns the resulting string to the field for the offense ID. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the offense ID value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Throws an std\+::invalid\+\_\+argument exception if the provided string {\ttfamily id} is an empty string after removing its initial and final whitespaces and \textquotesingle{}\textbackslash{}t\textquotesingle{} characters. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{string}\ trimmedId\ =\ id;}
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(trimmedId);}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (trimmedId.size()==0)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ std::string(\textcolor{stringliteral}{"{}void\ Crime::setId(const\ std::string\ \&id)\ :\ "{}})\ +}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}id\ is\ empty"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ this-\/>\_id\ =\ trimmedId;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a9b5bd466a154d3eec934878946c52825}\label{classCrime_a9b5bd466a154d3eec934878946c52825} 
+\index{Crime@{Crime}!setLocation@{setLocation}}
+\index{setLocation@{setLocation}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setLocation()}{setLocation()}}
+{\footnotesize\ttfamily void Crime\+::set\+Location (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})}
+
+
+
+Sets the coordinates where the crime took place. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & the coordinates value to set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00160}{160}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \_location\ =\ \mbox{\hyperlink{classCoordinates}{Coordinates}}(coordinates.\mbox{\hyperlink{classCoordinates_ae18ad56858312ab30035729677f202d2}{getLatitude}}(),\ coordinates.\mbox{\hyperlink{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}{getLongitude}}());}
+\DoxyCodeLine{00162\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a908316c83028edb1316294fd98ae4051}\label{classCrime_a908316c83028edb1316294fd98ae4051} 
+\index{Crime@{Crime}!setShooting@{setShooting}}
+\index{setShooting@{setShooting}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setShooting()}{setShooting()}}
+{\footnotesize\ttfamily void Crime\+::set\+Shooting (\begin{DoxyParamCaption}\item[{bool}]{shotting }\end{DoxyParamCaption})}
+
+
+
+It gives the aggravating evidence for the crime. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shotting} & the boolean value for shotting to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00152}{152}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \_shooting\ =\ shooting;}
+\DoxyCodeLine{00154\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_a41cf373119047504ce4e8623152cc459}\label{classCrime_a41cf373119047504ce4e8623152cc459} 
+\index{Crime@{Crime}!setStreet@{setStreet}}
+\index{setStreet@{setStreet}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{setStreet()}{setStreet()}}
+{\footnotesize\ttfamily void Crime\+::set\+Street (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{street }\end{DoxyParamCaption})}
+
+
+
+Sets the name of street where the offense took place. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em street} & the street name that may contain the name with the type of route to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \_street\ =\ street;}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{Crime_8h_a64b042637fe611c801668dca049c4ab8}{Trim}}(\_street);}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{Crime_8h_ac9ca68503225bbb9d50df8833b0c2681}{Capitalize}}(\_street);}
+\DoxyCodeLine{00150\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCrime_af86d5372891f225707d5acf6fa551804}\label{classCrime_af86d5372891f225707d5acf6fa551804} 
+\index{Crime@{Crime}!toString@{toString}}
+\index{toString@{toString}!Crime@{Crime}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Crime\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains a string with the fields of this \doxylink{classCrime}{Crime} object, by using comma as separator. Fields appears in the following order\+: 
+
+
+\begin{DoxyItemize}
+\item 0 COUNTER ~\newline
+
+\item 1 IDENTIFIER\+\_\+\+NUMBER ~\newline
+
+\item 2 OFFENSE\+\_\+\+CODE ~\newline
+
+\item 3 OFFENSE\+\_\+\+CODE\+\_\+\+GROUP ~\newline
+
+\item 4 OFFENSE\+\_\+\+DESCRIPTION ~\newline
+
+\item 5 DISTRICT ~\newline
+
+\item 6 REPORTING\+\_\+\+AREA ~\newline
+
+\item 7 SHOOTING ~\newline
+
+\item 8 OCCURRED\+\_\+\+ON\+\_\+\+DATE ~\newline
+
+\item 9 STREET ~\newline
+
+\item 10 LATITUDE ~\newline
+ ~\newline
+
+\item 11 LONGITUDE ~\newline
+
+\end{DoxyItemize}
+
+Depending on the type of the field, it may be necessary to convert the value to a string as for example with\+: \+\_\+counter, \+\_\+shotting, \+\_\+date\+Time, \+\_\+location\+:
+\begin{DoxyItemize}
+\item In the case of \+\_\+counter the string will be obtained using the std\+::to\+\_\+string() function.
+\item In the case of \+\_\+shotting the string will be "{}0"{} or "{}1"{}.
+\item In the case of \+\_\+date\+Time and \+\_\+location the string will be obtained with the \doxylink{classCrime_af86d5372891f225707d5acf6fa551804}{to\+String()} method of the corresponding class.
+\end{DoxyItemize}
+
+Query method \begin{DoxyReturn}{Returns}
+string that contains the fields of this \doxylink{classCrime}{Crime} in csv format (by using commas as separator). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Crime_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{Crime_8cpp_source}{Crime.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ (to\_string(\_counter)\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_id\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_code\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_group\ +\ \textcolor{stringliteral}{"{},"{}}\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ +\ \_description\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_district\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_areaReport\ +\ \textcolor{stringliteral}{"{},"{}}\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ +\ to\_string(\_shooting)\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_dateTime.\mbox{\hyperlink{classDateTime_a3d6755a411677001cd9b76ea49e7361b}{toString}}()\ +\ \textcolor{stringliteral}{"{},"{}}\ +\ \_street\ +\ \textcolor{stringliteral}{"{},"{}}\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ +\ \_location.\mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{toString}}());}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Crime_8h}{Crime.\+h}}\item 
+src/\mbox{\hyperlink{Crime_8cpp}{Crime.\+cpp}}\end{DoxyCompactItemize}

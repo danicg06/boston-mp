@@ -1,7 +1,7 @@
 PROJECT_NAME = "Boston"
 PROJECT_NUMBER = 4
 OUTPUT_LANGUAGE = ENGLISH
-OUTPUT_DIRECTORY = ../boston-4-doc
+OUTPUT_DIRECTORY = ../boston4-doc
 INPUT = ./src ./include
 EXCLUDE = ./nbproject/ dist/ build/
 RECURSIVE 	= YES

@@ -1,0 +1,440 @@
+\doxysection{Coordinates Class Reference}
+\hypertarget{classCoordinates}{}\label{classCoordinates}\index{Coordinates@{Coordinates}}
+
+
+GPS \doxylink{classCoordinates}{Coordinates} (geographic coordinates) for measuring positions in the Earth. It consists of a pair of float values (latitude and longitude) that express angles (degrees). See for example \href{https://en.wikipedia.org/wiki/Geographic_coordinate_system}{\texttt{ Wikipedia Geographic coordinate system}} ~\newline
+ Values for latitude are between -\/90 and 90, while values for longitude must be between -\/180 and 180. It is possible to build a \doxylink{classCoordinates}{Coordinates} object with a latitude or longitude out of that ranges, but that object will be considered as invalid (method \doxylink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{is\+Valid()} will return true).~\newline
+ The value latitude == 0 is the EQUATOR, and the value longitude == 0 is the Greenwich meridian. ~\newline
+  
+
+
+
+
+{\ttfamily \#include $<$Coordinates.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCoordinates_aa383318f611f618ff1000b2f78df0d74}{Coordinates}} (float \+\_\+latitude=INVALID\+\_\+\+COORDINATE, float \+\_\+longitude=INVALID\+\_\+\+COORDINATE)
+\begin{DoxyCompactList}\small\item\em Constructor that builds an object with the given latitude and longitude parameters. Both parameters have the value INVALID\+\_\+\+COORDINATE as default value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates_a7479bc07319ad6a25ca74650344b718b}{Coordinates}} (const std\+::string \&coords)
+\begin{DoxyCompactList}\small\item\em Constructor that builds an object with the given latitude and longitude in a string. {\ttfamily The} string must have the following format\+: latitude , longitude. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCoordinates_ae18ad56858312ab30035729677f202d2}{get\+Latitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the latitude value Query method. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}{get\+Longitude}} () const
+\begin{DoxyCompactList}\small\item\em Gets the longitude value. Query method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{is\+Valid}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the current coordinates are valid; that is it determines if the latitude and longitude values are within the aceptable ranges for geographical coordinates. ~\newline
+ Latitude must be within the range \mbox{[}-\/90, 90\mbox{]}, and longitude within the range \mbox{[}-\/180,180\mbox{]}.~\newline
+ Query method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6}{set\+Latitude}} (float latitude)
+\begin{DoxyCompactList}\small\item\em Sets the latitude value in this object. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed}{set\+Longitude}} (float longitude)
+\begin{DoxyCompactList}\small\item\em Sets the longitude value in this object. Modifier method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCoordinates_a70805530712e6cdba32ec8570ef5a43a}{set}} (float latitude, float longitude)
+\begin{DoxyCompactList}\small\item\em Sets both components, the latitude and longitude values. Modifier method. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCoordinates_a76c90fbef8af16ea82876427888a39a2}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Obtains a string with the latitude and longitude (comma separated). To convert latitude and longitude to string you must use the std\+::to\+\_\+string() function. Query method. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1}{length}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&second) const
+\begin{DoxyCompactList}\small\item\em Computes the dimension of the rectangle bounded by two \doxylink{classCoordinates}{Coordinates} objects (this object and the one provided as parameter to this method). The dimension of a rectangle that goes from \doxylink{classCoordinates}{Coordinates} \$\+A(lat\+\_\+1,long\+\_\+1)\$ to \$\+B(lat\+\_\+2,long\+\_\+2)\$ is calculated as\+: $ (|lat_2−lat_1|,|long_2−long_1|) $ The length is symmetric, that is, A.\+length(\+B) is equal to B.\+length(\+A). This is valid whenever the area does not cross the meridian 180 (Greenwich antimeridian) which is the international date change line. Query method. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}{is\+Inside\+Area}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&bottom\+Left, const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&top\+Right) const
+\begin{DoxyCompactList}\small\item\em Verifies if this object \doxylink{classCoordinates}{Coordinates} is inside the area determined by the two given \doxylink{classCoordinates}{Coordinates} A ({\ttfamily bottom\+Left}) and B ({\ttfamily top\+Right}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GPS \doxylink{classCoordinates}{Coordinates} (geographic coordinates) for measuring positions in the Earth. It consists of a pair of float values (latitude and longitude) that express angles (degrees). See for example \href{https://en.wikipedia.org/wiki/Geographic_coordinate_system}{\texttt{ Wikipedia Geographic coordinate system}} ~\newline
+ Values for latitude are between -\/90 and 90, while values for longitude must be between -\/180 and 180. It is possible to build a \doxylink{classCoordinates}{Coordinates} object with a latitude or longitude out of that ranges, but that object will be considered as invalid (method \doxylink{classCoordinates_a71fcac9829eec3d1feecc63293a04973}{is\+Valid()} will return true).~\newline
+ The value latitude == 0 is the EQUATOR, and the value longitude == 0 is the Greenwich meridian. ~\newline
+ 
+
+
+\begin{DoxyItemize}
+\item A point with a positive value for latitude is located in the northern hemisphere; a point with latitude==90 is in the North pole. ~\newline
+
+\item A point with a negative latitudeis located in the southern hemisphere. ~\newline
+
+\item A point with a positive longitude is located to the right of the Greenwich meridian. ~\newline
+
+\item A point with a negative longitude is located to the left of the Greenwich meridian. ~\newline
+ ~\newline
+
+\end{DoxyItemize}
+
+Examples\+: ~\newline
+
+\begin{DoxyItemize}
+\item Granada\+: 37.\+178056,-\/3.\+600833
+\item Valencia\+: 39.\+47,-\/0.\+376389
+\item Boston\+: 42.\+360278,-\/71.\+057778
+\item Quito\+: -\/0.\+22, -\/78.\+5125
+\item Johannesburgo\+: -\/26.\+204444, 28.\+045556 ~\newline
+ 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{Coordinates_8h_source_l00051}{51}} of file \mbox{\hyperlink{Coordinates_8h_source}{Coordinates.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCoordinates_aa383318f611f618ff1000b2f78df0d74}\label{classCoordinates_aa383318f611f618ff1000b2f78df0d74} 
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{Coordinates()}{Coordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Coordinates\+::\+Coordinates (\begin{DoxyParamCaption}\item[{float}]{\+\_\+latitude = {\ttfamily INVALID\+\_\+COORDINATE},  }\item[{float}]{\+\_\+longitude = {\ttfamily INVALID\+\_\+COORDINATE} }\end{DoxyParamCaption})}
+
+
+
+Constructor that builds an object with the given latitude and longitude parameters. Both parameters have the value INVALID\+\_\+\+COORDINATE as default value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+latitude} & The latitude value to set. Default value INVALID\+\_\+\+COORDINATE. Input parameter \\
+\hline
+{\em \+\_\+longitude} & The longitude value to set. Default value INVALID\+\_\+\+COORDINATE. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \_latitude(INVALID\_COORDINATE),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_longitude(INVALID\_COORDINATE)}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (latitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ latitude\ <=\ INVALID\_COORDINATE)}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \_latitude\ =\ latitude;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (longitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ longitude\ <=\ INVALID\_COORDINATE)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \_longitude\ =\ longitude;}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a7479bc07319ad6a25ca74650344b718b}\label{classCoordinates_a7479bc07319ad6a25ca74650344b718b} 
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{Coordinates()}{Coordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Coordinates\+::\+Coordinates (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{coords }\end{DoxyParamCaption})}
+
+
+
+Constructor that builds an object with the given latitude and longitude in a string. {\ttfamily The} string must have the following format\+: latitude , longitude. 
+
+\begin{DoxyPrecond}{Precondition}
+The string must have the format previously specified. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em coords,the} & string with the latitude and longitude. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ DELIMITER\ \ \ =\ \textcolor{charliteral}{','};}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \_latitude\ =\ \mbox{\hyperlink{Coordinates_8h_a93fc45fc88a5cfdea03ed78b8c9ac09b}{ExtractNumberFirstOcurrence}}(coords);}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{while}\ (coords.at(i)\ !=\ DELIMITER)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00038\ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Now\ that\ I\ have\ obtained\ and\ saved\ the\ first\ number,\ I\ delete\ the}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ part\ of\ the\ string\ that\ contains\ the\ first\ number\ to\ reuse\ the\ function}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ ExtractNUmberFirstOcurrence.\ That\ will\ return\ the\ second\ number\ (which}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ is\ the\ only\ number\ in\ the\ string\ from\ the\ i-\/position\ to\ the\ last.}}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{string}\ longitude\_str\ =\ coords;}
+\DoxyCodeLine{00045\ \ \ \ \ longitude\_str.erase(0,i);}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \_longitude\ =\ \mbox{\hyperlink{Coordinates_8h_a93fc45fc88a5cfdea03ed78b8c9ac09b}{ExtractNumberFirstOcurrence}}(longitude\_str);}
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCoordinates_ae18ad56858312ab30035729677f202d2}\label{classCoordinates_ae18ad56858312ab30035729677f202d2} 
+\index{Coordinates@{Coordinates}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily float Coordinates\+::get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the latitude value Query method. 
+
+\begin{DoxyReturn}{Returns}
+The latitude as a float. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \_latitude;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a}\label{classCoordinates_a22bc1e4fb173e1dfa05ed96af442711a} 
+\index{Coordinates@{Coordinates}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily float Coordinates\+::get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the longitude value. Query method. 
+
+\begin{DoxyReturn}{Returns}
+The longitude as a float. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \_longitude;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05}\label{classCoordinates_a22d836ea05ef1b357c4dc00c222e7f05} 
+\index{Coordinates@{Coordinates}!isInsideArea@{isInsideArea}}
+\index{isInsideArea@{isInsideArea}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{isInsideArea()}{isInsideArea()}}
+{\footnotesize\ttfamily bool Coordinates\+::is\+Inside\+Area (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{bottom\+Left,  }\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{top\+Right }\end{DoxyParamCaption}) const}
+
+
+
+Verifies if this object \doxylink{classCoordinates}{Coordinates} is inside the area determined by the two given \doxylink{classCoordinates}{Coordinates} A ({\ttfamily bottom\+Left}) and B ({\ttfamily top\+Right}). 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+(B)}
+\DoxyCodeLine{\ \ \ |\ \ \ \ \ \ \ \ \ \ \ |}
+\DoxyCodeLine{\ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ +(O3)}
+\DoxyCodeLine{\ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ }
+\DoxyCodeLine{\ \ \ |\ \ \ \ +(O2)\ \ |}
+\DoxyCodeLine{\ \ \ |\ \ \ \ \ \ \ \ \ \ \ |}
+\DoxyCodeLine{\ \ \ |\ \ \ \ \ \ \ \ \ \ \ |}
+\DoxyCodeLine{(A)+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{\ \ \ \ \ \ +(O1)}
+
+\end{DoxyCode}
+ Examples of false return\+:
+\begin{DoxyItemize}
+\item Object O3 surpasses longitude of B
+\item Object O1 has a latitude below that of A. Example of true return\+:
+\item Object O3 is inside the given area
+\end{DoxyItemize}
+
+Query method. \begin{DoxyPrecond}{Precondition}
+both {\ttfamily bottom\+Left} and {\ttfamily top\+Right} coordinates are valid and they define an area that does not cross the Greenwich antimeridian, that is, A \texorpdfstring{$<$}{<}= B both in latitude and longitude; otherwise, unexpected return value could be obtained. This is not checked in this method. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em bottom\+Left} & The \doxylink{classCoordinates}{Coordinates} of the bottom left point. Input parameter \\
+\hline
+{\em top\+Right} & The \doxylink{classCoordinates}{Coordinates} of the top right point. Input parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the \doxylink{classCoordinates}{Coordinates} of this object is inside the area determined by the two given \doxylink{classCoordinates}{Coordinates} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_latitude\ >=\ bottomLeft.\_latitude\ \&\&\ \_latitude\ <=\ topRight.\_latitude}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ \_longitude\ >=\ bottomLeft.\_longitude\ \&\&\ \_longitude\ <=\ topRight.\_longitude);}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a71fcac9829eec3d1feecc63293a04973}\label{classCoordinates_a71fcac9829eec3d1feecc63293a04973} 
+\index{Coordinates@{Coordinates}!isValid@{isValid}}
+\index{isValid@{isValid}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Coordinates\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the current coordinates are valid; that is it determines if the latitude and longitude values are within the aceptable ranges for geographical coordinates. ~\newline
+ Latitude must be within the range \mbox{[}-\/90, 90\mbox{]}, and longitude within the range \mbox{[}-\/180,180\mbox{]}.~\newline
+ Query method. 
+
+\begin{DoxyReturn}{Returns}
+true if the coordinates are valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MIN\_LAT\ \ \ \ \ \ \ =\ -\/90;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_LAT\ \ \ \ \ \ \ =\ 90;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MIN\_LONGITUDE\ =\ -\/180;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_LONGITUDE\ =\ 180;}
+\DoxyCodeLine{00064\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ (\_latitude\ >=\ MIN\_LAT\ \&\&\ \_latitude\ <=\ MAX\_LAT)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ (\_longitude\ >=\ MIN\_LONGITUDE\ \&\&\ \_longitude\ <=\ MAX\_LONGITUDE);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1}\label{classCoordinates_a9f5cb8e45fd56bda350f728c26a90bc1} 
+\index{Coordinates@{Coordinates}!length@{length}}
+\index{length@{length}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinates}{Coordinates}} Coordinates\+::length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{second }\end{DoxyParamCaption}) const}
+
+
+
+Computes the dimension of the rectangle bounded by two \doxylink{classCoordinates}{Coordinates} objects (this object and the one provided as parameter to this method). The dimension of a rectangle that goes from \doxylink{classCoordinates}{Coordinates} \$\+A(lat\+\_\+1,long\+\_\+1)\$ to \$\+B(lat\+\_\+2,long\+\_\+2)\$ is calculated as\+: $ (|lat_2−lat_1|,|long_2−long_1|) $ The length is symmetric, that is, A.\+length(\+B) is equal to B.\+length(\+A). This is valid whenever the area does not cross the meridian 180 (Greenwich antimeridian) which is the international date change line. Query method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em second} & A \doxylink{classCoordinates}{Coordinates} object B. Input parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{classCoordinates}{Coordinates} object that will contain the dimension of the rectangle bounded by two \doxylink{classCoordinates}{Coordinates} objects (this object and the one provided as parameter to this method). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}(abs(\_latitude\ -\/\ second.\_latitude),\ abs(\_longitude\ -\/\ second.\_longitude));}
+\DoxyCodeLine{00092\ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a70805530712e6cdba32ec8570ef5a43a}\label{classCoordinates_a70805530712e6cdba32ec8570ef5a43a} 
+\index{Coordinates@{Coordinates}!set@{set}}
+\index{set@{set}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void Coordinates\+::set (\begin{DoxyParamCaption}\item[{float}]{latitude,  }\item[{float}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Sets both components, the latitude and longitude values. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude} & The latitude value be to set. Input parameter \\
+\hline
+{\em longitude} & The longitude value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6}{setLatitude}}(latitude);}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed}{setLongitude}}(longitude);}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6}\label{classCoordinates_aea296ab92b46f7c11fbe54bf1fa77fa6} 
+\index{Coordinates@{Coordinates}!setLatitude@{setLatitude}}
+\index{setLatitude@{setLatitude}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{setLatitude()}{setLatitude()}}
+{\footnotesize\ttfamily void Coordinates\+::set\+Latitude (\begin{DoxyParamCaption}\item[{float}]{latitude }\end{DoxyParamCaption})}
+
+
+
+Sets the latitude value in this object. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude} & The latitude value to set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (latitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ latitude\ <=\ INVALID\_COORDINATE)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \_latitude\ =\ latitude;}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed}\label{classCoordinates_a19feeb815f1fc958a0f1ffd02c1be2ed} 
+\index{Coordinates@{Coordinates}!setLongitude@{setLongitude}}
+\index{setLongitude@{setLongitude}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{setLongitude()}{setLongitude()}}
+{\footnotesize\ttfamily void Coordinates\+::set\+Longitude (\begin{DoxyParamCaption}\item[{float}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Sets the longitude value in this object. Modifier method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em longitude} & The longitude value to be set. Input parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (longitude\ >=\ -\/INVALID\_COORDINATE\ \&\&\ longitude\ <=\ INVALID\_COORDINATE)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \_longitude\ =\ longitude;}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classCoordinates_a76c90fbef8af16ea82876427888a39a2}\label{classCoordinates_a76c90fbef8af16ea82876427888a39a2} 
+\index{Coordinates@{Coordinates}!toString@{toString}}
+\index{toString@{toString}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Coordinates\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains a string with the latitude and longitude (comma separated). To convert latitude and longitude to string you must use the std\+::to\+\_\+string() function. Query method. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the coordinates in the specified format. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Coordinates_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{Coordinates_8cpp_source}{Coordinates.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ SEPARATOR\ =\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ (to\_string(\_latitude)\ +\ SEPARATOR\ +\ to\_string(\_longitude));}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Coordinates_8h}{Coordinates.\+h}}\item 
+src/\mbox{\hyperlink{Coordinates_8cpp}{Coordinates.\+cpp}}\end{DoxyCompactItemize}
