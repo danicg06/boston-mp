@@ -44,6 +44,15 @@ boston-mp/
 
 ---
 
+## Tests
+It was developed using test-driven development. The teachers provided us the tests. But didn't provide
+us with the software needed to execute them. Because they thought it is worst for us. So we used a
+[script to run tests](https://github.com/scasgar1312/Pasar_tests_MP) completely ad-hoc to fit the
+format of the tests that the teachers provided. It is not intended for production use and it is bad
+developed.
+
+---
+
 ## Authors 👥
 
 This project was designed and implemented by:
