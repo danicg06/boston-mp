@@ -67,6 +67,7 @@ CrimeCounter &CrimeCounter::operator=(const CrimeCounter & orig){
     
     if (&orig != this) {
         deallocateMatrixFrequencies();
+        cerr << "Hola" << endl;
         _frequency = allocateMatrixFrequencies(orig._nRows, orig._nCols);
 
         copy(orig);
@@ -242,7 +243,7 @@ int** CrimeCounter::allocateMatrixFrequencies(int nRows, int nCols) {
     int **m;
     m = new int*[nRows];
     m[0] = new int[nRows*nCols];
-    
+//cerr << "Filas: " << nRows << ", columnas: " << nCols << endl;
     for (int i=1; i<nRows;++i)
         m[i] = m[i-1]+nCols;
     
@@ -255,7 +256,7 @@ void CrimeCounter::deallocateMatrixFrequencies() {
     delete[] _frequency;
 }
 
-void CrimeCounter::copy(CrimeCounter orig) {
+void CrimeCounter::copy(const CrimeCounter &orig) {
     _nRows = orig._nRows;
     _nCols = orig._nCols;
     _bottomLeftCoord = orig._bottomLeftCoord;

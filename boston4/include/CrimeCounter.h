@@ -389,7 +389,7 @@ private:
      * area of the @p CrimeCounter object in the implicit object 
      * @param orig
      */
-    void copy(CrimeCounter orig);
+    void copy(const CrimeCounter &orig);
     
 }; // end class CrimeCounter
 
