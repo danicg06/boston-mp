@@ -59,9 +59,9 @@ boston-mp/
 * A C++ compiler supporting `C++11` or higher (e.g., `g++`).
 * GNU `make` utility.
 
-## Commands
+## Build & Run
 
-To compile all exercises at once, run:
+To compile each version at once, run:
 ```bash
 cd boston0 # or boston1, boston2, etc.
 make
