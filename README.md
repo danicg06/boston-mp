@@ -55,11 +55,15 @@ boston-mp/
 
 ---
 
+## Build & Run 🛠️
+
+A fully automated `Makefile` is provided to compile all exercises efficiently.
+
 ### Requirements
 * A C++ compiler supporting `C++11` or higher (e.g., `g++`).
 * GNU `make` utility.
 
-## Build & Run
+### Build
 
 To compile each version at once, run:
 ```bash
