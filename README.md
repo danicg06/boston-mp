@@ -37,7 +37,7 @@ Boston.
 - [x] Boston 3 - command-line input and direct crm files fusion.
 - [x] Boston 4 - PPM file (heatmap) output.
 
-## Subject Structure 📁
+## Structure 📁
 
 ```
 boston-mp/
@@ -57,7 +57,7 @@ boston-mp/
 
 ---
 
-## Tests
+## Tests Disclosure
 It was developed using test-driven development. The teachers provided us the tests. But didn't provide
 us with the software needed to execute them. Because they thought it is worst for us. So we used a
 [script to run tests](https://github.com/scasgar1312/Pasar_tests_MP) completely ad-hoc to fit the
